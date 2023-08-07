@@ -1,0 +1,45 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}登录{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/atp/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <form class='form-login' action="{% url 'main_platform:login' %}" method="post">
+            {% csrf_token %}
+            <h2 class="text-center">欢迎登录</h2>
+
+            <div class="form-group">
+                {{ login_form.username.label_tag }}
+                {{ login_form.username}}
+            </div>
+            <div class="form-group">
+                {{ login_form.password.label_tag }}
+                {{ login_form.password }}
+            </div>
+
+            <div class="form-group">
+                <label for="verifypassword_input">验证码</label>
+                <input type="password" class="form-control"
+                       id="verifypassword_input" placeholder="请输入验证码，区分大小写"
+                       name="verify_code">
+                <img src="{% url '[main_platform]:get_code' %}" alt="未获取到验证码" style="margin: 0.2rem 0">
+            </div>
+
+            {% if request.session.message %}
+                <div class="alert alert-warning">{{ request.session.message }}</div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary btn-block" >登录系统</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/atp/login.js' %}"></script>
+{% endblock %}

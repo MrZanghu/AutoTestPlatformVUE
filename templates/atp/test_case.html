@@ -1,0 +1,127 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}测试用例{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/atp/test_case.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="group">
+        <div id="search">
+            <form action="{% url 'main_platform:test_case' %}" method="POST">
+                {% csrf_token %}
+                <input style="margin-left: 5px;" type="text" name="case_name" value="{{ case_name }}"
+                       placeholder="输入用例名称">
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+
+        <div id="load">
+            <div id="addcase">
+                <a href="{% url 'main_platform:add_test_case' %}">添加测试用例</a>
+            </div>
+
+            <div id="downloads">
+                <form action="">
+                    <a type="button" href="{% url 'main_platform:down_test_template' %}">下载模板文件</a>
+                </form>
+            </div>
+
+            <div id="uploads">
+                <form action="{% url 'main_platform:up_test_template' %}" method="post" enctype="multipart/form-data">
+                    <div class="upload-btn-wrapper">
+                        {% csrf_token %}
+                        <button class="btn">选择模板文件</button>
+                        <input type="file" name="file_name" accept="application/vnd.ms-excel">
+                        {#只接受xls文件#}
+                    </div>
+                    <button id='upload-xls' class="btn" type="submit">上传模板文件</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <span style="margin-left: 5px;font-size: 15px">运行环境：</span>
+        <select name="env">
+            <option selected value="dev" style="font-size: 15px">dev</option>
+            <option value="test" style="font-size: 15px">test</option>
+            <option value="https" style="font-size: 15px">https</option>
+        </select>
+        <input type="datetime-local" style="font-size: 10px" name="ex_time">
+        <input style="margin-left: 5px;font-size: 10px" type="submit" value='执行测试用例' name="ex_case" onclick="return ischecked()"/>
+        <p class="glyphicon glyphicon-info-sign" title="设置执行时间，默认下一分钟后执行"></p>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th width="5%"><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
+                    <th width="8.75%">用例名称</th>
+                    <th width="8.75%">所属项目</th>
+                    <th width="8.75%">所属模块</th>
+                    <th width="8.75%">接口地址</th>
+                    <th width="5%">请求方式</th>
+                    <th width="10.5%">请求数据</th>
+                    <th width="8.75%">断言key</th>
+                    <th width="8.75%">关联用例ID</th>
+                    <th width="20%">提取变量表达式</th>
+                    <th width="7%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for test_case in pages %}
+                    <tr>
+                        <td><input type="checkbox" value="{{ test_case.id }}" name="testcases_list"> {{ test_case.id }}
+                        </td>
+                        <td>
+                            <a href="{% url 'main_platform:test_case_detail' test_case.id %}" target="_blank">{{ test_case.case_name }}</a>
+                        </td>
+                        <td>{{ test_case.belong_project.name }}</td>
+                        <td>{{ test_case.belong_module.name }}</td>
+                        <td>{{ test_case.uri }}</td>
+                        <td>{{ test_case.request_method }}</td>
+                        <td>{{ test_case.request_data }}</td>
+                        <td>{{ test_case.assert_key }}</td>
+                        <td>{{ test_case.related_case_id }}</td>
+                        <td>{{ test_case.extract_var }}</td>
+                        <td>
+                            <a href="{% url 'main_platform:update_test_case' test_case.id %}">修改</a>
+                            <a href="{% url 'main_platform:delete_test_case' test_case.id %}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <div id="pages" class="text-center">
+        <nav>
+            <ul class="pagination">
+                <li class="step-links">
+                    {% if pages.has_previous %}
+                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                    {% endif %}
+
+                    <span class="current">
+                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                    {% if pages.has_next %}
+                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/atp/test_case.js' %}"></script>
+{% endblock %}

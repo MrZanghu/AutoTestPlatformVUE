@@ -1,0 +1,99 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}用例详情{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/sea/sea_add_test_case.css' %}">
+    {#可以复用#}
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h3 style="text-align: center">
+        用例【{{ test_case.case_name }}】详情
+    </h3>
+    <span id="case_id" style="display: none">{{ test_case.id }}</span>
+    <hr style="width:95%;height:1px;color:red"/>
+
+    <iframe name="formsubmmit" style="display: none"></iframe>
+
+    <form action="#" target="formsubmmit">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <div class="row" style="margin-top:10px;">
+                    <div id="tblServiceList-div" style="width: 100%;">
+                        <table class="table table-bordered" id="interfaceParam">
+                            <thead>
+                            <tr>
+                                <td width="5%" style="text-align: center">步骤编号</td>
+                                <td width="25%" style="text-align: center">定位路径</td>
+                                <td width="17.5%" style="text-align: center">方法|操作</td>
+                                <td width="20%" style="text-align: center">传入参数</td>
+                                <td width="12%" style="text-align: center">步骤动作</td>
+                                <td style="text-align: center">预期结果</td>
+                            </tr>
+                            </thead>
+                            {% for step in test_case_steps %}
+                                <tr>
+                                    <td style="text-align: center">{{ step.0 }}</td>
+                                    <td>
+                                        {% if step.1 == None %}
+                                            <input id=LocationPath{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="">
+                                        {% else %}
+                                            <input id=LocationPath{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="{{ step.1 }}">
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if step.2 == None %}
+                                            <input id=Method{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="">
+                                        {% else %}
+                                            <input id=Method{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="{{ step.2 }}">
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if step.3 == None %}
+                                            <input id=Parameter{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="">
+                                        {% else %}
+                                            <input id=Parameter{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="{{ step.3 }}">
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if step.4 == None %}
+                                            <input id=Action{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="">
+                                        {% else %}
+                                            <input id=Action{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="{{ step.4 }}">
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if step.5 == None %}
+                                            <input id=Expected{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="">
+                                        {% else %}
+                                            <input id=Expected{{ step.0 }} style='width: 100%;' type='text'
+                                                   value="{{ step.5 }}">
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}定时任务{% endblock %}
+
+{% block content %}
+    <form action="{% url 'main_platform:job_execute' %}" method="POST">
+        {% csrf_token %}
+        <input style="margin-left: 5px;" type="text" name="job_name" value="{{ job_name }}" placeholder="输入任务名称">
+        <input type="submit" value="搜索">
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th width="10%">id</th>
+                <th width="25%">任务名称</th>
+                <th width="25%">执行时间</th>
+                <th width="10%">任务提交人</th>
+                <th width="15%">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for job in pages %}
+                <tr>
+                    <td>{{ job.id }}</td>
+                    <td>{{ job.job_id }}</td>
+                    <td>{{ job.run_time|date:"Y-n-d H:i" }}</td>
+                    <td>{{ job.user }}</td>
+                    <td>
+                        {% ifequal job.status 1 %}
+                            <a href="{% url 'main_platform:test_execute' job.job_id %}" target="_blank">
+                                <button class="btn-success">查看结果</button>
+                            </a>
+                        {% endifequal %}
+                        <a href="{% url 'main_platform:change_job_status' job.job_id 2 %}">
+                            <button class="btn-danger">删除任务</button>
+                        </a>
+                        {% ifequal job.status 3 %}
+                            <a href="{% url 'main_platform:change_job_status' job.job_id 0 %}">
+                                <button class="btn-warning">启动任务</button>
+                            </a>
+                        {% endifequal %}
+                        {% ifequal job.status 0 %}
+                            <a href="{% url 'main_platform:change_job_status' job.job_id 3 %}">
+                                <button class="btn-warning">暂停任务</button>
+                            </a>
+                        {% endifequal %}
+
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="pages" class="text-center">
+        <nav>
+            <ul class="pagination">
+                <li class="step-links">
+                    {% if pages.has_previous %}
+                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                    {% endif %}
+
+                    <span class="current">
+                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                    {% if pages.has_next %}
+                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

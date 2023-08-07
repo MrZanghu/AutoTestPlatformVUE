@@ -1,0 +1,61 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}用例集添加用例{% endblock %}
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" id="add_to_suite" value='添加测试用例' onclick="return addToSuite()"/>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
+                    <th>API用例名称</th>
+                    <th>所属项目</th>
+                    <th>所属模块</th>
+                    <th>编写人员</th>
+                    <th>创建时间</th>
+                    <th>更新时间</th>
+                    <th>创建用户名</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for test_case in pages %}
+                    <tr>
+                        <td><input type="checkbox" value="{{ test_case.id }}" name="testcases_list"> {{ test_case.id }}</td>
+                        <td><a href="{% url 'main_platform:test_case_detail' test_case.id %}">{{ test_case.case_name }}</a></td>
+                        <td>{{ test_case.belong_project.name }}</td>
+                        <td>{{ test_case.belong_module.name }}</td>
+                        <td>{{ test_case.maintainer }}</td>
+                        <td>{{ test_case.create_time|date:"Y-n-d H:i" }}</td>
+                        <td>{{ test_case.update_time|date:"Y-n-d H:i" }}</td>
+                        <td>{{ test_case.user.username }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <div id="pages" class="text-center">
+        <nav>
+            <ul class="pagination">
+                <li class="step-links">
+                    {% if pages.has_previous %}
+                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                    {% endif %}
+                    <span class="current">
+                    第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+                    {% if pages.has_next %}
+                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/atp/add_case_into_suite.js' %}"></script>
+{% endblock %}

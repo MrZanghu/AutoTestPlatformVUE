@@ -1,0 +1,9 @@
+{% extends 'atp/base.html' %}
+{% block title %}主页{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+    <h1 style="text-align: center">你好，{{ user.username }}！
+        <br>
+        欢迎回来！</h1>
+    {% endif %}
+{% endblock %}

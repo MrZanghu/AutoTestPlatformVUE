@@ -1,0 +1,144 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}添加用例{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" action="{% url 'main_platform:add_test_case' %}" onsubmit="return check()">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="case_name_input" class="col-sm-2 control-label" style="font-size: 15px">用例名称:</label>
+                <input type="text" class="col-sm-7 input-group" placeholder="请输入用例名称"
+                       name="case_name" maxlength="25" id="case_name_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="case_name_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="belong_project_input" class="col-sm-2 control-label" style="font-size: 15px">所属项目:</label>
+                <input type="text" list="projects" placeholder="请选择所属项目" id="belong_project_input"
+                       class="col-sm-7 input-group" name="belong_project">
+                <datalist id="projects">
+                    {% for bp in belong_project %}
+                        <option>{{ bp.name }}</option>
+                    {% endfor %}
+                </datalist>
+                <span id="belong_project_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="belong_module_input" class="col-sm-2 control-label" style="font-size: 15px">所属模块:</label>
+                <input type="text" list="modules" placeholder="请选择所属模块" id="belong_module_input"
+                       class="col-sm-7 input-group" name="belong_module">
+                <datalist id="modules">
+                    {% for bm in belong_module %}
+                        <option>{{ bm.name }}</option>
+                    {% endfor %}
+                </datalist>
+                <span id="belong_module_info"></span>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="request_data_input" class="col-sm-2 control-label" style="font-size: 15px">请求数据:</label>
+                <input type="text" class="col-sm-7 input-group" placeholder="请输入请求数据"
+                       name="request_data" maxlength="256" id="request_data_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="request_data_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="uri_input" class="col-sm-2 control-label" style="font-size: 15px">接口地址:</label>
+                <input type="text" class="col-sm-7 input-group" placeholder="请输入接口地址"
+                       name="uri" maxlength="128" id="uri_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="uri_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="assert_key_input" class="col-sm-2 control-label" style="font-size: 15px">断言内容:</label>
+                <input type="text" class="col-sm-7 input-group" placeholder="请输入断言内容"
+                       name="assert_key" maxlength="128" id="assert_key_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="assert_key_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="maintainer_input" class="col-sm-2 control-label" style="font-size: 15px">编写人员:</label>
+                <input type="text" class="col-sm-7 input-group" value="{{ maintainer }}"
+                       name="maintainer" disabled="disabled" id="maintainer_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="maintainer_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="extract_var_input" class="col-sm-2 control-label" style="font-size: 15px">提取变量表达式:</label>
+                <input type="text" class="col-sm-7 input-group" placeholder="请输入提取变量表达式"
+                       name="extract_var" maxlength="256" id="extract_var_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="extract_var_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="request_method_input" class="col-sm-2 control-label" style="font-size: 15px">请求方式:</label>
+                <input type="text" list="methods" placeholder="请选择请求方式" name="request_method"
+                id="request_method_input">
+                <datalist id="methods">
+                    {% for rm in request_method %}
+                        <option>{{ rm }}</option>
+                    {% endfor %}
+                </datalist>
+                <br>
+                <span id="request_method_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="status_input" class="col-sm-2 control-label" style="font-size: 15px">用例状态:</label>
+                <input type="text" class="col-sm-7 input-group" value="0"
+                       name="status" disabled="disabled" id="status_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="status_info"></span> 
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="related_case_id_input" class="col-sm-2 control-label" style="font-size: 15px">关联用例id:</label>
+                <input type="number" class="col-sm-7 input-group" placeholder="请输入关联用例id"
+                       name="related_case_id" min="1" max="9999" id="related_case_id_input"
+                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
+                <span id="related_case_id_info"></span>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="user_input" class="col-sm-2 control-label" style="font-size: 15px">责任人:</label>
+                <input type="text" list="users" placeholder="请选择责任人"
+                       class="col-sm-7 input-group" name="user" id="user_input">
+                <datalist id="users">
+                    {% for u in user %}
+                        <option>{{ u.username }}</option>
+                    {% endfor %}
+                </datalist>
+                <span id="user_info"></span>
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-success btn-block"
+                    style="width: 250px;height: 45px;display:block;margin:0 auto">提交</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/atp/add_test_case.js' %}"></script>
+{% endblock %}

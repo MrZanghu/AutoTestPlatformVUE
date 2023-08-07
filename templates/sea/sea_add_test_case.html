@@ -1,0 +1,59 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}测试用例{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/sea/sea_add_test_case.css' %}">
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h3 style="text-align: center">
+        用例 <input type="text" id="case_name" placeholder="请输入测试用例名称" style="text-align: center" maxlength="20"> 编辑步骤
+    </h3>
+    <hr style="width:95%;height:1px;color:red"/>
+
+    <iframe name="formsubmmit" style="display: none"></iframe>
+
+    <form action="#" target="formsubmmit">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-2" style="float: right">
+                        <button style="float: right;margin-right: 50px" type="button"
+                                class="button1" onclick="addtmpParam();">添加
+                        </button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div id="tblServiceList-div" style="width: 100%;">
+                        <table class="table table-bordered" id="interfaceParam">
+                            <thead>
+                            <tr>
+                                <td width="5%" style="text-align: center">步骤编号</td>
+                                <td width="20%" style="text-align: center">定位路径</td>
+                                <td width="17.5%" style="text-align: center">方法|操作</td>
+                                <td width="15%" style="text-align: center">传入参数</td>
+                                <td width="12%" style="text-align: center">步骤动作</td>
+                                <td style="text-align: center">预期结果</td>
+                                <td width="10%" style="text-align: center">操作</td>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block" id="subbtn"
+                style="width: 250px;height: 45px;display:block;margin:0 auto">提交
+        </button>
+    </form>
+
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/sea/sea_add_test_case.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}测试用例{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/sea/sea_test_case.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="group">
+        <div id="search">
+            <form action="{% url 'selenium_apps:test_case' %}" method="POST">
+                {% csrf_token %}
+                <input style="margin-left: 5px;" type="text" name="case_name" value="{{ case_name }}"
+                       placeholder="输入用例名称">
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+
+        <div id="load">
+            <div id="addcase">
+                <a href="{% url 'selenium_apps:add_test_case' %}">添加测试用例</a>
+            </div>
+        </div>
+
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <span style="margin-left: 5px;font-size: 15px">运行环境：</span>
+        <select name="env">
+            <option selected value="dev" style="font-size: 15px">dev</option>
+            <option value="test" style="font-size: 15px">test</option>
+            <option value="https" style="font-size: 15px">https</option>
+        </select>
+        <input type="datetime-local" style="font-size: 10px" name="ex_time">
+        <input style="margin-left: 5px;font-size: 10px" type="submit" value='执行测试用例' name="ex_case" onclick="return ischecked()"/>
+        <p class="glyphicon glyphicon-info-sign" title="设置执行时间，默认下一分钟后执行"></p>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th width="5%"><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
+                    <th width="15%">用例名称</th>
+                    <th width="15%">所属集合</th>
+                    <th width="15%">步骤数</th>
+                    <th width="15%">创建人员</th>
+                    <th width="15%">创建时间</th>
+                    <th width="15%">更新时间</th>
+                    <th width="5%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for test_case in pages %}
+                    <tr>
+                        <td><input type="checkbox" value="{{ test_case.id }}" name="testcases_list"> {{ test_case.id }}
+                        </td>
+                        <td><a href="{% url 'selenium_apps:test_case_detail' test_case.id %}">{{ test_case.case_name }}</a></td>
+                        <td>{{ test_case.suite_desc}}</td>
+                        <td>{{ test_case.length }}</td>
+                        <td>{{ test_case.user }}</td>
+                        <td>{{ test_case.create_time }}</td>
+                        <td>{{ test_case.update_time }}</td>
+                        <td>
+                            <a href="{% url 'selenium_apps:update_test_case' test_case.id %}">修改</a>
+                            <a href="{% url 'selenium_apps:delete_test_case' test_case.id %}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <div id="pages" class="text-center">
+        <nav>
+            <ul class="pagination">
+                <li class="step-links">
+                    {% if pages.has_previous %}
+                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                    {% endif %}
+
+                    <span class="current">
+                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                    {% if pages.has_next %}
+                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/sea/sea_test_case.js' %}"></script>
+{% endblock %}

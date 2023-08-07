@@ -1,0 +1,68 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}集合执行记录{% endblock %}
+
+{% block content %}
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>集合名称</th>
+                <th>执行状态</th>
+                <th>集合结果</th>
+                <th>用例结果</th>
+                <th>创建者</th>
+                <th>创建时间</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for test_suite_execute_record in pages %}
+                <tr>
+                    <td>{{ test_suite_execute_record.id }}</td>
+                    <td>{{ test_suite_execute_record.test_suite.suite_desc }}</td>
+                    {% ifequal test_suite_execute_record.status 1 %}
+                        <td>执行完毕</td>
+                    {% else %}
+                        <td>待执行</td>
+                    {% endifequal %}
+
+                    {% ifequal test_suite_execute_record.test_result '成功' %}
+                        <td style="color: green">{{ test_suite_execute_record.test_result }}</td>
+                    {% else %}
+                        <td style="color: red">{{ test_suite_execute_record.test_result }}</td>
+                    {% endifequal %}
+                    <td><a href="{% url 'main_platform:test_suite_tc_execute_record' test_suite_execute_record.id %}">
+                        用例执行结果</a></td>
+                    <td>{{ test_suite_execute_record.creator }}</td>
+                    <td>{{ test_suite_execute_record.create_time|date:"Y-n-d H:i" }}</td>
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="pages" class="text-center">
+        <nav>
+            <ul class="pagination">
+                <li class="step-links">
+                    {% if pages.has_previous %}
+                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                    {% endif %}
+
+                    <span class="current">
+                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                    {% if pages.has_next %}
+                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </div>
+{% endblock %}

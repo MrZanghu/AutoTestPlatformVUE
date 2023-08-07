@@ -1,0 +1,66 @@
+<html lang="zh-CN">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}base{% endblock %}</title>
+
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/atp/base.css' %}" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    {% block css %}
+    {% endblock %}
+</head>
+
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-nav"
+                    aria-expanded="false">
+                <span class="sr-only">切换导航条</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" style="color: #2aabd2" href="{% url 'main_platform:index' %}">自动化测试平台</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="my-nav">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="{% url 'main_platform:project' %}">测试项目</a></li>
+                <li class="active"><a href="{% url 'main_platform:module' %}">测试模块</a></li>
+                <li class="active"><a href="{% url 'main_platform:test_case' %}">接口用例</a></li>
+                <li class="active"><a href="{% url 'selenium_apps:test_case' %}">网页UI用例</a></li>
+                <li class="active"><a href="{% url 'main_platform:test_suite' %}">用例集合</a></li>
+                <li class="active"><a href="{% url 'main_platform:test_execute' 'None' %}">执行结果</a></li>
+                <li class="active"><a href="{% url 'main_platform:job_execute' %}">定时任务</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
+                    <li><a href="#">当前在线：{{ user.username }}</a></li>
+                    <li><a href="{% url 'main_platform:logout' %}">登出</a></li>
+                {% else %}
+                    <li><a href="{% url 'main_platform:login' %}">登录</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+</body>
+
+
+{% block ext_js %}
+    <script src="{% static 'js/atp/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+{% endblock %}
+
+
+</html>

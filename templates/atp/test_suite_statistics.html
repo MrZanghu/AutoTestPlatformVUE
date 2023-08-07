@@ -1,0 +1,107 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}测试集合结果统计{% endblock %}
+{% block content %}
+    <p style="margin-left: 10px;">
+        <span style="margin-left: 5px;">用例集合执行结果统计：成功 {{ success }} 次，失败 {{ fail }} 次</span>
+    <p>
+    <div id="main" style="width: 600px;height:400px; margin-left: 10px;"></div>
+{#    <script type="text/javascript" src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>#}
+    <script type="text/javascript" src="{% static 'js/atp/echarts.min.js' %}"></script>
+    <script>
+        echarts.init(document.getElementById('main')).setOption({
+            series: {
+                type: 'pie',
+                color: ['green', 'red'],
+                data: [
+                    {name: '成功的次数', value: {{ success }}},
+                    {name: '失败的次数', value: {{ fail }}},
+                ]
+            }
+        });
+        echarts.init(document.getElementById('main')).setOption({
+            title: {
+                text: '结果统计',
+                subtext: '即时数据',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: {
+                name: '结果统计',
+                radius: '55%',
+                type: 'pie',
+                color: ['green', 'red'],
+                data: [
+                    {name: '执行成功次数', value: {{ success }}},
+                    {name: '执行失败次数', value: {{ fail }}},
+
+                ],
+                label: {  // 饼图图形上的文本标签
+                    normal: {
+                        show: true,
+                        formatter: "{b} : {c} ({d}%)"
+                    }
+                }
+            }
+        });
+    </script>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>测试集合名称</th>
+                <th>执行状态</th>
+                <th>测试结果</th>
+                <th>创建者</th>
+                <th>创建时间</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for test_suite_record in pages %}
+                <tr>
+                    <td>{{ test_suite_record.id }}</td>
+                    <td><a href="{% url 'main_platform:test_suite_execute_record' test_suite_record.id 1 %}">
+                        {{ test_suite_record.test_suite.suite_desc }}</a></td>
+                    {% if test_suite_record.status %}
+                        <td>执行完毕</td>
+                    {% else %}
+                        <td>待执行</td>
+                    {% endif %}
+                    <td>{{ test_suite_record.test_result }}</td>
+                    <td>{{ test_suite_record.creator }}</td>
+                    <td>{{ test_suite_record.create_time|date:"Y-n-d H:i" }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="pages" class="text-center">
+        <nav>
+            <ul class="pagination">
+                <li class="step-links">
+                    {% if pages.has_previous %}
+                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                    {% endif %}
+
+                    <span class="current">
+                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                    {% if pages.has_next %}
+                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

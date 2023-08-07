@@ -1,0 +1,61 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}测试模块{% endblock %}
+
+{% block content %}
+<form action="{% url 'main_platform:module'%}" method="POST">
+    {% csrf_token %}
+    <input style="margin-left: 5px;" type="text" name="proj_name" value="{{ proj_name }}" placeholder="输入项目名称">
+    <input type="submit" value="搜索">
+</form>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>模块名称</th>
+            <th>所属项目</th>
+            <th>测试负责人</th>
+            <th>模块描述</th>
+            <th>创建时间</th>
+            <th>更新时间</th>
+            <th>测试结果统计</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for module in pages %}
+        <tr>
+            <td><a href="{% url 'main_platform:module_test_case' module.id %} " target="_blank">{{ module.name }}</a></td>
+            <td>{{ module.belong_project.name }}</td>
+            <td>{{ module.test_owner }}</td>
+            <td>{{ module.desc }}</td>
+            <td>{{ module.create_time|date:"Y-n-d H:i:s" }}</td>
+            <td>{{ module.update_time|date:"Y-n-d H:i:s" }}</td>
+            <td><a href="{% url 'main_platform:module_test_case_statistics' module.id %}">查看</a></td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+<div id="pages" class="text-center">
+    <nav>
+        <ul class="pagination">
+            <li class="step-links">
+                {% if pages.has_previous %}
+                <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                {% endif %}
+
+                <span class="current">
+                    第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                {% if pages.has_next %}
+                <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}
