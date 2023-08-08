@@ -205,11 +205,11 @@ def zip_file(src_dir:str,name:str,file_list:list):
             for filename in files:
                 if filename[6:25] in file_list:
                     # filename[6:25]就是报告的时间，如2023_08_02_14:45:00
-                    z.write(os.path.join(root, filename),fpath+filename)
                     if filename[4:6]== "报告" and (os.path.splitext(filename)[-1].lower()== ".zip"):
                         # 目的是为了不要删除UI测试的截图zip
                         pass
                     else:
+                        z.write(os.path.join(root, filename), fpath + filename)
                         removefile.append(os.path.join(root, filename))
                 else:
                     pass

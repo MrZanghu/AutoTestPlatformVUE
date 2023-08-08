@@ -171,8 +171,8 @@ def register_jobs(lists,envs,username,types,id,year,month,day,hour,minute):
     :param second:
     :return:
     '''
-    scheduler.add_job(do_task_jobs,"cron",id= id,replace_existing= True,year= year,month= month,day= day,
-                      hour= hour,minute= minute,args= [lists,envs,username,types,id])
+    scheduler.add_job(do_task_jobs, "cron", id=id, replace_existing=True, year=year, month=month, day=day,
+                          hour=hour, minute=minute, args=[lists, envs, username, types, id])
     # 单次任务不会有执行记录，创建JobExecuted用于储存
 
 
@@ -190,7 +190,7 @@ def do_task_jobs(lists,envs,username,types,id):
         test_list= [int(x) for x in lists]
         test_list.sort()  # 将id转化成int后排序
         server_address= get_server_address(envs)
-        # server_address= False
+            # server_address= False
         if not server_address:
             logger.info(" " * 50)
             logger.info({"code": 404, "msg": "提交的运行环境为空，请选择环境后再提交！"})

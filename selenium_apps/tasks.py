@@ -159,10 +159,11 @@ def case_task(test_case_list:list, server_address, user,id):
 
     if is_screenshot== True:
         zip_file("/report/", "UI测试截图"+time_,[])
-        time.sleep(1)
+        time.sleep(3)
     # 需要再次调用压缩图片和报告
 
-    删除文件时出现问题，需要找出来怎么删除源文件最好
+
+
 
     zip_file("/report/", "UI测试报告"+time_,[time_])
 
