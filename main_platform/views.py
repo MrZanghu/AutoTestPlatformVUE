@@ -1079,8 +1079,7 @@ def change_job_status(request,id,status):
 
 scheduler.start()
 '''
-Apscheduler报错问题，因为在uwsgi是启用的多进程，然后每个进程中都存在一个执行器的实例，
-在定时任务的数据表django_apscheduler_djangojobexecution中每一个任务其实是有4个实例，
-并且会报一个get() returned more than one %s – it returned %s的一个报错，
-其实这个报错的原因是因为：他使用的django的orm的get方法，因为get如果获取到的是多条而不是唯一就会报错
+get() returned more than one %s – it returned %s的报错，
+因为：他使用的django的orm的get方法，因为get如果获取到的是多条而不是唯一就会报错，
+将num==1改为num>=1
 '''

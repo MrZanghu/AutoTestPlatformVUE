@@ -165,6 +165,7 @@ def case_task(test_case_list:list, server_address, user,id):
 
 
 
+
     zip_file("/report/", "UI测试报告"+time_,[time_])
 
     # 集合和接口的公用，处理并发问题

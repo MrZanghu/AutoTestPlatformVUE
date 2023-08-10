@@ -216,7 +216,10 @@ def zip_file(src_dir:str,name:str,file_list:list):
         z.close()
 
     for file in removefile:
-        os.remove(file)
+        try:
+            os.remove(file)
+        except:
+            pass
 
 
 def translate_selenium(driver,option:str,element= None):
