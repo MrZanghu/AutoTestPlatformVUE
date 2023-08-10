@@ -1,3 +1,4 @@
+import fcntl
 import datetime
 import logging
 import pymysql
@@ -171,9 +172,21 @@ def register_jobs(lists,envs,username,types,id,year,month,day,hour,minute):
     :param second:
     :return:
     '''
-    scheduler.add_job(do_task_jobs, "cron", id=id, replace_existing=True, year=year, month=month, day=day,
-                          hour=hour, minute=minute, args=[lists, envs, username, types, id])
-    # 单次任务不会有执行记录，创建JobExecuted用于储存
+    try:
+        fp = open("utils/suite_lock.txt", 'a+')
+        fcntl.flock(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        # 使用文件排他锁和非阻塞锁，防止任务重复执行
+        # 首次执行会出进程问题，执行一次后正常
+
+        scheduler.add_job(do_task_jobs, "cron", id=id, replace_existing=True, year=year, month=month, day=day,
+                          hour= hour, minute= minute, args= [lists, envs, username, types, id])
+
+        fp.write("suite_lock\n")
+        fp.flush()
+        fcntl.flock(fp, fcntl.LOCK_UN)
+        fp.close()
+    except:
+        pass
 
 
 def do_task_jobs(lists,envs,username,types,id):
