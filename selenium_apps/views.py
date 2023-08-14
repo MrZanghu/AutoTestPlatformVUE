@@ -1,6 +1,7 @@
-import datetime,json
+import datetime,json,logging
+from django.urls import reverse
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
 from selenium_apps.models import TestCaseForSEA,TestCaseSteps,Case2SuiteForSEA
 from main_platform.views import get_server_address
@@ -9,6 +10,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from selenium_apps.tasks import case_task
 
+
+
+logger= logging.getLogger("main_platform")
 
 
 def get_paginator(request,data):
@@ -58,7 +62,7 @@ def test_case(request):
     elif request.method== "POST":
         case_name= request.POST.get("case_name")
         ex_case= request.POST.get("ex_case") # 判断是否执行用例的关键字
-        ex_time= request.POST.get("ex_time") # 判断执行时间的关键字
+        # ex_time= request.POST.get("ex_time") # 判断执行时间的关键字
 
         if ex_time in ("",None):
             ex_time= (datetime.datetime.now()+datetime.timedelta(minutes= 1)).strftime("%Y-%m-%dT%H:%M")
@@ -100,26 +104,13 @@ def test_case(request):
                 if jb0!= None or jb1!= None:
                     pass # 解决重复任务名的问题
                 else:
-
                     test_case_list= [int(x) for x in test_case_list]
                     test_case_list.sort()  # 将id转化成int后排序
-
                     env= get_server_address(env)
-
+                    logger.info(" " * 50)
+                    logger.info("######### 已经获取到用例，开始进行批量执行 #########")
                     case_task(test_case_list,env,request.user,id= "test_case_list")
-                    return render(request, "sea/sea_test_case.html", data)
-
-
-
-
-        #             register_jobs(test_case_list,env,request.user.username,0,"test_job0_%s"%ex_time,
-        #                           year,month,day,hour,minute)
-        #             jbe= JobExecuted()  # 记录定时任务
-        #             jbe.job_id= "test_job0_%s" % ex_time
-        #             jbe.user= request.user.username
-        #             jbe.status= 0
-        #             jbe.save()
-        #         return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
+                return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
 
 
 @login_required

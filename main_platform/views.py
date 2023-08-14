@@ -172,7 +172,7 @@ def register_jobs(lists,envs,username,types,id,year,month,day,hour,minute):
     :param second:
     :return:
     '''
-    scheduler.add_job(do_task_jobs, "cron", id=id, replace_existing=True, year=year, month=month, day=day,
+    scheduler.add_job(do_task_jobs, "cron", id= id, replace_existing= True, year= year, month= month, day= day,
                               hour= hour, minute= minute, args= [lists, envs, username, types, id])
 
 
@@ -195,7 +195,7 @@ def do_task_jobs(lists,envs,username,types,id):
             logger.info(" " * 50)
             logger.info({"code": 404, "msg": "提交的运行环境为空，请选择环境后再提交！"})
             return
-        if types== 0:
+        elif types== 0:
             try:
                 fp = open("utils/case_lock.txt", 'a+')
                 fcntl.flock(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)

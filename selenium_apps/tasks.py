@@ -1,7 +1,7 @@
-import re
 import time
 import logging
 import unittest
+import main_platform.models as atp_models
 from . import models
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -30,10 +30,10 @@ class BeginTest(ParametrizedTestCase):
         self.test_case_steps= list(self.case.values())[0] # 获取字典中的步骤
         self.check_list= [] # 存储所有预期结果对比
 
-        self.option= webdriver.ChromeOptions()
-        self.option.add_argument("headless")
-        self.driver= webdriver.Chrome(chrome_options= self.option)  # 不启动浏览器
-        # self.driver= webdriver.Chrome() # 启动浏览器
+        # self.option= webdriver.ChromeOptions()
+        # self.option.add_argument("headless")
+        # self.driver= webdriver.Chrome(chrome_options= self.option)  # 不启动浏览器
+        self.driver= webdriver.Chrome() # 启动浏览器
 
         for index,i in enumerate(self.test_case_steps):
             self.check= True # 单步预期结果对比，默认通过
@@ -158,15 +158,26 @@ def case_task(test_case_list:list, server_address, user,id):
                   theme= "theme_memories")
 
     if is_screenshot== True:
+        # 截图需要调用压缩图片和报告
         zip_file("/report/", "UI测试截图"+time_,[])
         time.sleep(3)
-    # 需要再次调用压缩图片和报告
-
-
-
-
 
     zip_file("/report/", "UI测试报告"+time_,[time_])
+
+    ate= atp_models.TestExecute() # 保存执行记录
+    ate.user= user
+    ate.type= 0
+    ate.job_id= id
+    ate.case_or_suite_ids= ','.join(map(str,test_case_list))
+    ate.download_report_path= "report/%s.zip"%("UI测试报告"+time_)
+    ate.save()
+
+    ter= models.TestCaseExecuteResult.objects.filter(belong_test_execute= "test")
+    for i in ter: # 对记录关联用例
+        i.belong_test_execute= ate.id
+        i.save()
+
+    setup里面需要加入执行记录
 
 
 
