@@ -466,4 +466,4 @@ def suite_task(test_suite_list:list,server_address, user,id):
         i.save()
 
     address= models.EmailAddress.objects.get(id= 1).address.split(";")
-    # email_for_interface(address,"接口测试报告"+suites_time_+".zip")
+    email_for_interface(address,"接口测试报告"+suites_time_+".zip")

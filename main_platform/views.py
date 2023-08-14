@@ -172,21 +172,8 @@ def register_jobs(lists,envs,username,types,id,year,month,day,hour,minute):
     :param second:
     :return:
     '''
-    try:
-        fp = open("utils/suite_lock.txt", 'a+')
-        fcntl.flock(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        # 使用文件排他锁和非阻塞锁，防止任务重复执行
-        # 首次执行会出进程问题，执行一次后正常
-
-        scheduler.add_job(do_task_jobs, "cron", id=id, replace_existing=True, year=year, month=month, day=day,
-                          hour= hour, minute= minute, args= [lists, envs, username, types, id])
-
-        fp.write("suite_lock\n")
-        fp.flush()
-        fcntl.flock(fp, fcntl.LOCK_UN)
-        fp.close()
-    except:
-        pass
+    scheduler.add_job(do_task_jobs, "cron", id=id, replace_existing=True, year=year, month=month, day=day,
+                              hour= hour, minute= minute, args= [lists, envs, username, types, id])
 
 
 def do_task_jobs(lists,envs,username,types,id):
@@ -209,13 +196,35 @@ def do_task_jobs(lists,envs,username,types,id):
             logger.info({"code": 404, "msg": "提交的运行环境为空，请选择环境后再提交！"})
             return
         if types== 0:
-            logger.info(" " * 50)
-            logger.info("######### 已经获取到用例，开始进行批量执行 #########")
-            case_task.delay(test_list, server_address, username,id)
+            try:
+                fp = open("utils/case_lock.txt", 'a+')
+                fcntl.flock(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                # 使用文件排他锁和非阻塞锁，防止任务重复执行
+                # 首次执行会出进程问题，执行一次后正常
+                logger.info(" " * 50)
+                logger.info("######### 已经获取到用例，开始进行批量执行 #########")
+                case_task.delay(test_list, server_address, username,id)
+                fp.write("case_lock\n")
+                fp.flush()
+                fcntl.flock(fp, fcntl.LOCK_UN)
+                fp.close()
+            except:
+                pass
         else:
-            logger.info(" " * 50)
-            logger.info("######### 已经获取到集合，开始进行批量执行 #########")
-            suite_task.delay(test_list, server_address, username,id)
+            try:
+                fp= open("utils/suite_lock.txt", 'a+')
+                fcntl.flock(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                # 使用文件排他锁和非阻塞锁，防止任务重复执行
+                # 首次执行会出进程问题，执行一次后正常
+                logger.info(" " * 50)
+                logger.info("######### 已经获取到集合，开始进行批量执行 #########")
+                suite_task.delay(test_list, server_address, username,id)
+                fp.write("suite_lock\n")
+                fp.flush()
+                fcntl.flock(fp, fcntl.LOCK_UN)
+                fp.close()
+            except:
+                pass
     else:
         logger.info(" " * 50)
         logger.info({"code": 404, "msg": "提交的测试用例or集合为空！"})
@@ -747,6 +756,7 @@ def add_case_into_suite(request,suiteid):
                 # 添加成功后，自动刷新页面
             else:
                 data["msg"]= "添加用例为空"
+
     else:
         belong_suite_cases= AddCaseIntoSuite.objects.filter(test_suite= suiteid)
         belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
