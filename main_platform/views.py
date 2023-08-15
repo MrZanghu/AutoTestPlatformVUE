@@ -7,7 +7,7 @@ from django.contrib import auth
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from main_platform.form import UserForm
-from main_platform.tasks import case_task,process_xls,suite_task
+from main_platform.tasks import case_task,process_xls,suite_task,sea_case_task
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from main_platform.validCode import ValidCodeImg
@@ -203,7 +203,10 @@ def do_task_jobs(lists,envs,username,types,id):
                 # 首次执行会出进程问题，执行一次后正常
                 logger.info(" " * 50)
                 logger.info("######### 已经获取到用例，开始进行批量执行 #########")
-                case_task.delay(test_list, server_address, username,id)
+                if "UI" not in id:  # 接口测试
+                    case_task.delay(test_list, server_address, username,id)
+                else:
+                    sea_case_task.delay(test_list, server_address, username,id)
                 fp.write("case_lock\n")
                 fp.flush()
                 fcntl.flock(fp, fcntl.LOCK_UN)

@@ -6,11 +6,15 @@ import unittest
 import traceback,logging
 from . import models
 from . import viewsParams as vp
+from selenium import webdriver
+import selenium_apps.models as sea_models
+from selenium.webdriver.common.by import By
 from BeautifulReport import BeautifulReport
 from django.contrib.auth.models import User
 from main_platform.celery import ex_cases_app
 from send_mails.views import email_for_interface
-from utils.process_data import request_process,get_var_from_response, preprocess_request_data,zip_file
+from utils.process_data import request_process,get_var_from_response, \
+    preprocess_request_data,zip_file,translate_selenium
 
 
 
@@ -210,54 +214,6 @@ class BeginTest(ParametrizedTestCase):
 
 
 @ex_cases_app.task
-def case_task(test_case_list:list, server_address, user,id):
-    '''
-    进行测试用例的执行操作
-    :param test_case_list: 用例id列表
-    :param server_address: 服务器信息
-    :param user: 执行用户
-    :return:
-    '''
-    global_key= "ex_time_" + str(int(time.time() * 100000)) # 系统里唯一，目的为每次执行都独立
-    os.environ[global_key]= "{}" # 总全局变量
-    list_open= []
-    suite= unittest.TestSuite()
-
-    for test_case_id in test_case_list:
-        list_open.append(models.TestCase.objects.filter(id= int(test_case_id))[0])
-
-    for i in list_open:
-        suite.addTest(ParametrizedTestCase.parametrize(BeginTest, case= i,
-                                                       server_address= server_address,
-                                                       global_key= global_key,
-                                                       type= "case"))
-    result= BeautifulReport(suite)
-    time_= str(time.strftime("%Y_%m_%d_%H:%M:%S",time.localtime(time.time())))
-    result.report(filename= "接口测试报告"+time_,
-                  description= "自动化测试平台报告",
-                  report_dir= "report",
-                  theme=  "theme_memories")
-
-    ate= models.TestExecute() # 保存执行记录
-    ate.user= user
-    ate.type= 0
-    ate.job_id= id
-    ate.case_or_suite_ids= ','.join(map(str,test_case_list))
-    ate.download_report_path= "report/%s.html"%("接口测试报告"+time_)
-    ate.save()
-
-    ter= models.TestCaseExecuteResult.objects.filter(belong_test_execute= "test")
-    for i in ter: # 对记录关联用例
-        i.belong_test_execute= ate.id
-        i.save()
-
-    del os.environ[global_key]  # 执行完成，删除全局变量
-
-    address= models.EmailAddress.objects.get(id= 1).address.split(";")
-    email_for_interface(address,"接口测试报告"+time_+".html")
-
-
-@ex_cases_app.task
 def process_xls(up_times,owner,file_names):
     '''
     读取Excel用例，创建项目、模块、用例
@@ -395,6 +351,54 @@ def process_xls(up_times,owner,file_names):
 
 
 @ex_cases_app.task
+def case_task(test_case_list:list, server_address, user,id):
+    '''
+    进行测试用例的执行操作
+    :param test_case_list: 用例id列表
+    :param server_address: 服务器信息
+    :param user: 执行用户
+    :return:
+    '''
+    global_key= "ex_time_" + str(int(time.time() * 100000)) # 系统里唯一，目的为每次执行都独立
+    os.environ[global_key]= "{}" # 总全局变量
+    list_open= []
+    suite= unittest.TestSuite()
+
+    for test_case_id in test_case_list:
+        list_open.append(models.TestCase.objects.filter(id= int(test_case_id))[0])
+
+    for i in list_open:
+        suite.addTest(ParametrizedTestCase.parametrize(BeginTest, case= i,
+                                                       server_address= server_address,
+                                                       global_key= global_key,
+                                                       type= "case"))
+    result= BeautifulReport(suite)
+    time_= str(time.strftime("%Y_%m_%d_%H:%M:%S",time.localtime(time.time())))
+    result.report(filename= "接口测试报告"+time_,
+                  description= "自动化测试平台报告",
+                  report_dir= "report",
+                  theme=  "theme_memories")
+
+    ate= models.TestExecute() # 保存执行记录
+    ate.user= user
+    ate.type= 0
+    ate.job_id= id
+    ate.case_or_suite_ids= ','.join(map(str,test_case_list))
+    ate.download_report_path= "report/%s.html"%("接口测试报告"+time_)
+    ate.save()
+
+    ter= models.TestCaseExecuteResult.objects.filter(belong_test_execute= "test")
+    for i in ter: # 对记录关联用例
+        i.belong_test_execute= ate.id
+        i.save()
+
+    del os.environ[global_key]  # 执行完成，删除全局变量
+
+    address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    email_for_interface(address,"接口测试报告"+time_+".html")
+
+
+@ex_cases_app.task
 def suite_task(test_suite_list:list,server_address, user,id):
     list_dict= {} # {"":[],"":[]}
     zipfiles= [] # 压缩集合报告文件
@@ -467,3 +471,172 @@ def suite_task(test_suite_list:list,server_address, user,id):
 
     address= models.EmailAddress.objects.get(id= 1).address.split(";")
     email_for_interface(address,"接口测试报告"+suites_time_+".zip")
+
+
+class SeaBeginTest(ParametrizedTestCase):
+    '''使用unittest进行UI测试'''
+    def setUp(self):
+        '''用例准备操作'''
+        logger.info(" " * 50)
+        self.id= list(self.case.keys())[0] # 获取字典中的用例id
+        self.test_case= sea_models.TestCaseForSEA.objects.get(id= self.id)
+        self.doc= self.test_case.case_name
+        logger.info("######### 开始执行UI用例【{}】##########".format(self.test_case))
+
+        self.test_case_steps= list(self.case.values())[0] # 获取字典中的步骤
+        self.check_list= [] # 存储所有预期结果对比
+
+        self.option= webdriver.ChromeOptions()
+        self.option.add_argument("headless")
+        self.driver= webdriver.Chrome(chrome_options= self.option)  # 不启动浏览器
+        # self.driver= webdriver.Chrome() # 启动浏览器
+
+        for index,i in enumerate(self.test_case_steps):
+            self.check= True # 单步预期结果对比，默认通过
+            logger.info("定位路径:{}".format(i[0]))
+            logger.info("方法|操作:{}".format(i[1]))
+            logger.info("传入参数:{}".format(i[2]))
+            logger.info("步骤动作:{}".format(i[3]))
+            logger.info("预期结果:{}".format(i[4]))
+
+            print("UI操作第【{}】步骤".format(index+1))
+            print("定位路径:{}".format(i[0])
+                  + " " * 4 + "方法|操作:{}".format(i[1])
+                  + " " * 4 + "传入参数:{}".format(i[2])
+                  + " " * 4 + "步骤动作:{}".format(i[3])
+                  + " " * 4 + "预期结果:{}".format(i[4]))
+
+            try:
+                if i[3]!= None:   # actions优先处理
+                    if i[0]!= None: # 网址优先处理
+                        self.res= translate_selenium(self.driver,i[3])(i[0])
+                    else:
+                        if i[2]!= None: # 参数优先处理
+                            self.res= translate_selenium(self.driver,i[3])(int(i[2]))
+                        else:
+                            self.res= translate_selenium(self.driver,i[3])
+                else:
+                    if i[1]!= None and i[0]!= None: # methods后处理
+                        finds,obj= i[0].split("==") # i[0]分割定位方式和对象
+                        if finds== "id":
+                            finds= By.ID
+                        elif finds== "name":
+                            finds= By.NAME
+                        elif finds== "class_name":
+                            finds= By.CLASS_NAME
+                        elif finds== "tag_name":
+                            finds= By.TAG_NAME
+                        elif finds== "link_text":
+                            finds= By.LINK_TEXT
+                        elif finds== "plink_text":
+                            finds= By.PARTIAL_LINK_TEXT
+                        elif finds== "xpath":
+                            finds= By.XPATH
+                        elif finds== "css_selector":
+                            finds= By.CSS_SELECTOR
+
+                        self.object= self.driver.find_element(finds,obj)
+
+                        if i[2]!= None: # 参数优先处理
+                            self.res= translate_selenium(self.object,i[1])(i[2])
+                        else:
+                            if i[1][:5]== "mouse":
+                                # 暂通过字符mouse来单独处理鼠标操作
+                                self.res= translate_selenium(self.driver, i[1], self.object)
+                            else:
+                                self.res= translate_selenium(self.object, i[1])
+                    else:
+                        self.res= translate_selenium(self.driver,i[1])  # 处理弹窗
+
+                if i[4] != None and i[4] != self.res: # 进行预期结果对比
+                    self.check= False
+                    logger.info("断言关键字【{}】匹配失败，实际结果是：【{}】".format(i[4],self.res))
+                    print("断言关键字【{}】匹配失败，实际结果是：【{}】".format(i[4],self.res))
+            except Exception as e:
+                self.check= False
+                logger.warning("UI测试执行错误："+str(e))
+                print("UI测试执行错误："+str(e))# debug使用
+            finally:
+                time.sleep(2) # 防止未知错误，均强制2s
+                self.check_list.append(self.check)
+                print()
+
+    def testMethod(self):
+        '''用例断言，判断用例是否通过'''
+        if False in self.check_list:
+            self.assertEqual(False,True)
+            logger.info("用例【%s】执行失败！" % self.test_case)
+        else:
+            self.assertEqual(True, True)
+            logger.info("用例【%s】执行成功！" % self.test_case)
+
+    def tearDown(self):
+        '''用例结束操作'''
+        self.driver.quit()
+        time.sleep(3)
+
+
+@ex_cases_app.task
+def sea_case_task(test_case_list:list, server_address, user,id):
+    '''
+    进行测试用例的执行操作
+    :param test_case_list: 用例id列表
+    :param server_address: 服务器信息
+    :param user: 执行用户
+    :return:
+    '''
+    list_open= []
+    suite= unittest.TestSuite()
+    is_screenshot= False # 是否有截图
+    for tcl in test_case_list:
+        detail= sea_models.TestCaseForSEA.objects.get(id= tcl)
+        steps= sea_models.TestCaseSteps.objects.filter(testcaseid_id= detail.id)\
+            .values_list("LocationPath","Method","Parameter","Action","Expected")
+        # values_list可以将queryset转换成tuple，需要指定字段
+
+        for i in steps:
+            if  "screenshot(截图)" in i:
+                is_screenshot= True
+
+        steps= [list(i) for i in steps]
+        list_open.append({str(tcl):steps})
+
+    for i in list_open:
+        suite.addTest(ParametrizedTestCase.parametrize(SeaBeginTest, case= i,
+                                                       server_address= server_address,
+                                                       type="case"))
+
+    result= BeautifulReport(suite)
+    time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
+    result.report(filename= "UI测试报告" + time_,
+                  description= "自动化测试平台报告",
+                  report_dir= "report",
+                  theme= "theme_memories")
+
+    if is_screenshot== True:
+        # 截图需要调用压缩图片和报告
+        zip_file("/report/", "UI测试截图"+time_,[])
+        time.sleep(3)
+
+    zip_file("/report/", "UI测试报告"+time_,[time_])
+
+    # ate= atp_models.TestExecute() # 保存执行记录
+    # ate.user= user
+    # ate.type= 0
+    # ate.job_id= id
+    # ate.case_or_suite_ids= ','.join(map(str,test_case_list))
+    # ate.download_report_path= "report/%s.zip"%("UI测试报告"+time_)
+    # ate.save()
+
+    # ter= models.TestCaseExecuteResult.objects.filter(belong_test_execute= "test")
+    # for i in ter: # 对记录关联用例
+    #     i.belong_test_execute= ate.id
+    #     i.save()
+
+    setup里面需要加入执行记录，同时设计一个显示的页面
+    多个用例执行，报告出现zip内容错误，需要重新进行逻辑梳理
+
+
+
+    # address= EmailAddress.objects.get(id=1).address.split(";")
+    # email_for_interface(address,"界面测试报告"+time_+".html")

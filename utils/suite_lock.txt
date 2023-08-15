@@ -1,3 +1,0 @@
-suite_lock
-suite_lock
-suite_lock

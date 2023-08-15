@@ -34,17 +34,20 @@
                                 <button class="btn-success">查看结果</button>
                             </a>
                         {% endifequal %}
-                        <a href="{% url 'main_platform:change_job_status' job.job_id 2 %}">
-                            <button class="btn-danger">删除任务</button>
-                        </a>
                         {% ifequal job.status 3 %}
                             <a href="{% url 'main_platform:change_job_status' job.job_id 0 %}">
                                 <button class="btn-warning">启动任务</button>
+                            </a>
+                            <a href="{% url 'main_platform:change_job_status' job.job_id 2 %}">
+                                <button class="btn-danger">删除任务</button>
                             </a>
                         {% endifequal %}
                         {% ifequal job.status 0 %}
                             <a href="{% url 'main_platform:change_job_status' job.job_id 3 %}">
                                 <button class="btn-warning">暂停任务</button>
+                            </a>
+                            <a href="{% url 'main_platform:change_job_status' job.job_id 2 %}">
+                                <button class="btn-danger">删除任务</button>
                             </a>
                         {% endifequal %}
 
