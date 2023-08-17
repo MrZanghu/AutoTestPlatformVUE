@@ -244,7 +244,7 @@ def translate_selenium(driver,option:str,element= None):
             return driver.refresh()
         elif option== "screenshot(截图)":
             times= str(int(time.time()))
-            # 使用时间戳来存文件
+            # 使用时间戳来存文件，按时间排序
             return driver.save_screenshot(os.path.join("report","UI_%s.png"%times))
         elif option== "gettitle(获取窗口标题)":
             return driver.title

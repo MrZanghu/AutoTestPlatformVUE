@@ -21,11 +21,15 @@
             {% for te in pages %}
                 <tr>
                     <td>{{ te.id }}</td>
-                    {% ifequal te.type 0 %}
+                    {% if te.type == 0 %}
                         <td>用例</td>
-                    {% else %}
+                    {% elif te.type == 1 %}
                         <td>集合</td>
-                    {% endifequal %}
+                    {% elif te.type == 2 %}
+                        <td>UI用例</td>
+                    {% else %}
+                        <td>UI集合</td>
+                    {% endif %}
                     <td style="-webkit-box-orient: vertical;">{{ te.case_or_suite_ids }}</td>
                     <td>{{ te.created_time|date:"Y-n-d H:i:s" }}</td>
                     <td>{{ te.user }}</td>

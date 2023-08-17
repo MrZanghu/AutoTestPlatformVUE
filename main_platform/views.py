@@ -197,7 +197,7 @@ def do_task_jobs(lists,envs,username,types,id):
             return
         elif types== 0:
             try:
-                fp = open("utils/case_lock.txt", 'a+')
+                fp= open("utils/case_lock.txt", 'a+')
                 fcntl.flock(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
                 # 使用文件排他锁和非阻塞锁，防止任务重复执行
                 # 首次执行会出进程问题，执行一次后正常
@@ -293,9 +293,15 @@ def get_job_name(request):
         ex_time= (datetime.datetime.now() + datetime.timedelta(minutes= 1)).strftime("%Y-%m-%dT%H:%M")
     job_name0= "test_job0_%s"%ex_time # 处理用例和集合并行的问题
     job_name1= "test_job1_%s"%ex_time
+    job_name2= "test_UI_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name3= "test_UI_job1_%s"%ex_time
+
     jb0= JobExecuted.objects.filter(job_id= job_name0).first()
     jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-    if jb0!= None or jb1!= None:
+    jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+    jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+
+    if (jb0!= None) or (jb1!= None) or (jb2!= None) or (jb3!= None):
         return JsonResponse({"msg":"存在相同任务名","status":2001})
     else:
         return JsonResponse({"msg": "不存在相同任务名", "status": 2000})
@@ -413,9 +419,15 @@ def test_case(request):
             else:
                 job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
                 job_name1= "test_job1_%s" % ex_time
+                job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                job_name3= "test_UI_job1_%s" % ex_time
+
                 jb0= JobExecuted.objects.filter(job_id= job_name0).first()
                 jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-                if jb0!= None or jb1!= None:
+                jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+                jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+
+                if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
                     pass # 解决重复任务名的问题
                 else:
                     register_jobs(test_case_list,env,request.user.username,0,"test_job0_%s"%ex_time,
@@ -705,9 +717,15 @@ def test_suite(request):
             else:
                 job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
                 job_name1= "test_job1_%s" % ex_time
+                job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                job_name3= "test_UI_job1_%s" % ex_time
+
                 jb0= JobExecuted.objects.filter(job_id= job_name0).first()
                 jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-                if jb0!= None or jb1!= None:
+                jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+                jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+
+                if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
                     pass # 解决重复任务名的问题
                 else:
                     register_jobs(test_suite_list,env,request.user.username,1,"test_job1_%s"%ex_time,

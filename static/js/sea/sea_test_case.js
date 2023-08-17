@@ -23,7 +23,7 @@ function ischecked() {
     if ($ex_case) {
         $.getJSON("/sea/test_case/sea/get_job_name/", {"ex_time": $ex_time}, function (data) {
             if (data["status"] === 2001) {
-                alert("可能存在同名任务，请一分钟后再试");
+                alert("当前时间已存在任务，请一分钟后再试");
                 // 重复任务但未勾选用例的情况，导致判重与勾选判断相互调用，以判重优先
             } else {
                 var $allCheck = document.getElementsByName("testcases_list");

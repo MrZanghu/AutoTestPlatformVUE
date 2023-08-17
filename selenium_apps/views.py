@@ -31,11 +31,17 @@ def get_job_name(request):
     ex_time= request.GET.get("ex_time")
     if ex_time== "":
         ex_time= (datetime.datetime.now() + datetime.timedelta(minutes= 1)).strftime("%Y-%m-%dT%H:%M")
-    job_name0= "test_UI_job0_%s"%ex_time # 处理用例和集合并行的问题
-    job_name1= "test_UI_job1_%s"%ex_time
+    job_name0= "test_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name1= "test_job1_%s"%ex_time
+    job_name2= "test_UI_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name3= "test_UI_job1_%s"%ex_time
+
     jb0= JobExecuted.objects.filter(job_id= job_name0).first()
     jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-    if jb0!= None or jb1!= None:
+    jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+    jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+
+    if (jb0!= None) or (jb1!= None) or (jb2!= None) or (jb3!= None):
         return JsonResponse({"msg":"存在相同任务名","status":2001})
     else:
         return JsonResponse({"msg": "不存在相同任务名", "status": 2000})
@@ -70,8 +76,6 @@ def test_case(request):
         day= ex_time[8:10]
         hour= ex_time[11:13]
         minute= ex_time[14:]
-
-        ex_time= (datetime.datetime.now() + datetime.timedelta(minutes=1)).strftime("%Y-%m-%dT%H:%M")
         data= {}
 
         if not ex_case:
@@ -98,11 +102,17 @@ def test_case(request):
                 data["case_name"]= ""
                 return render(request, "sea/sea_test_case.html", data)
             else:
-                job_name0= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
-                job_name1= "test_UI_job1_%s" % ex_time
+                job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                job_name1= "test_job1_%s" % ex_time
+                job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                job_name3= "test_UI_job1_%s" % ex_time
+
                 jb0= JobExecuted.objects.filter(job_id= job_name0).first()
                 jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-                if jb0!= None or jb1!= None:
+                jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+                jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+
+                if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
                     pass # 解决重复任务名的问题
                 else:
                     register_jobs(test_case_list,env,request.user.username,0,"test_UI_job0_%s"%ex_time,

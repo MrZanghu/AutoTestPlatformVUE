@@ -211,6 +211,7 @@ class BeginTest(ParametrizedTestCase):
             time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.execute_end_time))
         self.execute_record.execute_total_time= int((self.execute_end_time - self.execute_start_time) * 1000)
         self.execute_record.save()
+        time.sleep(0.5) # 暂停0.5秒不影响运行时间
 
 
 @ex_cases_app.task
@@ -394,8 +395,8 @@ def case_task(test_case_list:list, server_address, user,id):
 
     del os.environ[global_key]  # 执行完成，删除全局变量
 
-    address= models.EmailAddress.objects.get(id= 1).address.split(";")
-    email_for_interface(address,"接口测试报告"+time_+".html")
+    # address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    # email_for_interface(address,"接口测试报告"+time_+".html")
 
 
 @ex_cases_app.task
@@ -469,8 +470,8 @@ def suite_task(test_suite_list:list,server_address, user,id):
         i.belong_test_execute= ate.id
         i.save()
 
-    address= models.EmailAddress.objects.get(id= 1).address.split(";")
-    email_for_interface(address,"接口测试报告"+suites_time_+".zip")
+    # address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    # email_for_interface(address,"接口测试报告"+suites_time_+".zip")
 
 
 class SeaBeginTest(ParametrizedTestCase):
@@ -486,10 +487,13 @@ class SeaBeginTest(ParametrizedTestCase):
         self.test_case_steps= list(self.case.values())[0] # 获取字典中的步骤
         self.check_list= [] # 存储所有预期结果对比
 
-        self.option= webdriver.ChromeOptions()
-        self.option.add_argument("headless")
-        self.driver= webdriver.Chrome(chrome_options= self.option)  # 不启动浏览器
-        # self.driver= webdriver.Chrome() # 启动浏览器
+        try:
+            self.option= webdriver.ChromeOptions()
+            self.option.add_argument("headless")
+            self.driver= webdriver.Chrome(chrome_options= self.option)  # 不启动浏览器
+            # self.driver= webdriver.Chrome() # 启动浏览器
+        except Exception as e:
+            logger.warning(e) # 为了防止出现chrome升级导致driver不匹配
 
         for index,i in enumerate(self.test_case_steps):
             self.check= True # 单步预期结果对比，默认通过
@@ -564,16 +568,16 @@ class SeaBeginTest(ParametrizedTestCase):
     def testMethod(self):
         '''用例断言，判断用例是否通过'''
         if False in self.check_list:
-            self.assertEqual(False,True)
             logger.info("用例【%s】执行失败！" % self.test_case)
+            self.assertEqual(False,True)
         else:
-            self.assertEqual(True, True)
             logger.info("用例【%s】执行成功！" % self.test_case)
+            self.assertEqual(True, True)
 
     def tearDown(self):
         '''用例结束操作'''
         self.driver.quit()
-        time.sleep(3)
+        time.sleep(1)
 
 
 @ex_cases_app.task
@@ -620,21 +624,20 @@ def sea_case_task(test_case_list:list, server_address, user,id):
 
     zip_file("/report/", "UI测试报告"+time_,[time_])
 
-    # ate= atp_models.TestExecute() # 保存执行记录
-    # ate.user= user
-    # ate.type= 0
-    # ate.job_id= id
-    # ate.case_or_suite_ids= ','.join(map(str,test_case_list))
-    # ate.download_report_path= "report/%s.zip"%("UI测试报告"+time_)
-    # ate.save()
+    ate= models.TestExecute() # 保存执行记录
+    ate.user= user
+    ate.type= 2
+    ate.job_id= id
+    ate.case_or_suite_ids= ','.join(map(str,test_case_list))
+    ate.download_report_path= "report/%s.zip"%("UI测试报告"+time_)
+    ate.save()
 
     # ter= models.TestCaseExecuteResult.objects.filter(belong_test_execute= "test")
     # for i in ter: # 对记录关联用例
     #     i.belong_test_execute= ate.id
     #     i.save()
 
-    setup里面需要加入执行记录，同时设计一个显示的页面
-    多个用例执行，报告出现zip内容错误，需要重新进行逻辑梳理
+    UI的执行记录需要写个页面
 
 
 
