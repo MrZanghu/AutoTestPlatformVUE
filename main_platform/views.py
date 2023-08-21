@@ -685,7 +685,7 @@ def test_suite(request):
         suite_name= request.POST.get("suite_name")
         ex_suite= request.POST.get("ex_suite")  # 判断是否执行集合的关键字
         ex_time= request.POST.get("ex_time")  # 判断执行时间的关键字
-        if ex_time== "":
+        if ex_time in ("",None):
             ex_time= (datetime.datetime.now() + datetime.timedelta(minutes=1)).strftime("%Y-%m-%dT%H:%M")
         year= ex_time[:4]
         month= ex_time[5:7]

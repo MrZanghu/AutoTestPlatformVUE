@@ -1,7 +1,58 @@
-#my-nav ul li a:hover{
-    color: #ff6900;
+#my_list a{
+    text-decoration: none;
+    font-weight: 400;
+    font-size: medium;
+    display: inline-block;
+    height: 50px;
+    width: 170px;
+    color: black;
+    background-color: rgb(222,222,222);
+    line-height: 50px;
+    text-align: center;
+    padding: 1px;
+    padding-left: 80px;
 }
 
-#my-nav ul li:hover{
+#li1 {
+    width: 230px;
+}
+
+#li1>a{
+    width: 230px;
+    padding-right: 80px;
+}
+
+#my_list>li>ul>li>a{
+    padding: 1px;
+}
+
+#my_list ul{
+    list-style-type: none;
+    position: fixed;
+}
+
+#my_list{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 49px;
+}
+
+#my_list >li{
+    float: left;
+}
+
+#my_list>li>ul{
+    display: none;
+    position: absolute;
+    float: none;
+}
+
+#my_list>li:hover ul{
+    display: block;
+}
+
+#my_list a:hover{
     color: #ff6900;
 }

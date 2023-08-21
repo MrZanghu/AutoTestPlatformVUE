@@ -31,15 +31,35 @@
         </div>
 
         <div class="collapse navbar-collapse" id="my-nav">
-            <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a href="{% url 'main_platform:project' %}">测试项目</a></li>
-                <li class="active"><a href="{% url 'main_platform:module' %}">测试模块</a></li>
-                <li class="active"><a href="{% url 'main_platform:test_case' %}">接口用例</a></li>
-                <li class="active"><a href="{% url 'main_platform:test_suite' %}">用例集合</a></li>
-                <li class="active"><a href="{% url 'selenium_apps:test_case' %}">网页UI用例</a></li>
-                <li class="active"><a href="{% url 'main_platform:test_execute' 'None' %}">执行结果</a></li>
-                <li class="active"><a href="{% url 'main_platform:job_execute' %}">定时任务</a></li>
+            <ul class="nav navbar-nav navbar-left" id="my_list">
+                <li>
+                    <a href="{% url 'main_platform:project' %}">测试项目</a>
+                </li>
+                <li>
+                    <a href="{% url 'main_platform:module' %}">测试模块</a>
+                </li>
+                <li>
+                    <a href="#">接口测试</a>
+                    <ul>
+                        <li><a href="{% url 'main_platform:test_case' %}">接口用例</a></li>
+                        <li><a href="{% url 'main_platform:test_suite' %}">用例集合</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">UI测试</a>
+                    <ul>
+                        <li><a href="{% url 'selenium_apps:test_case' %}">UI用例</a></li>
+                        <li><a href="#">UI集合</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'main_platform:test_execute' 'None' %}">执行结果</a>
+                </li>
+                <li id="li1">
+                    <a href="{% url 'main_platform:job_execute' %}">定时任务</a>
+                </li>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
                     <li><a href="#">当前在线：{{ user.username }}</a></li>
