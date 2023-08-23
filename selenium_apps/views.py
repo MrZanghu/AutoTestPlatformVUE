@@ -289,7 +289,14 @@ def delete_test_case(request,caseid):
     '''测试用例-删除用例'''
     case= TestCaseForSEA.objects.get(id= caseid)
     case.status= 1
+    case.update_time= datetime.datetime.now()
     case.save()
+
+    suite_case= Case2SuiteForSEA.objects.filter(test_case= case)
+    # 集合关联的用例需要进行解除
+    for i in suite_case:
+        i.status= 1
+        i.save()
 
     cases= TestCaseForSEA.objects.filter(status=0).order_by("-create_time")  # 根据创建时间倒序
     data= {}

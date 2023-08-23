@@ -366,7 +366,7 @@ def case_task(test_case_list:list, server_address, user,id):
     suite= unittest.TestSuite()
 
     for test_case_id in test_case_list:
-        list_open.append(models.TestCase.objects.filter(id= int(test_case_id))[0])
+        list_open.append(models.TestCase.objects.filter(id= int(test_case_id),status= 0)[0])
 
     for i in list_open:
         suite.addTest(ParametrizedTestCase.parametrize(BeginTest, case= i,
@@ -407,7 +407,7 @@ def suite_task(test_suite_list:list,server_address, user,id):
     for ts in test_suite_list:
         # 双循环解析集合对应的测试用例
         list_open= []
-        test_case_list= models.AddCaseIntoSuite.objects.filter(test_suite_id= int(ts))
+        test_case_list= models.AddCaseIntoSuite.objects.filter(test_suite_id= int(ts),status= 0)
         for tc in test_case_list:
             list_open.append(tc.test_case)
         list_dict[ts]= list_open
@@ -637,7 +637,7 @@ def sea_case_task(test_case_list:list, server_address, user,id):
     #     i.belong_test_execute= ate.id
     #     i.save()
 
-    # UI的执行记录需要写个页面，UI用例重新写一个
+    # 写UI的测试记录和集合执行流程
 
 
 

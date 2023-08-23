@@ -9,7 +9,8 @@
 {% block content %}
     <div id="group">
         <div id="search">
-            <form action="{% url 'main_platform:test_suite' %}" method="POST">
+            <form action="{% url 'main_platform:test_suite' 0 %}" method="POST">
+            {#默认是接口测试，post时也不会进行处理#}
                 {% csrf_token %}
                 <input style="margin-left: 5px;" type="text" name="suite_name" value="{{ suite_name }}"
                        placeholder="输入集合名称">

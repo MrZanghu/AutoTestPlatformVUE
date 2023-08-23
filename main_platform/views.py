@@ -640,6 +640,12 @@ def delete_test_case(request,caseid):
     case.status= 1
     case.update_time= datetime.datetime.now()
     case.save()
+
+    suite_case= AddCaseIntoSuite.objects.filter(test_case= case)
+    # 集合关联的用例需要进行解除
+    for i in suite_case:
+        i.status = 1
+        i.save()
     return redirect(reverse("main_platform:test_case"))
 
 
@@ -672,14 +678,15 @@ def module_test_case(request,moduleid):
 
 
 @login_required
-def test_suite(request):
+def test_suite(request,suite_type):
     '''主页-用例集合'''
     if request.method== "GET":
-        test_suite= TestSuite.objects.filter(status= 0).order_by("-id")
+        test_suite= TestSuite.objects.filter(status= 0).filter(type= suite_type).order_by("-id")
         data= {
             "pages": get_paginator(request, test_suite), # 返回分页
         }
         return render(request,"atp/test_suite.html",data)
+
     elif request.method== "POST":
     # 点击执行后，生成集合执行记录，集合执行记录包含用例执行记录
         suite_name= request.POST.get("suite_name")
@@ -745,7 +752,7 @@ def add_case_into_suite(request,suiteid):
     # 查询suiteid对应用例集
     if test_suite.type== 1:
         # UI测试进入不同的页面
-        belong_suite_cases= Case2SuiteForSEA.objects.filter(test_suite= suiteid)
+        belong_suite_cases= Case2SuiteForSEA.objects.filter(test_suite= suiteid,status= 0)
         belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
         # 查询出此用例集已关联的用例
 
@@ -779,7 +786,7 @@ def add_case_into_suite(request,suiteid):
                 data["msg"]= "添加用例为空"
 
     else:
-        belong_suite_cases= AddCaseIntoSuite.objects.filter(test_suite= suiteid)
+        belong_suite_cases= AddCaseIntoSuite.objects.filter(test_suite= suiteid,status= 0)
         belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
         # 查询出此用例集已关联的用例
 
@@ -821,7 +828,7 @@ def view_or_delete_cases_in_suite(request,suiteid):
 
     if test_suite.type== 1:
         # UI测试进入不同的页面
-        belong_suite_cases= Case2SuiteForSEA.objects.filter(test_suite_id=suiteid)
+        belong_suite_cases= Case2SuiteForSEA.objects.filter(test_suite_id= suiteid,status= 0)
         belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
         # 查询出此用例集已关联的用例
 
@@ -841,7 +848,8 @@ def view_or_delete_cases_in_suite(request,suiteid):
             if testcases_list:
                 for tl in testcases_list:
                     test_case= TestCaseForSEA.objects.filter(id=int(tl))
-                    Case2SuiteForSEA.objects.filter(test_case= test_case.first(),test_suite= test_suite).first().delete()
+                    Case2SuiteForSEA.objects.filter(test_case= test_case.first(),
+                                                    test_suite= test_suite).first().delete()
                     # 删除指定用例集的指定测试用例
                 return redirect(reverse("main_platform:view_or_delete_cases_in_suite",kwargs= {"suiteid":suiteid}))
                 # 添加成功后，自动刷新页面
@@ -849,7 +857,7 @@ def view_or_delete_cases_in_suite(request,suiteid):
                 data["msg"]= "删除用例为空"
 
     else:
-        belong_suite_cases= AddCaseIntoSuite.objects.filter(test_suite_id= suiteid)
+        belong_suite_cases= AddCaseIntoSuite.objects.filter(test_suite_id= suiteid,status= 0)
         belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
         # 查询出此用例集已关联的用例
 

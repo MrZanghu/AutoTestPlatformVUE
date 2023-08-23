@@ -32,7 +32,7 @@ urlpatterns= [
     re_path(r'^module_test_case/(?P<moduleid>\d+)/', views.module_test_case, name="module_test_case"),
     # 新增用例相关
 
-    path(r'test_suite/', views.test_suite,name= "test_suite"),
+    re_path(r'^test_suite/(?P<suite_type>\d+)/', views.test_suite,name= "test_suite"),
     re_path(r'^add_case_into_suite/(?P<suiteid>\d+)/', views.add_case_into_suite,name= "add_case_into_suite"),
     re_path(r'^view_or_delete_cases_in_suite/(?P<suiteid>\d+)/', views.view_or_delete_cases_in_suite,
         name= "view_or_delete_cases_in_suite"),
