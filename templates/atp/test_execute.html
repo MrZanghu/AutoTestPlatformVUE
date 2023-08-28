@@ -34,13 +34,24 @@
                     <td>{{ te.created_time|date:"Y-n-d H:i:s" }}</td>
                     <td>{{ te.user }}</td>
 
-                    {% ifequal te.type 0 %}
-                        <td><a href="{% url 'main_platform:test_case_execute_record' te.id %}" target="_blank">查看</a>
+
+                    {% if te.type == 0 %}
+                        <td>
+                            <a href="{% url 'main_platform:test_case_execute_record' te.id %}" target="_blank">查看</a>
+                        </td>
+                    {% elif te.type == 1 %}
+                        <td>
+                            <a href="{% url 'main_platform:test_suite_execute_record' te.id 0 %}" target="_blank">查看</a>
+                        </td>
+                    {% elif te.type == 2 %}
+                        <td>
+                            <a href="{% url 'selenium_apps:test_case_execute_record' te.id %}" target="_blank">查看</a>
                         </td>
                     {% else %}
-                        <td><a href="{% url 'main_platform:test_suite_execute_record' te.id 0 %}" target="_blank">查看</a>
+                        <td>
+                            <a href="#" target="_blank">查看</a>
                         </td>
-                    {% endifequal %}
+                    {% endif %}
 
                     <td>
                         <form action="">

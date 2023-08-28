@@ -9,15 +9,12 @@
             <thead>
             <tr>
                 <th width="2%">id</th>
-                <th width="6%">名称</th>
-                <th width="20%">请求数据</th>
-                <th width="25%">执行返回结果</th>
-                <th width="11%">断言内容</th>
-                <th width="5%">执行结果</th>
-                <th width="5%">异常信息</th>
-                <th width="10%">请求后提取变量</th>
-                <th width="8%">开始时间</th>
-                <th width="8%">执行耗时(ms)</th>
+                <th width="16%">名称</th>
+                <th width="16%">步骤数</th>
+                <th width="16%">执行结果</th>
+                <th width="16%">异常信息</th>
+                <th width="16%">开始时间</th>
+                <th>执行耗时(ms)</th>
             </tr>
             </thead>
             <tbody>
@@ -25,12 +22,9 @@
             {% for testrecord in pages %}
                 <tr style="position: relative;">
                     <td>{{ testrecord.id }}</td>
-                    <td><a href="{% url 'main_platform:test_case_detail' testrecord.belong_test_case.id %}"
+                    <td><a href="{% url 'selenium_apps:test_case_detail' testrecord.belong_test_case.id %}"
                            target="_blank">{{ testrecord.belong_test_case.case_name }}</a></td>
-                    <td>{{ testrecord.request_data }}</td>
-                    <td>{{ testrecord.response_data }}</td>
-                    <td>{{ testrecord.belong_test_case.assert_key }}</td>
-
+                    <td>{{ testrecord.length }}</td>
                     {% ifequal testrecord.execute_result '成功' %}
                         <td style="color: green">{{ testrecord.execute_result }}</td>
                     {% else %}
@@ -38,13 +32,11 @@
                     {% endifequal %}
 
                     {% if testrecord.exception_info %}
-                        <td><a href="{% url 'main_platform:test_execute_show_exception' testrecord.id %}"
+                        <td><a href="{% url 'selenium_apps:test_execute_show_exception' testrecord.id %}"
                                target="_blank">异常信息</a></td>
                     {% else %}
                         <td>无</td>
                     {% endif %}
-
-                    <td>{{ testrecord.extract_var }}</td>
                     <td>{{ testrecord.execute_start_time }}</td>
                     <td>{{ testrecord.execute_total_time }}</td>
                 </tr>

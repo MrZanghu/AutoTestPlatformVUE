@@ -10,6 +10,10 @@ urlpatterns= [
 
     path(r'add_test_case/', views.add_test_case,name= "add_test_case"),
     path(r'add_test_case_interface/', views.add_test_case_interface,name= "add_test_case_interface"),
+    re_path(r'^test_case_execute_record/(?P<id>\d+)/',
+            views.test_case_execute_record, name="test_case_execute_record"),
+    re_path('test_execute_show_exception/(?P<execute_id>[0-9]+)$',
+            views.test_execute_show_exception, name="test_execute_show_exception"),
 
     re_path(r'^update_test_case/(?P<caseid>\d+)/', views.update_test_case, name= "update_test_case"),
     path(r'update_test_case_interface/', views.update_test_case_interface,name= "update_test_case_interface"),

@@ -3,7 +3,8 @@ from django.urls import reverse
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
-from selenium_apps.models import TestCaseForSEA,TestCaseSteps,Case2SuiteForSEA
+from selenium_apps.models import TestCaseForSEA,TestCaseSteps\
+    ,Case2SuiteForSEA,TestCaseExecuteResultForSEA
 from main_platform.models import JobExecuted
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -123,6 +124,23 @@ def test_case(request):
                     jbe.status= 0
                     jbe.save()
                 return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
+
+
+@login_required
+def test_case_execute_record(request,id):
+    '''执行结果-执行用例记录'''
+    test_case_execute_records= TestCaseExecuteResultForSEA.objects.filter(belong_test_execute= id).order_by("-id")
+    data= {
+        "pages": get_paginator(request, test_case_execute_records), # 返回分页
+    }
+    return render(request,"sea/sea_case_execute_records.html",data)
+
+
+@login_required
+def test_execute_show_exception(request,execute_id):
+    '''执行结果-用例错误信息查看'''
+    tcer= TestCaseExecuteResultForSEA.objects.get(id= execute_id)
+    return render(request, "sea/sea_execute_show_exception.html", {"exception_info": tcer.exception_info})
 
 
 @login_required
