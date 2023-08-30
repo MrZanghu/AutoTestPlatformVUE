@@ -657,85 +657,88 @@ def sea_case_task(test_case_list:list, server_address, user,id):
         i.belong_test_execute= ate.id
         i.save()
 
-    # 写UI的测试记录和集合执行流程
-
-
-
-
     # address= EmailAddress.objects.get(id=1).address.split(";")
     # email_for_interface(address,"界面测试报告"+time_+".html")\
 
 
-# @ex_cases_app.task
-# def sea_suite_task(test_suite_list:list,server_address, user,id):
-#     list_dict= {} # {"":[],"":[]}
-#     zipfiles= [] # 压缩集合报告文件
-#     suites_time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
-#     for ts in test_suite_list:
-#         # 双循环解析集合对应的测试用例
-#         list_open= []
-#         test_case_list= models.AddCaseIntoSuite.objects.filter(test_suite_id= int(ts))
-#         for tc in test_case_list:
-#             list_open.append(tc.test_case)
-#         list_dict[ts]= list_open
-#
-#     for k,v in list_dict.items():
-#         # 循环集合
-#         global_key= "ex_time_" + str(int(time.time() * 100000))  # 系统里唯一，目的为每次执行都独立
-#         os.environ[global_key]= "{}"  # 总全局变量
-#         suite= unittest.TestSuite()
-#         for i in v:
-#             suite.addTest(ParametrizedTestCase.parametrize(BeginTest, case= i,
-#                                                            server_address= server_address,
-#                                                            global_key= global_key,
-#                                                            type= "suite"))
-#         result= BeautifulReport(suite)
-#
-#         time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
-#         result.report(filename= "接口测试报告" + time_,
-#                       description= "自动化测试平台报告",
-#                       report_dir= "report",
-#                       theme= "theme_memories")
-#         zipfiles.append(time_)
-#
-#         del os.environ[global_key]  # 执行完成，删除全局变量
-#
-#         tser= models.TestSuiteExecuteRecord()  # 保存集合记录
-#         suite_id= models.TestSuite.objects.filter(id= int(k)).first()
-#         tser.belong_test_execute= "test"
-#         tser.test_suite= suite_id
-#         tser.status= 1
-#         tser.test_result= "成功"
-#         tser.creator= user
-#         tser.save()
-#
-#         tstcer= models.TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= "test")
-#         for ts1 in tstcer: # 集合下用例有失败，则集合失败
-#             if ts1.execute_result== "失败":
-#                 tser.test_result= "失败"
-#                 tser.save()
-#                 break
-#
-#         for ts2 in tstcer:
-#             ts2.belong_test_suite_exe= tser.id
-#             ts2.save()
-#
-#         time.sleep(30) # 防止报告命名冲突
-#
-#     zip_file("/report/","接口测试报告"+suites_time_,zipfiles)
-#
-#     ate= models.TestExecute()  # 保存执行记录
-#     ate.user= user
-#     ate.type= 1
-#     ate.job_id= id
-#     ate.case_or_suite_ids= ','.join(map(str, test_suite_list))
-#     ate.download_report_path= "report/%s.zip" % ("接口测试报告" + suites_time_)
-#     ate.save()
-#
-#     ter= models.TestSuiteExecuteRecord.objects.filter(belong_test_execute= "test")
-#     for i in ter:  # 对记录关联用例
-#         i.belong_test_execute= ate.id
-#         i.save()
-#
-#     # address= models.EmailAddress.objects.get(id= 1).address.split(";")
-#     # email_for_interface(address,"接口测试报告"+suites_time_+".zip")
+@ex_cases_app.task
+def sea_suite_task(test_suite_list:list,server_address, user,id):
+    list_dict= {} # {"":[],"":[]}
+    zipfiles= [] # 压缩集合报告文件
+    suites_time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
+    for ts in test_suite_list:
+        # 双循环解析集合对应的测试用例
+        list_open= []
+        test_case_list= sea_models.Case2SuiteForSEA.objects.filter(test_suite_id= int(ts),status= 0)
+        for tc in test_case_list:
+            list_open.append(tc.test_case)
+        list_dict[ts]= list_open
+
+    # {
+        # 7: [<TestCaseForSEA: test003>, <TestCaseForSEA: test001>, <TestCaseForSEA: test002>],
+        # 8: [<TestCaseForSEA: test003>, <TestCaseForSEA: test002>, <TestCaseForSEA: test001>]
+    # }
+
+
+
+
+    for k,v in list_dict.items():
+        # 循环集合
+        suite= unittest.TestSuite()
+        for i in v:
+            suite.addTest(ParametrizedTestCase.parametrize(SeaBeginTest, case= i,
+                                                           server_address= server_address,
+                                                           type= "suite"))
+        result= BeautifulReport(suite)
+
+        需要进行集合的文件树确认
+
+
+    #     time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
+    #     result.report(filename= "接口测试报告" + time_,
+    #                   description= "自动化测试平台报告",
+    #                   report_dir= "report",
+    #                   theme= "theme_memories")
+    #     zipfiles.append(time_)
+    #
+    #     del os.environ[global_key]  # 执行完成，删除全局变量
+    #
+    #     tser= models.TestSuiteExecuteRecord()  # 保存集合记录
+    #     suite_id= models.TestSuite.objects.filter(id= int(k)).first()
+    #     tser.belong_test_execute= "test"
+    #     tser.test_suite= suite_id
+    #     tser.status= 1
+    #     tser.test_result= "成功"
+    #     tser.creator= user
+    #     tser.save()
+    #
+    #     tstcer= models.TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= "test")
+    #     for ts1 in tstcer: # 集合下用例有失败，则集合失败
+    #         if ts1.execute_result== "失败":
+    #             tser.test_result= "失败"
+    #             tser.save()
+    #             break
+    #
+    #     for ts2 in tstcer:
+    #         ts2.belong_test_suite_exe= tser.id
+    #         ts2.save()
+    #
+    #     time.sleep(30) # 防止报告命名冲突
+    #
+    # zip_file("/report/","接口测试报告"+suites_time_,zipfiles)
+    #
+    # ate= models.TestExecute()  # 保存执行记录
+    # ate.user= user
+    # ate.type= 1
+    # ate.job_id= id
+    # ate.case_or_suite_ids= ','.join(map(str, test_suite_list))
+    # ate.download_report_path= "report/%s.zip" % ("接口测试报告" + suites_time_)
+    # ate.save()
+    #
+    # ter= models.TestSuiteExecuteRecord.objects.filter(belong_test_execute= "test")
+    # for i in ter:  # 对记录关联用例
+    #     i.belong_test_execute= ate.id
+    #     i.save()
+
+    # address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    # email_for_interface(address,"接口测试报告"+suites_time_+".zip")

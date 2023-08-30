@@ -7,7 +7,7 @@ from django.contrib import auth
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from main_platform.form import UserForm
-from main_platform.tasks import case_task,process_xls,suite_task,sea_case_task
+from main_platform.tasks import case_task,process_xls,suite_task,sea_case_task,sea_suite_task
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from main_platform.validCode import ValidCodeImg
@@ -221,7 +221,10 @@ def do_task_jobs(lists,envs,username,types,id):
                 # 首次执行会出进程问题，执行一次后正常
                 logger.info(" " * 50)
                 logger.info("######### 已经获取到集合，开始进行批量执行 #########")
-                suite_task.delay(test_list, server_address, username,id)
+                if "UI" not in id:  # 接口集合
+                    suite_task.delay(test_list, server_address, username,id)
+                else:
+                    sea_suite_task.delay(test_list, server_address, username,id)
                 fp.write("suite_lock\n")
                 fp.flush()
                 fcntl.flock(fp, fcntl.LOCK_UN)
@@ -644,7 +647,7 @@ def delete_test_case(request,caseid):
     suite_case= AddCaseIntoSuite.objects.filter(test_case= case)
     # 集合关联的用例需要进行解除
     for i in suite_case:
-        i.status = 1
+        i.status= 1
         i.save()
     return redirect(reverse("main_platform:test_case"))
 
@@ -685,7 +688,10 @@ def test_suite(request,suite_type):
         data= {
             "pages": get_paginator(request, test_suite), # 返回分页
         }
-        return render(request,"atp/test_suite.html",data)
+        if suite_type== "0": # 接口集合
+            return render(request,"atp/test_suite.html",data)
+        else: # UI集合
+            return render(request, "sea/sea_test_suite.html", data)
 
     elif request.method== "POST":
     # 点击执行后，生成集合执行记录，集合执行记录包含用例执行记录
@@ -705,22 +711,30 @@ def test_suite(request,suite_type):
             # 如果不是进行执行操作
             if suite_name in [None, ""]:
                 suite_name= ""
-                suites= TestSuite.objects.filter(status= 0).order_by("-id")
+                suites= TestSuite.objects.filter(status= 0).filter(type= suite_type).order_by("-id")
             else:
-                suites= TestSuite.objects.filter(suite_desc__contains= suite_name, status=0).order_by("-id")
+                suites= TestSuite.objects.filter(suite_desc__contains= suite_name,
+                                                 status= 0).filter(type= suite_type).order_by("-id")
+
             data["pages"]= get_paginator(request, suites)
             data["suite_name"]= suite_name
-            return render(request, "atp/test_suite.html", data)
+            if suite_type== "0":
+                return render(request, "atp/test_suite.html", data)
+            else:
+                return render(request, "sea/sea_test_suite.html", data)
         else:
             env= request.POST.get("env")
             test_suite_list= request.POST.getlist("testsuite_list")
             if len(test_suite_list)== 0:
                 # 解决传空用例的问题
-                test_suite= TestSuite.objects.filter(status= 0).order_by("-id")
+                test_suite= TestSuite.objects.filter(status= 0).filter(type= suite_type).order_by("-id")
                 data= {
                     "pages": get_paginator(request, test_suite),  # 返回分页
                 }
-                return render(request, "atp/test_suite.html", data)
+                if suite_type== "0":
+                    return render(request, "atp/test_suite.html", data)
+                else:
+                    return render(request, "sea/sea_test_suite.html", data)
             else:
                 job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
                 job_name1= "test_job1_%s" % ex_time
@@ -735,10 +749,17 @@ def test_suite(request,suite_type):
                 if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
                     pass # 解决重复任务名的问题
                 else:
-                    register_jobs(test_suite_list,env,request.user.username,1,"test_job1_%s"%ex_time,
-                                  year,month,day,hour,minute)
                     jbe= JobExecuted()  # 记录定时任务
-                    jbe.job_id= "test_job1_%s" % ex_time
+
+                    if suite_type== "0":
+                        register_jobs(test_suite_list,env,request.user.username,1,"test_job1_%s"%ex_time,
+                                      year,month,day,hour,minute)
+                        jbe.job_id= "test_job1_%s" % ex_time
+                    else:
+                        register_jobs(test_suite_list,env,request.user.username,1,"test_UI_job1_%s"%ex_time,
+                                      year,month,day,hour,minute)
+                        jbe.job_id= "test_UI_job1_%s" % ex_time
+
                     jbe.user= request.user.username
                     jbe.status= 0
                     jbe.save()

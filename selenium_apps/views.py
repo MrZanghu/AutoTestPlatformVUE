@@ -5,10 +5,11 @@ from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
 from selenium_apps.models import TestCaseForSEA,TestCaseSteps\
     ,Case2SuiteForSEA,TestCaseExecuteResultForSEA
-from main_platform.models import JobExecuted
+from main_platform.models import JobExecuted,TestSuite
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from main_platform.views import register_jobs
+from main_platform.views import test_suite as ts
 
 
 
@@ -320,3 +321,10 @@ def delete_test_case(request,caseid):
     data= {}
     data["pages"]= get_paginator(request, cases)
     return render(request, "sea/sea_test_case.html", data)
+
+
+@login_required
+def test_suite(request,suite_type):
+    '''主页-UI集合'''
+    # 直接调用main_platform的test_suite，统一处理
+    return ts(request,suite_type)

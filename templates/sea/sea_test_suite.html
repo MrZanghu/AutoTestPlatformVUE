@@ -1,0 +1,100 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}用例集合{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/atp/test_suite.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="group">
+        <div id="search">
+            <form action="{% url 'selenium_apps:test_suite' 1 %}" method="POST">
+            {#默认是接口测试，post时也不会进行处理#}
+                {% csrf_token %}
+                <input style="margin-left: 5px;" type="text" name="suite_name" value="{{ suite_name }}"
+                       placeholder="输入集合名称">
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <span style="margin-left: 5px;">运行环境：</span>
+        <select name="env" style="height: 23px">
+            <option selected value="dev">dev</option>
+            <option value="test">test</option>
+            <option value="https">https</option>
+        </select>
+        <input type="datetime-local" style="font-size: 10px" name="ex_time">
+        <input style="margin-left: 5px;font-size: 10px" type="submit" value='执行测试集合' name="ex_suite"
+               onclick="return ischecked()"/>
+        <p class="glyphicon glyphicon-info-sign" title="设置执行时间，默认下一分钟后执行"></p>
+
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
+                    <th>测试集合名称</th>
+                    <th>类型</th>
+                    <th>创建者</th>
+                    <th>创建时间</th>
+                    <th>查看/删除测试用例</th>
+                    <th>添加测试用例</th>
+                    <th>用例集合执行结果</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for case_suite in pages %}
+                    <tr>
+                        <td><input type="checkbox" value="{{ case_suite.id }}"
+                                   name="testsuite_list"> {{ case_suite.id }} </td>
+                        <td>{{ case_suite.suite_desc }}</td>
+                        {% ifequal case_suite.type 1 %}
+                            <td>UI</td>
+                        {% else %}
+                            <td>API</td>
+                        {% endifequal %}
+                        <td>{{ case_suite.creator }}</td>
+                        <td>{{ case_suite.create_time|date:"Y-n-d H:i:s" }}</td>
+                        <td>
+                            <a href="{% url 'main_platform:view_or_delete_cases_in_suite' case_suite.id %}">查看/删除测试用例</a>
+                        </td>
+                        <td><a href="{% url 'main_platform:add_case_into_suite' case_suite.id %}">添加测试用例</a></td>
+                        <td><a href="{% url '[main_platform]:test_suite_statistics' case_suite.id %}">查看用例集合执行结果</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <div id="pages" class="text-center">
+        <nav>
+            <ul class="pagination">
+                <li class="step-links">
+                    {% if pages.has_previous %}
+                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                    {% endif %}
+
+                    <span class="current">
+                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                    {% if pages.has_next %}
+                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/atp/test_suite.js' %}"></script>
+{% endblock %}
