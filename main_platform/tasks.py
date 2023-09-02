@@ -358,6 +358,7 @@ def case_task(test_case_list:list, server_address, user,id):
     :param test_case_list: 用例id列表
     :param server_address: 服务器信息
     :param user: 执行用户
+    :param id: 任务id
     :return:
     '''
     global_key= "ex_time_" + str(int(time.time() * 100000)) # 系统里唯一，目的为每次执行都独立
@@ -401,6 +402,14 @@ def case_task(test_case_list:list, server_address, user,id):
 
 @ex_cases_app.task
 def suite_task(test_suite_list:list,server_address, user,id):
+    '''
+    进行测试集合的执行操作
+    :param test_case_list: 集合id列表
+    :param server_address: 服务器信息
+    :param user: 执行用户
+    :param id: 任务id
+    :return:
+    '''
     list_dict= {} # {"":[],"":[]}
     zipfiles= [] # 压缩集合报告文件
     suites_time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
@@ -493,9 +502,15 @@ class SeaBeginTest(ParametrizedTestCase):
             self.driver= webdriver.Chrome(chrome_options= self.option)  # 不启动浏览器
             # self.driver= webdriver.Chrome() # 启动浏览器
 
-            self.execute_record= sea_models.TestCaseExecuteResultForSEA.objects.create(
-                belong_test_case= self.test_case)
-            self.execute_record.belong_test_execute= "test"
+            if self.type== "case":
+                self.execute_record= sea_models.TestCaseExecuteResultForSEA.objects.create(
+                    belong_test_case= self.test_case)
+                self.execute_record.belong_test_execute= "test"
+            elif self.type== "suite":
+                self.execute_record= sea_models.Case2SuiteExecuteResultForSEA.objects.create(
+                    belong_test_case= self.test_case)
+                self.execute_record.belong_test_suite_exe= "test"
+
             self.execute_record.status= 1
             self.execute_record.length= self.test_case.length
             self.execute_start_time= time.time()  # 执行开始时间，时间戳
@@ -607,6 +622,7 @@ def sea_case_task(test_case_list:list, server_address, user,id):
     :param test_case_list: 用例id列表
     :param server_address: 服务器信息
     :param user: 执行用户
+    :param id: 任务id
     :return:
     '''
     list_open= []
@@ -663,27 +679,46 @@ def sea_case_task(test_case_list:list, server_address, user,id):
 
 @ex_cases_app.task
 def sea_suite_task(test_suite_list:list,server_address, user,id):
-    list_dict= {} # {"":[],"":[]}
+    '''
+    进行测试集合的执行操作
+    :param test_case_list: 集合id列表
+    :param server_address: 服务器信息
+    :param user: 执行用户
+    :param id: 任务id
+    :return:
+    '''
+    
+    '''{
+        "suite1":[
+            {"用例1":["所有步骤"]},
+            {"用例2":["所有步骤"]},],
+        "suite2":[
+            {"用例3":["所有步骤"]},
+            {"用例4":["所有步骤"]},]
+    }'''
+
+    list_dict= {}
     zipfiles= [] # 压缩集合报告文件
     suites_time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
     for ts in test_suite_list:
         # 双循环解析集合对应的测试用例
-        list_open= []
-        test_case_list= sea_models.Case2SuiteForSEA.objects.filter(test_suite_id= int(ts),status= 0)
+        list_open= []  # 存用例
+        test_case_list= sea_models.Case2SuiteForSEA.objects.filter(test_suite_id= ts,status= 0)
+
         for tc in test_case_list:
-            list_open.append(tc.test_case)
-        list_dict[ts]= list_open
+            list_inner_dict= {}  # 存步骤
+            detail= sea_models.TestCaseForSEA.objects.get(id= tc.test_case_id)
+            steps= sea_models.TestCaseSteps.objects.filter(testcaseid_id= detail.id) \
+                .values_list("LocationPath", "Method", "Parameter", "Action", "Expected")
+            # values_list可以将queryset转换成tuple，需要指定字段
 
-    # {
-        # 7: [<TestCaseForSEA: test003>, <TestCaseForSEA: test001>, <TestCaseForSEA: test002>],
-        # 8: [<TestCaseForSEA: test003>, <TestCaseForSEA: test002>, <TestCaseForSEA: test001>]
-    # }
+            steps= [list(i) for i in steps]
+            list_inner_dict[str(tc.test_case_id)]= steps
+            list_open.append(list_inner_dict)
 
+        list_dict[str(ts)]= list_open
 
-
-
-    for k,v in list_dict.items():
-        # 循环集合
+    for k,v in list_dict.items():   # 循环集合
         suite= unittest.TestSuite()
         for i in v:
             suite.addTest(ParametrizedTestCase.parametrize(SeaBeginTest, case= i,
@@ -691,17 +726,19 @@ def sea_suite_task(test_suite_list:list,server_address, user,id):
                                                            type= "suite"))
         result= BeautifulReport(suite)
 
-        需要进行集合的文件树确认
+        time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
+        result.report(filename= "UI测试报告" + time_,
+                      description= "自动化测试平台报告",
+                      report_dir= "report",
+                      theme= "theme_memories")
+
+        1.已经可以正常执行集合及记录
+        2.考虑如何处理打包截图文件树
 
 
-    #     time_= str(time.strftime("%Y_%m_%d_%H:%M:%S", time.localtime(time.time())))
-    #     result.report(filename= "接口测试报告" + time_,
-    #                   description= "自动化测试平台报告",
-    #                   report_dir= "report",
-    #                   theme= "theme_memories")
+
+
     #     zipfiles.append(time_)
-    #
-    #     del os.environ[global_key]  # 执行完成，删除全局变量
     #
     #     tser= models.TestSuiteExecuteRecord()  # 保存集合记录
     #     suite_id= models.TestSuite.objects.filter(id= int(k)).first()

@@ -1,0 +1,2546 @@
+2023-09-01 16:34:57,612 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:34:57,613 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:34:57,619 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:34:57,619 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:35:00,024 "views:do_task_jobs:204" [INFO]-                                                   
+2023-09-01 16:35:00,025 "views:do_task_jobs:205" [INFO]- ######### 已经获取到用例，开始进行批量执行 #########
+2023-09-01 16:35:00,137 "tasks:sea_case_task:643" [INFO]- (None, None, None, 'screenshot(截图)', None)
+2023-09-01 16:35:00,138 "tasks:sea_case_task:643" [INFO]- (None, None, None, 'screenshot(截图)', None)
+2023-09-01 16:35:27,622 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:35:27,622 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:35:27,623 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:35:27,624 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:35:57,618 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:35:57,618 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:35:57,620 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:35:57,620 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:36:32,018 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:36:32,019 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:36:32,024 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:36:32,024 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:37:02,027 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:37:02,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:37:02,028 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:37:02,028 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:37:32,026 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:37:32,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:37:32,029 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:37:32,029 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:38:02,027 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:38:02,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:38:02,028 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:38:02,028 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:38:32,026 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:38:32,026 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:38:32,026 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:38:32,026 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:39:02,028 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:39:02,028 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:39:02,028 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:39:02,029 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:39:32,026 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:39:32,026 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:39:32,027 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:39:32,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:40:02,027 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:40:02,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:40:02,029 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:40:02,030 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:40:32,026 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:40:32,026 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:40:32,027 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:40:32,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:41:02,027 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:41:02,027 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:41:02,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:41:02,027 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:41:32,039 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:41:32,039 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:41:32,041 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:41:32,041 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:42:00,013 "views:do_task_jobs:204" [INFO]-                                                   
+2023-09-01 16:42:00,013 "views:do_task_jobs:205" [INFO]- ######### 已经获取到用例，开始进行批量执行 #########
+2023-09-01 16:42:00,068 "tasks:sea_case_task:637" [INFO]- <class 'tuple'>
+2023-09-01 16:42:00,069 "tasks:sea_case_task:637" [INFO]- <class 'tuple'>
+2023-09-01 16:42:11,116 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:42:11,116 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:42:11,119 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:42:11,120 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:42:41,114 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:42:41,114 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:53:46,562 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:53:46,562 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:54:16,566 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:54:16,566 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:54:46,565 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:54:46,566 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:55:16,568 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:55:16,568 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:55:46,565 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:55:46,565 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:56:16,563 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:56:16,563 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:56:46,569 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:56:46,569 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:57:16,564 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:57:16,564 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:57:46,566 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:57:46,566 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:58:16,564 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:58:16,565 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:58:46,562 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:58:46,562 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:59:16,565 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:59:16,565 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 16:59:46,561 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 16:59:46,561 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:00:16,567 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:00:16,567 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:00:46,564 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:00:46,564 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:07:18,916 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:07:18,916 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:11:39,771 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:11:39,771 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:12:09,774 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:12:09,774 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:12:39,780 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:12:39,780 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:13:09,774 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:13:09,774 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:13:39,778 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:13:39,778 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:14:09,776 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:14:09,776 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-01 17:14:39,780 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-01 17:14:39,780 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:26:00,022 "views:do_task_jobs:222" [INFO]-                                                   
+2023-09-02 17:26:00,023 "views:do_task_jobs:223" [INFO]- ######### 已经获取到集合，开始进行批量执行 #########
+2023-09-02 17:26:00,120 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:26:00,125 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test003】##########
+2023-09-02 17:26:02,191 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:26:02,192 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:02,193 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:02,194 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:26:02,194 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:05,526 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:05,528 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:05,530 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:05,532 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:26:05,533 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:06,628 "tasks:testMethod:602" [INFO]- 用例【test003】执行成功！
+2023-09-02 17:26:07,704 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:26:07,706 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test001】##########
+2023-09-02 17:26:08,539 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:26:08,540 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:08,540 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:08,541 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:26:08,542 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:10,346 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:10,347 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:10,348 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:26:10,348 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:26:10,349 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:11,359 "tasks:setUp:522" [INFO]- 定位路径:https://www.cmd5.com/
+2023-09-02 17:26:11,360 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:11,362 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:11,363 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:26:11,365 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:12,259 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:26:12,260 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:26:12,986 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:12,989 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:12,990 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:12,991 "tasks:setUp:525" [INFO]- 步骤动作:back(后退)
+2023-09-02 17:26:12,994 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:14,539 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:14,540 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:14,541 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:14,542 "tasks:setUp:525" [INFO]- 步骤动作:forward(前进)
+2023-09-02 17:26:14,543 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:15,977 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:15,979 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:15,980 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:15,981 "tasks:setUp:525" [INFO]- 步骤动作:refresh(刷新)
+2023-09-02 17:26:15,982 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:17,300 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:17,302 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:17,303 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:17,304 "tasks:setUp:525" [INFO]- 步骤动作:gettitle(获取窗口标题)
+2023-09-02 17:26:17,305 "tasks:setUp:526" [INFO]- 预期结果:testtesttest
+2023-09-02 17:26:17,312 "tasks:setUp:579" [INFO]- 断言关键字【testtesttest】匹配失败，实际结果是：【md5在线解密破解,md5解密加密】
+2023-09-02 17:26:18,313 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:18,314 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:18,315 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:18,316 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:26:18,317 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:19,371 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:19,373 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:19,374 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:26:19,375 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:26:19,376 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:20,380 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:20,382 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:20,383 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:20,383 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:26:20,385 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:21,457 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:26:21,459 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:26:21,460 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:26:21,461 "tasks:setUp:525" [INFO]- 步骤动作:closewindow(关闭当前页签)
+2023-09-02 17:26:21,461 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:26:22,534 "tasks:testMethod:598" [INFO]- 用例【test001】执行失败！
+2023-09-02 17:26:42,254 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:26:42,254 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:27:12,253 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:27:12,253 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:27:42,257 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:27:42,257 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:28:12,256 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:28:12,256 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:28:42,254 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:28:42,254 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:29:12,253 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:29:12,254 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:29:42,258 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:29:42,258 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:30:00,010 "views:do_task_jobs:222" [INFO]-                                                   
+2023-09-02 17:30:00,011 "views:do_task_jobs:223" [INFO]- ######### 已经获取到集合，开始进行批量执行 #########
+2023-09-02 17:30:00,020 "views:do_task_jobs:222" [INFO]-                                                   
+2023-09-02 17:30:00,021 "views:do_task_jobs:223" [INFO]- ######### 已经获取到集合，开始进行批量执行 #########
+2023-09-02 17:30:00,036 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:30:00,038 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test003】##########
+2023-09-02 17:30:00,093 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:30:00,095 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test003】##########
+2023-09-02 17:30:01,106 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:30:01,107 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:01,108 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:01,108 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:30:01,109 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:01,289 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:30:01,290 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:01,291 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:01,292 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:30:01,292 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:04,057 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:04,059 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:04,059 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:04,060 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:30:04,061 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:04,131 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:04,131 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:04,132 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:04,132 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:30:04,133 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:05,143 "tasks:testMethod:602" [INFO]- 用例【test003】执行成功！
+2023-09-02 17:30:05,223 "tasks:testMethod:602" [INFO]- 用例【test003】执行成功！
+2023-09-02 17:30:06,229 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:30:06,232 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test002】##########
+2023-09-02 17:30:06,304 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:30:06,307 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test002】##########
+2023-09-02 17:30:07,282 "tasks:setUp:522" [INFO]- 定位路径:http://192.168.31.100:8000/atp/index/
+2023-09-02 17:30:07,283 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:07,283 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:07,284 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:30:07,285 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:07,398 "tasks:setUp:522" [INFO]- 定位路径:http://192.168.31.100:8000/atp/index/
+2023-09-02 17:30:07,399 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:07,400 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:07,401 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:30:07,401 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:09,172 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:09,173 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:09,174 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:30:09,175 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:09,176 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:09,216 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:09,217 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:09,218 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:30:09,219 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:09,220 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:10,180 "tasks:setUp:522" [INFO]- 定位路径:id==id_username
+2023-09-02 17:30:10,181 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:30:10,182 "tasks:setUp:524" [INFO]- 传入参数:admin
+2023-09-02 17:30:10,183 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:10,184 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:10,224 "tasks:setUp:522" [INFO]- 定位路径:id==id_username
+2023-09-02 17:30:10,225 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:30:10,228 "tasks:setUp:524" [INFO]- 传入参数:admin
+2023-09-02 17:30:10,229 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:10,230 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:11,370 "tasks:setUp:522" [INFO]- 定位路径:id==id_password
+2023-09-02 17:30:11,370 "tasks:setUp:522" [INFO]- 定位路径:id==id_password
+2023-09-02 17:30:11,372 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:30:11,372 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:30:11,373 "tasks:setUp:524" [INFO]- 传入参数:123456
+2023-09-02 17:30:11,373 "tasks:setUp:524" [INFO]- 传入参数:123456
+2023-09-02 17:30:11,374 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:11,374 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:11,375 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:11,375 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:12,267 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:30:12,267 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:30:12,438 "tasks:setUp:522" [INFO]- 定位路径:id==verifypassword_input
+2023-09-02 17:30:12,439 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:30:12,440 "tasks:setUp:524" [INFO]- 传入参数:6666
+2023-09-02 17:30:12,441 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:12,442 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:12,445 "tasks:setUp:522" [INFO]- 定位路径:id==verifypassword_input
+2023-09-02 17:30:12,446 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:30:12,447 "tasks:setUp:524" [INFO]- 传入参数:6666
+2023-09-02 17:30:12,448 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:12,449 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:13,514 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/div/div/form/button
+2023-09-02 17:30:13,514 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/div/div/form/button
+2023-09-02 17:30:13,515 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:13,515 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:13,516 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:13,516 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:13,517 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:13,518 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:13,518 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:13,519 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:14,827 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:14,826 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:14,828 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:14,828 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:14,829 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:14,829 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:14,830 "tasks:setUp:525" [INFO]- 步骤动作:maximizewindow(窗口最大化)
+2023-09-02 17:30:14,830 "tasks:setUp:525" [INFO]- 步骤动作:maximizewindow(窗口最大化)
+2023-09-02 17:30:14,831 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:14,831 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:15,946 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my_list"]/li[4]/ul/li[1]/a
+2023-09-02 17:30:15,946 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my_list"]/li[4]/ul/li[1]/a
+2023-09-02 17:30:15,947 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:15,947 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:15,948 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:15,948 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:15,949 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:15,949 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:15,949 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:15,950 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:19,039 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: element not interactable
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5896 chromedriver + 448662
+3   chromedriver                        0x0000000101b0d316 chromedriver + 742166
+4   chromedriver                        0x0000000101b0003a chromedriver + 688186
+5   chromedriver                        0x0000000101b323f2 chromedriver + 893938
+6   chromedriver                        0x0000000101aff8b8 chromedriver + 686264
+7   chromedriver                        0x0000000101b325ae chromedriver + 894382
+8   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+9   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+10  chromedriver                        0x0000000101afddf9 chromedriver + 679417
+11  chromedriver                        0x0000000101afefde chromedriver + 683998
+12  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+13  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+14  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+15  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+16  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+17  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+18  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+19  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+20  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+21  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:19,039 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: element not interactable
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6d896 chromedriver + 448662
+3   chromedriver                        0x000000010aab5316 chromedriver + 742166
+4   chromedriver                        0x000000010aaa803a chromedriver + 688186
+5   chromedriver                        0x000000010aada3f2 chromedriver + 893938
+6   chromedriver                        0x000000010aaa78b8 chromedriver + 686264
+7   chromedriver                        0x000000010aada5ae chromedriver + 894382
+8   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+9   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+10  chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+11  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+12  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+13  chromedriver                        0x000000010ae872de chromedriver + 4747998
+14  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+15  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+16  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+17  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+18  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+19  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+20  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+21  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:20,044 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:20,045 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:20,045 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:20,046 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:20,046 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:30:20,047 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:30:20,048 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:20,049 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:20,049 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:20,050 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:21,054 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:30:21,054 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:30:21,056 "tasks:setUp:523" [INFO]- 方法|操作:selectbytext(下拉框的内容)
+2023-09-02 17:30:21,056 "tasks:setUp:523" [INFO]- 方法|操作:selectbytext(下拉框的内容)
+2023-09-02 17:30:21,056 "tasks:setUp:524" [INFO]- 传入参数:test
+2023-09-02 17:30:21,057 "tasks:setUp:524" [INFO]- 传入参数:test
+2023-09-02 17:30:21,058 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:21,058 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:21,059 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:21,059 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:24,112 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:24,112 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:25,117 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:25,117 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:25,118 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:25,118 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:25,119 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:25,119 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:25,120 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:25,120 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:25,121 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:25,122 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:26,125 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:30:26,125 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:30:26,126 "tasks:setUp:523" [INFO]- 方法|操作:selectbyindex(下拉框的下标)
+2023-09-02 17:30:26,126 "tasks:setUp:523" [INFO]- 方法|操作:selectbyindex(下拉框的下标)
+2023-09-02 17:30:26,127 "tasks:setUp:524" [INFO]- 传入参数:0
+2023-09-02 17:30:26,127 "tasks:setUp:524" [INFO]- 传入参数:0
+2023-09-02 17:30:26,128 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:26,129 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:26,129 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:26,129 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:28,178 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:28,178 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:29,182 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:29,183 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:29,182 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:29,186 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:29,187 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:29,187 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:29,188 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:29,184 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:29,190 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:29,191 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:30,201 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:30:30,201 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:30:30,202 "tasks:setUp:523" [INFO]- 方法|操作:isselect(是否已经被选择)
+2023-09-02 17:30:30,202 "tasks:setUp:523" [INFO]- 方法|操作:isselect(是否已经被选择)
+2023-09-02 17:30:30,203 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:30,203 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:30,204 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:30,204 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:30,205 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:30,205 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:32,225 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:32,225 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:33,230 "tasks:setUp:522" [INFO]- 定位路径:name==ex_case
+2023-09-02 17:30:33,230 "tasks:setUp:522" [INFO]- 定位路径:name==ex_case
+2023-09-02 17:30:33,231 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:33,231 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:33,232 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:33,232 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:33,233 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:33,233 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:33,233 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:33,234 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:35,262 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="ex_case"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:35,263 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="ex_case"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:36,267 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:36,267 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:36,268 "tasks:setUp:523" [INFO]- 方法|操作:alertgettext(获取弹出框内容)
+2023-09-02 17:30:36,268 "tasks:setUp:523" [INFO]- 方法|操作:alertgettext(获取弹出框内容)
+2023-09-02 17:30:36,269 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:36,269 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:36,270 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:36,271 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:36,271 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:36,272 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:36,276 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5896 chromedriver + 448662
+3   chromedriver                        0x0000000101ab5b1a chromedriver + 383770
+4   chromedriver                        0x0000000101ae386b chromedriver + 571499
+5   chromedriver                        0x0000000101b3244b chromedriver + 894027
+6   chromedriver                        0x0000000101ae351f chromedriver + 570655
+7   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+8   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+9   chromedriver                        0x0000000101afefde chromedriver + 683998
+10  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+11  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+12  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+13  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+14  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+15  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+16  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+17  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:36,277 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6d896 chromedriver + 448662
+3   chromedriver                        0x000000010aa5db1a chromedriver + 383770
+4   chromedriver                        0x000000010aa8b86b chromedriver + 571499
+5   chromedriver                        0x000000010aada44b chromedriver + 894027
+6   chromedriver                        0x000000010aa8b51f chromedriver + 570655
+7   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+8   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+9   chromedriver                        0x000000010aaa6fde chromedriver + 683998
+10  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+11  chromedriver                        0x000000010ae872de chromedriver + 4747998
+12  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+13  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+14  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+15  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+16  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+17  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:37,280 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:37,281 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:37,282 "tasks:setUp:523" [INFO]- 方法|操作:alertaccept(点击确认)
+2023-09-02 17:30:37,282 "tasks:setUp:523" [INFO]- 方法|操作:alertaccept(点击确认)
+2023-09-02 17:30:37,283 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:37,283 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:37,284 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:37,284 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:37,285 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:37,285 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:37,288 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5896 chromedriver + 448662
+3   chromedriver                        0x0000000101ab5b1a chromedriver + 383770
+4   chromedriver                        0x0000000101ae386b chromedriver + 571499
+5   chromedriver                        0x0000000101b3244b chromedriver + 894027
+6   chromedriver                        0x0000000101ae351f chromedriver + 570655
+7   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+8   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+9   chromedriver                        0x0000000101afefde chromedriver + 683998
+10  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+11  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+12  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+13  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+14  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+15  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+16  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+17  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:37,288 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6d896 chromedriver + 448662
+3   chromedriver                        0x000000010aa5db1a chromedriver + 383770
+4   chromedriver                        0x000000010aa8b86b chromedriver + 571499
+5   chromedriver                        0x000000010aada44b chromedriver + 894027
+6   chromedriver                        0x000000010aa8b51f chromedriver + 570655
+7   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+8   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+9   chromedriver                        0x000000010aaa6fde chromedriver + 683998
+10  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+11  chromedriver                        0x000000010ae872de chromedriver + 4747998
+12  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+13  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+14  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+15  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+16  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+17  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:38,294 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:38,294 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:38,296 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:38,296 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:38,296 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:38,297 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:38,297 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:38,298 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:38,298 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:38,299 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:39,303 "tasks:setUp:522" [INFO]- 定位路径:name==case_name
+2023-09-02 17:30:39,303 "tasks:setUp:522" [INFO]- 定位路径:name==case_name
+2023-09-02 17:30:39,304 "tasks:setUp:523" [INFO]- 方法|操作:getattribute(获取指定属性值)
+2023-09-02 17:30:39,304 "tasks:setUp:523" [INFO]- 方法|操作:getattribute(获取指定属性值)
+2023-09-02 17:30:39,305 "tasks:setUp:524" [INFO]- 传入参数:placeholder
+2023-09-02 17:30:39,306 "tasks:setUp:524" [INFO]- 传入参数:placeholder
+2023-09-02 17:30:39,306 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:39,307 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:39,307 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:39,308 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:41,359 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="case_name"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:41,359 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="case_name"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:42,269 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:30:42,269 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:30:42,361 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]
+2023-09-02 17:30:42,362 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]
+2023-09-02 17:30:42,362 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:42,363 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:30:42,364 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:42,364 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:42,364 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:42,365 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:42,365 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:42,365 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:44,405 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:44,405 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:45,407 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:45,408 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:45,409 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:45,410 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:45,410 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:45,411 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:45,411 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:45,412 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:45,413 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:45,413 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:46,414 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="interfaceParam"]/thead/tr/td[2]
+2023-09-02 17:30:46,415 "tasks:setUp:523" [INFO]- 方法|操作:gettext(获取文本属性)
+2023-09-02 17:30:46,416 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:46,417 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:46,417 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="interfaceParam"]/thead/tr/td[2]
+2023-09-02 17:30:46,418 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:46,418 "tasks:setUp:523" [INFO]- 方法|操作:gettext(获取文本属性)
+2023-09-02 17:30:46,419 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:46,421 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:46,422 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:48,474 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="interfaceParam"]/thead/tr/td[2]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:48,474 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="interfaceParam"]/thead/tr/td[2]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:49,477 "tasks:setUp:522" [INFO]- 定位路径:id==LocationPath1
+2023-09-02 17:30:49,477 "tasks:setUp:522" [INFO]- 定位路径:id==LocationPath1
+2023-09-02 17:30:49,479 "tasks:setUp:523" [INFO]- 方法|操作:gettagname(获取标签类型)
+2023-09-02 17:30:49,479 "tasks:setUp:523" [INFO]- 方法|操作:gettagname(获取标签类型)
+2023-09-02 17:30:49,479 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:49,480 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:49,481 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:49,481 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:49,482 "tasks:setUp:526" [INFO]- 预期结果:input1
+2023-09-02 17:30:49,482 "tasks:setUp:526" [INFO]- 预期结果:input1
+2023-09-02 17:30:51,511 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="LocationPath1"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:51,511 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="LocationPath1"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:52,514 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:30:52,514 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:30:52,515 "tasks:setUp:523" [INFO]- 方法|操作:mouselkclick(模拟鼠标左键单击)
+2023-09-02 17:30:52,515 "tasks:setUp:523" [INFO]- 方法|操作:mouselkclick(模拟鼠标左键单击)
+2023-09-02 17:30:52,516 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:52,516 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:52,517 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:52,517 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:52,518 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:52,518 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:54,571 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:54,571 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:55,574 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:30:55,574 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:30:55,575 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:30:55,575 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:30:55,576 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:55,576 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:55,577 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:55,577 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:55,578 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:55,578 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:57,621 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:57,621 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:30:58,624 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:58,625 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:58,626 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:58,627 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:30:58,627 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:58,628 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:30:58,628 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:58,628 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:30:58,629 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:30:58,630 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:59,632 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:30:59,633 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:30:59,634 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:30:59,634 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:30:59,635 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:59,635 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:30:59,636 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:59,636 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:30:59,637 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:30:59,637 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:01,686 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010aec5638 chromedriver + 5002808
+1   chromedriver                        0x000000010aebca53 chromedriver + 4966995
+2   chromedriver                        0x000000010aa6da57 chromedriver + 449111
+3   chromedriver                        0x000000010aab3d05 chromedriver + 736517
+4   chromedriver                        0x000000010aab3ec1 chromedriver + 736961
+5   chromedriver                        0x000000010aaf7f04 chromedriver + 1015556
+6   chromedriver                        0x000000010aada41d chromedriver + 893981
+7   chromedriver                        0x000000010aaf5391 chromedriver + 1004433
+8   chromedriver                        0x000000010aada1c3 chromedriver + 893379
+9   chromedriver                        0x000000010aaa5df9 chromedriver + 679417
+10  chromedriver                        0x000000010aaa6fde chromedriver + 683998
+11  chromedriver                        0x000000010ae822d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ae872de chromedriver + 4747998
+13  chromedriver                        0x000000010ae452c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ae8802d chromedriver + 4751405
+15  chromedriver                        0x000000010ae5b0ec chromedriver + 4567276
+16  chromedriver                        0x000000010aea57f8 chromedriver + 4872184
+17  chromedriver                        0x000000010aea59b7 chromedriver + 4872631
+18  chromedriver                        0x000000010aeb5a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:31:01,687 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000101f1d638 chromedriver + 5002808
+1   chromedriver                        0x0000000101f14a53 chromedriver + 4966995
+2   chromedriver                        0x0000000101ac5a57 chromedriver + 449111
+3   chromedriver                        0x0000000101b0bd05 chromedriver + 736517
+4   chromedriver                        0x0000000101b0bec1 chromedriver + 736961
+5   chromedriver                        0x0000000101b4ff04 chromedriver + 1015556
+6   chromedriver                        0x0000000101b3241d chromedriver + 893981
+7   chromedriver                        0x0000000101b4d391 chromedriver + 1004433
+8   chromedriver                        0x0000000101b321c3 chromedriver + 893379
+9   chromedriver                        0x0000000101afddf9 chromedriver + 679417
+10  chromedriver                        0x0000000101afefde chromedriver + 683998
+11  chromedriver                        0x0000000101eda2d9 chromedriver + 4727513
+12  chromedriver                        0x0000000101edf2de chromedriver + 4747998
+13  chromedriver                        0x0000000101e9d2c9 chromedriver + 4477641
+14  chromedriver                        0x0000000101ee002d chromedriver + 4751405
+15  chromedriver                        0x0000000101eb30ec chromedriver + 4567276
+16  chromedriver                        0x0000000101efd7f8 chromedriver + 4872184
+17  chromedriver                        0x0000000101efd9b7 chromedriver + 4872631
+18  chromedriver                        0x0000000101f0da1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:31:02,689 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/nav/div/div[1]/a
+2023-09-02 17:31:02,689 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/nav/div/div[1]/a
+2023-09-02 17:31:02,690 "tasks:setUp:523" [INFO]- 方法|操作:mousedclick(模拟鼠标双击)
+2023-09-02 17:31:02,691 "tasks:setUp:523" [INFO]- 方法|操作:mousedclick(模拟鼠标双击)
+2023-09-02 17:31:02,691 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:02,692 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:02,692 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:31:02,693 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:31:02,693 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:02,693 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:04,055 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:31:04,056 "tasks:setUp:523" [INFO]- 方法|操作:mouseclickhold(模拟鼠标左键长按)
+2023-09-02 17:31:04,057 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:04,058 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:31:04,059 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:04,069 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:31:04,070 "tasks:setUp:523" [INFO]- 方法|操作:mouseclickhold(模拟鼠标左键长按)
+2023-09-02 17:31:04,071 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:04,073 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:31:04,073 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:05,354 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:31:05,355 "tasks:setUp:523" [INFO]- 方法|操作:mouserelease(模拟鼠标长按后释放)
+2023-09-02 17:31:05,356 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:05,357 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:31:05,357 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:31:05,358 "tasks:setUp:523" [INFO]- 方法|操作:mouserelease(模拟鼠标长按后释放)
+2023-09-02 17:31:05,358 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:05,359 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:05,360 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:31:05,362 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:06,652 "tasks:testMethod:598" [INFO]- 用例【test002】执行失败！
+2023-09-02 17:31:06,652 "tasks:testMethod:598" [INFO]- 用例【test002】执行失败！
+2023-09-02 17:31:07,730 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:31:07,732 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test001】##########
+2023-09-02 17:31:07,738 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:31:07,741 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test001】##########
+2023-09-02 17:31:08,804 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:31:08,805 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:08,806 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:08,806 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:31:08,807 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:08,817 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:31:08,818 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:08,819 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:08,819 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:31:08,820 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:11,670 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:11,671 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:11,672 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:31:11,673 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:31:11,673 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:11,780 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:11,781 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:11,782 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:31:11,783 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:31:11,784 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:12,270 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:31:12,270 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:31:12,678 "tasks:setUp:522" [INFO]- 定位路径:https://www.cmd5.com/
+2023-09-02 17:31:12,680 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:12,680 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:12,681 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:31:12,682 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:12,796 "tasks:setUp:522" [INFO]- 定位路径:https://www.cmd5.com/
+2023-09-02 17:31:12,797 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:12,798 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:12,799 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:31:12,800 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:14,562 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:14,563 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:14,569 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:14,569 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:14,570 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:14,570 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:14,571 "tasks:setUp:525" [INFO]- 步骤动作:back(后退)
+2023-09-02 17:31:14,571 "tasks:setUp:525" [INFO]- 步骤动作:back(后退)
+2023-09-02 17:31:14,572 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:14,572 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:16,091 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:16,093 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:16,094 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:16,094 "tasks:setUp:525" [INFO]- 步骤动作:forward(前进)
+2023-09-02 17:31:16,095 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:16,168 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:16,169 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:16,170 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:16,170 "tasks:setUp:525" [INFO]- 步骤动作:forward(前进)
+2023-09-02 17:31:16,171 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:17,490 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:17,491 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:17,492 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:17,493 "tasks:setUp:525" [INFO]- 步骤动作:refresh(刷新)
+2023-09-02 17:31:17,493 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:17,520 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:17,521 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:17,522 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:17,523 "tasks:setUp:525" [INFO]- 步骤动作:refresh(刷新)
+2023-09-02 17:31:17,524 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:18,675 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:18,676 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:18,677 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:18,677 "tasks:setUp:525" [INFO]- 步骤动作:gettitle(获取窗口标题)
+2023-09-02 17:31:18,678 "tasks:setUp:526" [INFO]- 预期结果:testtesttest
+2023-09-02 17:31:18,684 "tasks:setUp:579" [INFO]- 断言关键字【testtesttest】匹配失败，实际结果是：【md5在线解密破解,md5解密加密】
+2023-09-02 17:31:18,721 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:18,723 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:18,724 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:18,725 "tasks:setUp:525" [INFO]- 步骤动作:gettitle(获取窗口标题)
+2023-09-02 17:31:18,725 "tasks:setUp:526" [INFO]- 预期结果:testtesttest
+2023-09-02 17:31:18,732 "tasks:setUp:579" [INFO]- 断言关键字【testtesttest】匹配失败，实际结果是：【md5在线解密破解,md5解密加密】
+2023-09-02 17:31:19,685 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:19,687 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:19,688 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:19,688 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:31:19,689 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:19,734 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:19,735 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:19,736 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:19,737 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:31:19,737 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:20,748 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:20,749 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:20,750 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:31:20,751 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:31:20,752 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:20,801 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:20,803 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:20,803 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:31:20,804 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:31:20,805 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:21,755 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:21,757 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:21,757 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:21,758 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:31:21,759 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:21,808 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:21,809 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:21,809 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:21,810 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:31:21,810 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:22,812 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:22,813 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:22,814 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:22,815 "tasks:setUp:525" [INFO]- 步骤动作:closewindow(关闭当前页签)
+2023-09-02 17:31:22,816 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:22,861 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:31:22,863 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:31:22,864 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:31:22,864 "tasks:setUp:525" [INFO]- 步骤动作:closewindow(关闭当前页签)
+2023-09-02 17:31:22,866 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:31:23,883 "tasks:testMethod:598" [INFO]- 用例【test001】执行失败！
+2023-09-02 17:31:23,930 "tasks:testMethod:598" [INFO]- 用例【test001】执行失败！
+2023-09-02 17:31:42,273 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:31:42,274 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:32:12,272 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:32:12,272 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:32:42,271 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:32:42,271 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:33:00,011 "views:do_task_jobs:222" [INFO]-                                                   
+2023-09-02 17:33:00,012 "views:do_task_jobs:223" [INFO]- ######### 已经获取到集合，开始进行批量执行 #########
+2023-09-02 17:33:00,026 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:33:00,027 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test003】##########
+2023-09-02 17:33:00,877 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:33:00,878 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:00,879 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:00,880 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:33:00,880 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:03,074 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:03,075 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:03,076 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:03,076 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:33:03,077 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:04,156 "tasks:testMethod:602" [INFO]- 用例【test003】执行成功！
+2023-09-02 17:33:05,243 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:33:05,246 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test002】##########
+2023-09-02 17:33:06,080 "tasks:setUp:522" [INFO]- 定位路径:http://192.168.31.100:8000/atp/index/
+2023-09-02 17:33:06,081 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:06,082 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:06,082 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:33:06,083 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:07,725 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:07,727 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:07,728 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:33:07,728 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:33:07,729 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:08,733 "tasks:setUp:522" [INFO]- 定位路径:id==id_username
+2023-09-02 17:33:08,734 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:33:08,735 "tasks:setUp:524" [INFO]- 传入参数:admin
+2023-09-02 17:33:08,736 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:08,736 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:09,862 "tasks:setUp:522" [INFO]- 定位路径:id==id_password
+2023-09-02 17:33:09,864 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:33:09,866 "tasks:setUp:524" [INFO]- 传入参数:123456
+2023-09-02 17:33:09,866 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:09,867 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:10,919 "tasks:setUp:522" [INFO]- 定位路径:id==verifypassword_input
+2023-09-02 17:33:10,920 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:33:10,921 "tasks:setUp:524" [INFO]- 传入参数:6666
+2023-09-02 17:33:10,922 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:10,922 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:11,974 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/div/div/form/button
+2023-09-02 17:33:11,977 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:33:11,978 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:11,979 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:11,980 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:12,267 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:33:12,267 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:33:13,202 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:13,203 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:13,204 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:13,205 "tasks:setUp:525" [INFO]- 步骤动作:maximizewindow(窗口最大化)
+2023-09-02 17:33:13,205 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:14,315 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my_list"]/li[4]/ul/li[1]/a
+2023-09-02 17:33:14,317 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:33:14,318 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:14,319 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:14,319 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:17,346 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: element not interactable
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953896 chromedriver + 448662
+3   chromedriver                        0x000000010a99b316 chromedriver + 742166
+4   chromedriver                        0x000000010a98e03a chromedriver + 688186
+5   chromedriver                        0x000000010a9c03f2 chromedriver + 893938
+6   chromedriver                        0x000000010a98d8b8 chromedriver + 686264
+7   chromedriver                        0x000000010a9c05ae chromedriver + 894382
+8   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+9   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+10  chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+11  chromedriver                        0x000000010a98cfde chromedriver + 683998
+12  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+13  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+14  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+15  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+16  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+17  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+18  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+19  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+20  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+21  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:18,349 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:18,349 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:18,350 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:33:18,350 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:33:18,351 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:19,353 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:33:19,354 "tasks:setUp:523" [INFO]- 方法|操作:selectbytext(下拉框的内容)
+2023-09-02 17:33:19,356 "tasks:setUp:524" [INFO]- 传入参数:test
+2023-09-02 17:33:19,357 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:19,358 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:22,422 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:23,425 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:23,426 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:23,427 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:33:23,428 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:33:23,429 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:24,433 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:33:24,434 "tasks:setUp:523" [INFO]- 方法|操作:selectbyindex(下拉框的下标)
+2023-09-02 17:33:24,436 "tasks:setUp:524" [INFO]- 传入参数:0
+2023-09-02 17:33:24,437 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:24,438 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:26,449 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:27,451 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:27,453 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:27,454 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:33:27,454 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:33:27,455 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:28,460 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:33:28,461 "tasks:setUp:523" [INFO]- 方法|操作:isselect(是否已经被选择)
+2023-09-02 17:33:28,462 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:28,462 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:28,463 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:30,524 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:31,526 "tasks:setUp:522" [INFO]- 定位路径:name==ex_case
+2023-09-02 17:33:31,528 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:33:31,529 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:31,529 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:31,530 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:33,585 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="ex_case"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:34,588 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:34,589 "tasks:setUp:523" [INFO]- 方法|操作:alertgettext(获取弹出框内容)
+2023-09-02 17:33:34,590 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:34,591 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:34,591 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:34,594 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953896 chromedriver + 448662
+3   chromedriver                        0x000000010a943b1a chromedriver + 383770
+4   chromedriver                        0x000000010a97186b chromedriver + 571499
+5   chromedriver                        0x000000010a9c044b chromedriver + 894027
+6   chromedriver                        0x000000010a97151f chromedriver + 570655
+7   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+8   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+9   chromedriver                        0x000000010a98cfde chromedriver + 683998
+10  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+11  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+12  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+13  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+14  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+15  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+16  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+17  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:35,597 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:35,598 "tasks:setUp:523" [INFO]- 方法|操作:alertaccept(点击确认)
+2023-09-02 17:33:35,599 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:35,600 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:35,601 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:35,604 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953896 chromedriver + 448662
+3   chromedriver                        0x000000010a943b1a chromedriver + 383770
+4   chromedriver                        0x000000010a97186b chromedriver + 571499
+5   chromedriver                        0x000000010a9c044b chromedriver + 894027
+6   chromedriver                        0x000000010a97151f chromedriver + 570655
+7   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+8   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+9   chromedriver                        0x000000010a98cfde chromedriver + 683998
+10  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+11  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+12  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+13  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+14  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+15  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+16  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+17  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:36,608 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:36,609 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:36,610 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:33:36,611 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:33:36,612 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:37,614 "tasks:setUp:522" [INFO]- 定位路径:name==case_name
+2023-09-02 17:33:37,615 "tasks:setUp:523" [INFO]- 方法|操作:getattribute(获取指定属性值)
+2023-09-02 17:33:37,616 "tasks:setUp:524" [INFO]- 传入参数:placeholder
+2023-09-02 17:33:37,617 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:37,617 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:39,651 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="case_name"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:40,654 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]
+2023-09-02 17:33:40,656 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:33:40,657 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:40,658 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:40,658 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:42,269 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:33:42,269 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:33:42,694 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:43,697 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:43,698 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:43,699 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:33:43,699 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:33:43,700 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:44,703 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="interfaceParam"]/thead/tr/td[2]
+2023-09-02 17:33:44,707 "tasks:setUp:523" [INFO]- 方法|操作:gettext(获取文本属性)
+2023-09-02 17:33:44,707 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:44,708 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:44,709 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:46,761 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="interfaceParam"]/thead/tr/td[2]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:47,764 "tasks:setUp:522" [INFO]- 定位路径:id==LocationPath1
+2023-09-02 17:33:47,765 "tasks:setUp:523" [INFO]- 方法|操作:gettagname(获取标签类型)
+2023-09-02 17:33:47,766 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:47,767 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:47,767 "tasks:setUp:526" [INFO]- 预期结果:input1
+2023-09-02 17:33:49,820 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="LocationPath1"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:50,823 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:33:50,824 "tasks:setUp:523" [INFO]- 方法|操作:mouselkclick(模拟鼠标左键单击)
+2023-09-02 17:33:50,825 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:50,826 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:50,826 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:52,882 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:53,885 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:33:53,886 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:33:53,887 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:53,888 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:53,889 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:55,919 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:33:56,921 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:33:56,922 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:33:56,924 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:33:56,925 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:33:56,926 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:57,930 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:33:57,931 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:33:57,932 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:33:57,933 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:33:57,934 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:33:59,962 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x000000010adab638 chromedriver + 5002808
+1   chromedriver                        0x000000010ada2a53 chromedriver + 4966995
+2   chromedriver                        0x000000010a953a57 chromedriver + 449111
+3   chromedriver                        0x000000010a999d05 chromedriver + 736517
+4   chromedriver                        0x000000010a999ec1 chromedriver + 736961
+5   chromedriver                        0x000000010a9ddf04 chromedriver + 1015556
+6   chromedriver                        0x000000010a9c041d chromedriver + 893981
+7   chromedriver                        0x000000010a9db391 chromedriver + 1004433
+8   chromedriver                        0x000000010a9c01c3 chromedriver + 893379
+9   chromedriver                        0x000000010a98bdf9 chromedriver + 679417
+10  chromedriver                        0x000000010a98cfde chromedriver + 683998
+11  chromedriver                        0x000000010ad682d9 chromedriver + 4727513
+12  chromedriver                        0x000000010ad6d2de chromedriver + 4747998
+13  chromedriver                        0x000000010ad2b2c9 chromedriver + 4477641
+14  chromedriver                        0x000000010ad6e02d chromedriver + 4751405
+15  chromedriver                        0x000000010ad410ec chromedriver + 4567276
+16  chromedriver                        0x000000010ad8b7f8 chromedriver + 4872184
+17  chromedriver                        0x000000010ad8b9b7 chromedriver + 4872631
+18  chromedriver                        0x000000010ad9ba1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:34:00,964 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/nav/div/div[1]/a
+2023-09-02 17:34:00,966 "tasks:setUp:523" [INFO]- 方法|操作:mousedclick(模拟鼠标双击)
+2023-09-02 17:34:00,967 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:00,967 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:34:00,968 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:02,282 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:34:02,283 "tasks:setUp:523" [INFO]- 方法|操作:mouseclickhold(模拟鼠标左键长按)
+2023-09-02 17:34:02,284 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:02,285 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:34:02,286 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:03,565 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:34:03,568 "tasks:setUp:523" [INFO]- 方法|操作:mouserelease(模拟鼠标长按后释放)
+2023-09-02 17:34:03,570 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:03,571 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:34:03,572 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:04,850 "tasks:testMethod:598" [INFO]- 用例【test002】执行失败！
+2023-09-02 17:34:05,924 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:34:05,927 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test001】##########
+2023-09-02 17:34:06,827 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:34:06,828 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:06,829 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:06,830 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:34:06,831 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:08,881 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:08,883 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:08,884 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:34:08,885 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:34:08,885 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:09,889 "tasks:setUp:522" [INFO]- 定位路径:https://www.cmd5.com/
+2023-09-02 17:34:09,890 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:09,891 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:09,893 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:34:09,894 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:11,503 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:11,505 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:11,506 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:11,507 "tasks:setUp:525" [INFO]- 步骤动作:back(后退)
+2023-09-02 17:34:11,507 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:12,272 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:34:12,272 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:34:12,857 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:12,858 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:12,859 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:12,860 "tasks:setUp:525" [INFO]- 步骤动作:forward(前进)
+2023-09-02 17:34:12,860 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:14,108 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:14,109 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:14,110 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:14,111 "tasks:setUp:525" [INFO]- 步骤动作:refresh(刷新)
+2023-09-02 17:34:14,111 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:15,292 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:15,293 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:15,294 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:15,295 "tasks:setUp:525" [INFO]- 步骤动作:gettitle(获取窗口标题)
+2023-09-02 17:34:15,296 "tasks:setUp:526" [INFO]- 预期结果:testtesttest
+2023-09-02 17:34:15,303 "tasks:setUp:579" [INFO]- 断言关键字【testtesttest】匹配失败，实际结果是：【md5在线解密破解,md5解密加密】
+2023-09-02 17:34:16,304 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:16,306 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:16,306 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:16,307 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:34:16,308 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:17,362 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:17,364 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:17,364 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:34:17,365 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:34:17,366 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:18,369 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:18,371 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:18,371 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:18,372 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:34:18,373 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:19,446 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:34:19,447 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:34:19,448 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:34:19,449 "tasks:setUp:525" [INFO]- 步骤动作:closewindow(关闭当前页签)
+2023-09-02 17:34:19,450 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:34:20,520 "tasks:testMethod:598" [INFO]- 用例【test001】执行失败！
+2023-09-02 17:34:42,276 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:34:42,276 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:35:12,259 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:35:12,259 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:35:42,272 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:35:42,272 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:36:00,035 "views:do_task_jobs:204" [INFO]-                                                   
+2023-09-02 17:36:00,035 "views:do_task_jobs:205" [INFO]- ######### 已经获取到用例，开始进行批量执行 #########
+2023-09-02 17:36:00,051 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:36:00,052 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test001】##########
+2023-09-02 17:36:00,939 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:36:00,940 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:00,940 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:00,941 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:36:00,942 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:03,032 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:03,034 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:03,035 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:36:03,035 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:03,036 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:04,042 "tasks:setUp:522" [INFO]- 定位路径:https://www.cmd5.com/
+2023-09-02 17:36:04,043 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:04,044 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:04,045 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:36:04,046 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:05,634 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:05,636 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:05,637 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:05,639 "tasks:setUp:525" [INFO]- 步骤动作:back(后退)
+2023-09-02 17:36:05,639 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:07,005 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:07,006 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:07,008 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:07,009 "tasks:setUp:525" [INFO]- 步骤动作:forward(前进)
+2023-09-02 17:36:07,010 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:08,242 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:08,245 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:08,246 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:08,246 "tasks:setUp:525" [INFO]- 步骤动作:refresh(刷新)
+2023-09-02 17:36:08,247 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:09,419 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:09,420 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:09,421 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:09,422 "tasks:setUp:525" [INFO]- 步骤动作:gettitle(获取窗口标题)
+2023-09-02 17:36:09,423 "tasks:setUp:526" [INFO]- 预期结果:testtesttest
+2023-09-02 17:36:09,429 "tasks:setUp:579" [INFO]- 断言关键字【testtesttest】匹配失败，实际结果是：【md5在线解密破解,md5解密加密】
+2023-09-02 17:36:10,430 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:10,431 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:10,432 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:10,433 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:36:10,434 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:11,503 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:11,505 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:11,506 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:36:11,507 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:11,508 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:12,275 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:36:12,275 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:36:12,511 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:12,512 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:12,513 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:12,514 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:36:12,514 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:13,567 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:13,569 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:13,569 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:13,571 "tasks:setUp:525" [INFO]- 步骤动作:closewindow(关闭当前页签)
+2023-09-02 17:36:13,572 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:14,639 "tasks:testMethod:598" [INFO]- 用例【test001】执行失败！
+2023-09-02 17:36:15,655 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:36:15,658 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test002】##########
+2023-09-02 17:36:16,564 "tasks:setUp:522" [INFO]- 定位路径:http://192.168.31.100:8000/atp/index/
+2023-09-02 17:36:16,565 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:16,566 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:16,566 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:36:16,567 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:18,209 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:18,212 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:18,213 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:36:18,214 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:18,215 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:19,218 "tasks:setUp:522" [INFO]- 定位路径:id==id_username
+2023-09-02 17:36:19,219 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:36:19,220 "tasks:setUp:524" [INFO]- 传入参数:admin
+2023-09-02 17:36:19,221 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:19,222 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:20,345 "tasks:setUp:522" [INFO]- 定位路径:id==id_password
+2023-09-02 17:36:20,347 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:36:20,348 "tasks:setUp:524" [INFO]- 传入参数:123456
+2023-09-02 17:36:20,349 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:20,350 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:21,404 "tasks:setUp:522" [INFO]- 定位路径:id==verifypassword_input
+2023-09-02 17:36:21,406 "tasks:setUp:523" [INFO]- 方法|操作:sendkeys(输入)
+2023-09-02 17:36:21,408 "tasks:setUp:524" [INFO]- 传入参数:6666
+2023-09-02 17:36:21,408 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:21,409 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:22,460 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/div/div/form/button
+2023-09-02 17:36:22,462 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:36:22,463 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:22,463 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:22,464 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:23,685 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:23,686 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:23,687 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:23,688 "tasks:setUp:525" [INFO]- 步骤动作:maximizewindow(窗口最大化)
+2023-09-02 17:36:23,688 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:24,799 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my_list"]/li[4]/ul/li[1]/a
+2023-09-02 17:36:24,801 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:36:24,802 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:24,804 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:24,805 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:27,854 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: element not interactable
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138896 chromedriver + 448662
+3   chromedriver                        0x0000000109180316 chromedriver + 742166
+4   chromedriver                        0x000000010917303a chromedriver + 688186
+5   chromedriver                        0x00000001091a53f2 chromedriver + 893938
+6   chromedriver                        0x00000001091728b8 chromedriver + 686264
+7   chromedriver                        0x00000001091a55ae chromedriver + 894382
+8   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+9   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+10  chromedriver                        0x0000000109170df9 chromedriver + 679417
+11  chromedriver                        0x0000000109171fde chromedriver + 683998
+12  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+13  chromedriver                        0x00000001095522de chromedriver + 4747998
+14  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+15  chromedriver                        0x000000010955302d chromedriver + 4751405
+16  chromedriver                        0x00000001095260ec chromedriver + 4567276
+17  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+18  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+19  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+20  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+21  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:28,857 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:28,859 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:28,860 "tasks:setUp:524" [INFO]- 传入参数:3
+2023-09-02 17:36:28,861 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:28,862 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:29,865 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:36:29,866 "tasks:setUp:523" [INFO]- 方法|操作:selectbytext(下拉框的内容)
+2023-09-02 17:36:29,867 "tasks:setUp:524" [INFO]- 传入参数:test
+2023-09-02 17:36:29,868 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:29,869 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:32,876 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:33,879 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:33,881 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:33,881 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:36:33,882 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:33,883 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:34,886 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:36:34,888 "tasks:setUp:523" [INFO]- 方法|操作:selectbyindex(下拉框的下标)
+2023-09-02 17:36:34,888 "tasks:setUp:524" [INFO]- 传入参数:0
+2023-09-02 17:36:34,889 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:34,890 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:36,940 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:37,943 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:37,944 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:37,945 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:36:37,946 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:37,948 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:38,950 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/select
+2023-09-02 17:36:38,952 "tasks:setUp:523" [INFO]- 方法|操作:isselect(是否已经被选择)
+2023-09-02 17:36:38,953 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:38,957 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:38,961 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:41,018 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/select"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:42,021 "tasks:setUp:522" [INFO]- 定位路径:name==ex_case
+2023-09-02 17:36:42,022 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:36:42,024 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:42,026 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:42,027 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:42,270 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:36:42,270 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:36:44,047 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="ex_case"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:45,049 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:45,050 "tasks:setUp:523" [INFO]- 方法|操作:alertgettext(获取弹出框内容)
+2023-09-02 17:36:45,051 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:45,052 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:45,053 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:45,056 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138896 chromedriver + 448662
+3   chromedriver                        0x0000000109128b1a chromedriver + 383770
+4   chromedriver                        0x000000010915686b chromedriver + 571499
+5   chromedriver                        0x00000001091a544b chromedriver + 894027
+6   chromedriver                        0x000000010915651f chromedriver + 570655
+7   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+8   chromedriver                        0x0000000109170df9 chromedriver + 679417
+9   chromedriver                        0x0000000109171fde chromedriver + 683998
+10  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+11  chromedriver                        0x00000001095522de chromedriver + 4747998
+12  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+13  chromedriver                        0x000000010955302d chromedriver + 4751405
+14  chromedriver                        0x00000001095260ec chromedriver + 4567276
+15  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+16  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+17  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:46,058 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:46,061 "tasks:setUp:523" [INFO]- 方法|操作:alertaccept(点击确认)
+2023-09-02 17:36:46,062 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:46,063 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:46,064 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:46,068 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such alert
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138896 chromedriver + 448662
+3   chromedriver                        0x0000000109128b1a chromedriver + 383770
+4   chromedriver                        0x000000010915686b chromedriver + 571499
+5   chromedriver                        0x00000001091a544b chromedriver + 894027
+6   chromedriver                        0x000000010915651f chromedriver + 570655
+7   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+8   chromedriver                        0x0000000109170df9 chromedriver + 679417
+9   chromedriver                        0x0000000109171fde chromedriver + 683998
+10  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+11  chromedriver                        0x00000001095522de chromedriver + 4747998
+12  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+13  chromedriver                        0x000000010955302d chromedriver + 4751405
+14  chromedriver                        0x00000001095260ec chromedriver + 4567276
+15  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+16  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+17  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+18  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:47,071 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:47,072 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:47,073 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:36:47,073 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:47,074 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:48,078 "tasks:setUp:522" [INFO]- 定位路径:name==case_name
+2023-09-02 17:36:48,079 "tasks:setUp:523" [INFO]- 方法|操作:getattribute(获取指定属性值)
+2023-09-02 17:36:48,080 "tasks:setUp:524" [INFO]- 传入参数:placeholder
+2023-09-02 17:36:48,080 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:48,081 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:50,116 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="case_name"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:51,119 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]
+2023-09-02 17:36:51,120 "tasks:setUp:523" [INFO]- 方法|操作:click(点击)
+2023-09-02 17:36:51,121 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:51,122 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:51,123 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:53,188 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/form/div/table/tbody/tr[1]/td[8]/a[1]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:54,191 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:36:54,193 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:36:54,193 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:36:54,194 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:36:54,195 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:55,197 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="interfaceParam"]/thead/tr/td[2]
+2023-09-02 17:36:55,198 "tasks:setUp:523" [INFO]- 方法|操作:gettext(获取文本属性)
+2023-09-02 17:36:55,200 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:55,201 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:55,201 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:36:57,214 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="interfaceParam"]/thead/tr/td[2]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:36:58,216 "tasks:setUp:522" [INFO]- 定位路径:id==LocationPath1
+2023-09-02 17:36:58,218 "tasks:setUp:523" [INFO]- 方法|操作:gettagname(获取标签类型)
+2023-09-02 17:36:58,218 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:36:58,219 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:36:58,220 "tasks:setUp:526" [INFO]- 预期结果:input1
+2023-09-02 17:37:00,268 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="LocationPath1"]"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:37:01,271 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:37:01,272 "tasks:setUp:523" [INFO]- 方法|操作:mouselkclick(模拟鼠标左键单击)
+2023-09-02 17:37:01,273 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:01,274 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:37:01,274 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:03,323 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:37:04,324 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:37:04,326 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:37:04,326 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:04,327 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:37:04,328 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:06,391 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:37:07,394 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:37:07,395 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:37:07,396 "tasks:setUp:524" [INFO]- 传入参数:2
+2023-09-02 17:37:07,397 "tasks:setUp:525" [INFO]- 步骤动作:wait(等待)
+2023-09-02 17:37:07,398 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:08,402 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[7]/a
+2023-09-02 17:37:08,403 "tasks:setUp:523" [INFO]- 方法|操作:mouserkclick(模拟鼠标右键单击)
+2023-09-02 17:37:08,404 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:08,405 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:37:08,405 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:10,457 "tasks:setUp:584" [WARNING]- UI测试执行错误：Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="my-nav"]/ul[1]/li[7]/a"}
+  (Session info: headless chrome=116.0.5845.140)
+Stacktrace:
+0   chromedriver                        0x0000000109590638 chromedriver + 5002808
+1   chromedriver                        0x0000000109587a53 chromedriver + 4966995
+2   chromedriver                        0x0000000109138a57 chromedriver + 449111
+3   chromedriver                        0x000000010917ed05 chromedriver + 736517
+4   chromedriver                        0x000000010917eec1 chromedriver + 736961
+5   chromedriver                        0x00000001091c2f04 chromedriver + 1015556
+6   chromedriver                        0x00000001091a541d chromedriver + 893981
+7   chromedriver                        0x00000001091c0391 chromedriver + 1004433
+8   chromedriver                        0x00000001091a51c3 chromedriver + 893379
+9   chromedriver                        0x0000000109170df9 chromedriver + 679417
+10  chromedriver                        0x0000000109171fde chromedriver + 683998
+11  chromedriver                        0x000000010954d2d9 chromedriver + 4727513
+12  chromedriver                        0x00000001095522de chromedriver + 4747998
+13  chromedriver                        0x00000001095102c9 chromedriver + 4477641
+14  chromedriver                        0x000000010955302d chromedriver + 4751405
+15  chromedriver                        0x00000001095260ec chromedriver + 4567276
+16  chromedriver                        0x00000001095707f8 chromedriver + 4872184
+17  chromedriver                        0x00000001095709b7 chromedriver + 4872631
+18  chromedriver                        0x0000000109580a1f chromedriver + 4938271
+19  libsystem_pthread.dylib             0x00007ff8198264f4 _pthread_start + 125
+20  libsystem_pthread.dylib             0x00007ff81982200f thread_start + 15
+
+2023-09-02 17:37:11,460 "tasks:setUp:522" [INFO]- 定位路径:xpath==/html/body/nav/div/div[1]/a
+2023-09-02 17:37:11,462 "tasks:setUp:523" [INFO]- 方法|操作:mousedclick(模拟鼠标双击)
+2023-09-02 17:37:11,463 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:11,465 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:37:11,466 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:12,268 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:37:12,268 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:37:12,785 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:37:12,786 "tasks:setUp:523" [INFO]- 方法|操作:mouseclickhold(模拟鼠标左键长按)
+2023-09-02 17:37:12,787 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:12,788 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:37:12,789 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:14,070 "tasks:setUp:522" [INFO]- 定位路径:xpath==//*[@id="my-nav"]/ul[1]/li[3]/a
+2023-09-02 17:37:14,073 "tasks:setUp:523" [INFO]- 方法|操作:mouserelease(模拟鼠标长按后释放)
+2023-09-02 17:37:14,074 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:14,074 "tasks:setUp:525" [INFO]- 步骤动作:None
+2023-09-02 17:37:14,075 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:15,355 "tasks:testMethod:598" [INFO]- 用例【test002】执行失败！
+2023-09-02 17:37:16,434 "tasks:setUp:490" [INFO]-                                                   
+2023-09-02 17:37:16,437 "tasks:setUp:494" [INFO]- ######### 开始执行UI用例【test003】##########
+2023-09-02 17:37:17,334 "tasks:setUp:522" [INFO]- 定位路径:https://www.baidu.com/
+2023-09-02 17:37:17,335 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:37:17,335 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:17,336 "tasks:setUp:525" [INFO]- 步骤动作:open(打开)
+2023-09-02 17:37:17,337 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:20,008 "tasks:setUp:522" [INFO]- 定位路径:None
+2023-09-02 17:37:20,009 "tasks:setUp:523" [INFO]- 方法|操作:None
+2023-09-02 17:37:20,010 "tasks:setUp:524" [INFO]- 传入参数:None
+2023-09-02 17:37:20,011 "tasks:setUp:525" [INFO]- 步骤动作:screenshot(截图)
+2023-09-02 17:37:20,011 "tasks:setUp:526" [INFO]- 预期结果:None
+2023-09-02 17:37:21,101 "tasks:testMethod:602" [INFO]- 用例【test003】执行成功！
+2023-09-02 17:37:42,270 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:37:42,270 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:38:12,267 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:38:12,267 "views:synchronous_jobs:288" [INFO]- 同步完成！
+2023-09-02 17:38:42,266 "views:synchronous_jobs:287" [INFO]-                                                   
+2023-09-02 17:38:42,266 "views:synchronous_jobs:288" [INFO]- 同步完成！
