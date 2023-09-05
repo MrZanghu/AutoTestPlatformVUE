@@ -172,7 +172,7 @@ def get_var_from_response(global_key, response_data, extract_var,current_id):
         return None
 
 
-def zip_file(src_dir:str,name:str,file_list:list):
+def zip_file(src_dir:str,name:str,file_list:list,ui= None):
     '''
     处理集合报告文件压缩
     :param src_dir: 路径地址
@@ -207,7 +207,9 @@ def zip_file(src_dir:str,name:str,file_list:list):
                     # filename[6:25]就是报告的时间，如2023_08_02_14:45:00
                     if filename[4:6]== "报告" and (os.path.splitext(filename)[-1].lower()== ".zip"):
                         # 目的是为了不要删除UI测试的截图zip
-                        pass
+                        if ui!= None and (filename[2:4]!= "集合"):# UI集合为多个zip包，需要重新处理
+                            z.write(os.path.join(root, filename), fpath + filename)
+                            removefile.append(os.path.join(root, filename))
                     else:
                         z.write(os.path.join(root, filename), fpath + filename)
                         removefile.append(os.path.join(root, filename))
