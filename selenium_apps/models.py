@@ -88,7 +88,8 @@ class TestCaseExecuteResultForSEA(models.Model):
 class Case2SuiteExecuteResultForSEA(models.Model):
     '''
         集合执行记录-用例执行记录模型，
-        特意为UI集合编写，其他复用TestSuiteExecuteRecord
+        同名TestSuiteTestCaseExecuteRecord，
+        与API共用TestSuiteExecuteRecord
     '''
     id= models.AutoField(primary_key=True)
     belong_test_suite_exe= models.CharField(max_length=128, blank= True, null= True)  # 关联TestSuiteExecuteRecord的id

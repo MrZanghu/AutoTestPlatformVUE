@@ -53,7 +53,7 @@ urlpatterns= [
 
     re_path(r'^test_suite_statistics/(?P<suite_id>\d+)/',
             views.test_suite_statistics, name="test_suite_statistics"),
-    re_path(r'^test_suite_tc_execute_record/(?P<id>\d+)/',
+    re_path(r'^test_suite_tc_execute_record/(?P<id>\d+)/(?P<UI>\d+)/',
             views.test_suite_test_case_execute_record,
             name="test_suite_tc_execute_record"),  # 地址路径不能过长，导致读取不出id
     re_path(r'^module_test_case_statistics/(?P<module_id>\d+)/',

@@ -19,7 +19,7 @@ from main_platform.models import Project, Module, TestCase,\
     TestSuite, AddCaseIntoSuite, Server, UpLoadsCaseTemplate, \
     TestCaseExecuteResult,TestExecute,TestSuiteExecuteRecord,\
     TestSuiteTestCaseExecuteRecord,JobExecuted
-from selenium_apps.models import Case2SuiteForSEA,TestCaseForSEA
+from selenium_apps.models import Case2SuiteForSEA,TestCaseForSEA,Case2SuiteExecuteResultForSEA
 from django.db.models import Q
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore,register_job
@@ -994,21 +994,34 @@ def test_suite_execute_record(request,id,statistics):
 
 
 @login_required
-def test_suite_test_case_execute_record(request,id):
+def test_suite_test_case_execute_record(request,id,UI):
     '''执行结果-执行集合记录-执行用例记录及统计'''
-
-    test_suite_test_case_execute_records= TestSuiteTestCaseExecuteRecord.\
-        objects.filter(belong_test_suite_exe= id).order_by("-id")
-    success= len(TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= id,execute_result= "成功"))
-    fail= len(TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= id,execute_result= "失败"))
-    records= TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= id).order_by("-id")
-    data= {
-        "pages": get_paginator(request, test_suite_test_case_execute_records), # 返回分页
-        "success":success,
-        "fail":fail,
-        "records":records
-    }
-    return render(request,"atp/test_suite_test_case_execute_records.html",data)
+    if UI== "0": # API
+        test_suite_test_case_execute_records= TestSuiteTestCaseExecuteRecord.\
+            objects.filter(belong_test_suite_exe= id).order_by("-id")
+        success= len(TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= id,execute_result= "成功"))
+        fail= len(TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= id,execute_result= "失败"))
+        records= TestSuiteTestCaseExecuteRecord.objects.filter(belong_test_suite_exe= id).order_by("-id")
+        data= {
+            "pages": get_paginator(request, test_suite_test_case_execute_records), # 返回分页
+            "success":success,
+            "fail":fail,
+            "records":records
+        }
+        return render(request,"atp/test_suite_test_case_execute_records.html",data)
+    else: # UI
+        test_suite_test_case_execute_records= Case2SuiteExecuteResultForSEA.\
+            objects.filter(belong_test_suite_exe= id).order_by("-id")
+        success= len(Case2SuiteExecuteResultForSEA.objects.filter(belong_test_suite_exe= id,execute_result= "成功"))
+        fail= len(Case2SuiteExecuteResultForSEA.objects.filter(belong_test_suite_exe= id,execute_result= "失败"))
+        records= Case2SuiteExecuteResultForSEA.objects.filter(belong_test_suite_exe= id).order_by("-id")
+        data= {
+            "pages": get_paginator(request, test_suite_test_case_execute_records), # 返回分页
+            "success":success,
+            "fail":fail,
+            "records":records
+        }
+        return render(request, "sea/test_suite_test_case_execute_records.html", data)
 
 
 @login_required

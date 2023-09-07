@@ -34,8 +34,17 @@
                     {% else %}
                         <td style="color: red">{{ test_suite_execute_record.test_result }}</td>
                     {% endifequal %}
-                    <td><a href="{% url 'main_platform:test_suite_tc_execute_record' test_suite_execute_record.id %}">
-                        用例执行结果</a></td>
+
+                    <td>
+                        {% if test_suite_execute_record.test_suite.type == 0 %}
+                            <a href="{% url 'main_platform:test_suite_tc_execute_record' test_suite_execute_record.id 0 %}">
+                                用例执行结果</a>
+                        {% else %}
+                            <a href="{% url 'main_platform:test_suite_tc_execute_record' test_suite_execute_record.id 1 %}">
+                                用例执行结果</a>
+                        {% endif %}
+                    </td>
+
                     <td>{{ test_suite_execute_record.creator }}</td>
                     <td>{{ test_suite_execute_record.create_time|date:"Y-n-d H:i" }}</td>
                 </tr>

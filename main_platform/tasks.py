@@ -770,20 +770,18 @@ def sea_suite_task(test_suite_list:list,server_address, user,id):
     zip_file("/report/","UI集合报告"+suites_time_,zipsuites,ui= str(zipsuites))
     # 处理集合包含多个zip（即单个集合执行结果）
 
+    ate= models.TestExecute()  # 保存执行记录
+    ate.user= user
+    ate.type= 3
+    ate.job_id= id
+    ate.case_or_suite_ids= ','.join(map(str, test_suite_list))
+    ate.download_report_path= "report/%s.zip" % ("UI集合报告" + suites_time_)
+    ate.save()
 
-
-    # ate= models.TestExecute()  # 保存执行记录
-    # ate.user= user
-    # ate.type= 1
-    # ate.job_id= id
-    # ate.case_or_suite_ids= ','.join(map(str, test_suite_list))
-    # ate.download_report_path= "report/%s.zip" % ("接口测试报告" + suites_time_)
-    # ate.save()
-    #
-    # ter= models.TestSuiteExecuteRecord.objects.filter(belong_test_execute= "test")
-    # for i in ter:  # 对记录关联用例
-    #     i.belong_test_execute= ate.id
-    #     i.save()
+    ter= models.TestSuiteExecuteRecord.objects.filter(belong_test_execute= "test")
+    for i in ter:  # 对记录关联用例
+        i.belong_test_execute= ate.id
+        i.save()
 
     # address= models.EmailAddress.objects.get(id= 1).address.split(";")
     # email_for_interface(address,"接口测试报告"+suites_time_+".zip")

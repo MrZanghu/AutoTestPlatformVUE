@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
 from selenium_apps.models import TestCaseForSEA,TestCaseSteps\
-    ,Case2SuiteForSEA,TestCaseExecuteResultForSEA
+    ,Case2SuiteForSEA,TestCaseExecuteResultForSEA,Case2SuiteExecuteResultForSEA
 from main_platform.models import JobExecuted,TestSuite
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -328,3 +328,10 @@ def test_suite(request,suite_type):
     '''主页-UI集合'''
     # 直接调用main_platform的test_suite，统一处理
     return ts(request,suite_type)
+
+
+@login_required
+def testsuite_execute_show_exception(request,execute_id):
+    '''执行结果-集合用例错误信息查看'''
+    tcer= Case2SuiteExecuteResultForSEA.objects.get(id= execute_id)
+    return render(request, "sea/sea_execute_show_exception.html", {"exception_info": tcer.exception_info})

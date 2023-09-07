@@ -21,4 +21,6 @@ urlpatterns= [
     path(r'test_case/sea/get_job_name/',views.get_job_name, name= "get_job_name"),
 
     re_path(r'^test_suite/(?P<suite_type>\d+)/', views.test_suite,name= "test_suite"),
+    re_path('testsuite_execute_show_exception/(?P<execute_id>[0-9]+)$',
+            views.testsuite_execute_show_exception, name="testsuite_execute_show_exception"),
 ]

@@ -1,0 +1,117 @@
+{% extends 'atp/base.html' %}
+{% load static %}
+{% block title %}UI集合执行记录{% endblock %}
+
+{% block content %}
+    <p style="margin-left: 10px;">
+        <span style="margin-left: 5px;">用例执行结果统计：成功 {{ success }} 次，失败 {{ fail }} 次</span>
+    <p>
+    <div id="main" style="width: 600px;height:400px; margin-left: 10px;"></div>
+    {#    <script type="text/javascript" src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>#}
+    <script type="text/javascript" src="{% static 'js/atp/echarts.min.js' %}"></script>
+    <script>
+        echarts.init(document.getElementById('main')).setOption({
+            series: {
+                type: 'pie',
+                color: ['green', 'red'],
+                data: [
+                    {name: '成功的次数', value: {{ success }}},
+                    {name: '失败的次数', value: {{ fail }}},
+                ]
+            }
+        });
+        echarts.init(document.getElementById('main')).setOption({
+            title: {
+                text: '结果统计',
+                subtext: '即时数据',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: {
+                name: '结果统计',
+                radius: '55%',
+                type: 'pie',
+                color: ['green', 'red'],
+                data: [
+                    {name: '执行成功次数', value: {{ success }}},
+                    {name: '执行失败次数', value: {{ fail }}},
+
+                ],
+                label: {  // 饼图图形上的文本标签
+                    normal: {
+                        show: true,
+                        formatter: "{b} : {c} ({d}%)"
+                    }
+                }
+            }
+        });
+    </script>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th width="2%">id</th>
+                <th width="16%">名称</th>
+                <th width="16%">步骤数</th>
+                <th width="16%">执行结果</th>
+                <th width="16%">异常信息</th>
+                <th width="16%">开始时间</th>
+                <th>执行耗时(ms)</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for testrecord in pages %}
+                <tr style="position: relative;">
+                    <td>{{ testrecord.id }}</td>
+                    <td><a href="{% url 'selenium_apps:test_case_detail' testrecord.belong_test_case.id %}"
+                           target="_blank">{{ testrecord.belong_test_case.case_name }}</a></td>
+                    <td>{{ testrecord.length }}</td>
+                    {% ifequal testrecord.execute_result '成功' %}
+                        <td style="color: green">{{ testrecord.execute_result }}</td>
+                    {% else %}
+                        <td style="color: red">{{ testrecord.execute_result }}</td>
+                    {% endifequal %}
+
+                    {% if testrecord.exception_info %}
+                        <td><a href="{% url 'selenium_apps:testsuite_execute_show_exception' testrecord.id %}"
+                               target="_blank">异常信息</a></td>
+                    {% else %}
+                        <td>无</td>
+                    {% endif %}
+                    <td>{{ testrecord.execute_start_time }}</td>
+                    <td>{{ testrecord.execute_total_time }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+        <div id="pages" class="text-center">
+            <nav>
+                <ul class="pagination">
+                    <li class="step-links">
+                        {% if pages.has_previous %}
+                            <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
+                        {% endif %}
+
+                        <span class="current">
+                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+
+                        {% if pages.has_next %}
+                            <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+
