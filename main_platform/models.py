@@ -132,13 +132,16 @@ def uploads_file(instance,filename):
     y= datetime.datetime.now().strftime("%Y")
     m= datetime.datetime.now().strftime("%m")
     d= datetime.datetime.now().strftime("%d")
-    filenames= filename.replace(".xls","_")+times+".xls"
+    if filename[-4:]== ".xls":
+        filenames= filename.replace(".xls","_")+times+".xls"
+    else:
+        filenames= filename.replace(".json","_")+times+".json"
     return "{}/{}/{}".format(y,m+d,filenames)
 
 
 class UpLoadsCaseTemplate(models.Model):
     '''上传测试用例模板'''
-    address= models.ImageField(upload_to= uploads_file, blank= True, null= True)
+    address= models.FileField(upload_to= uploads_file, blank= True, null= True)
     uptimes= models.CharField("上传时间",max_length= 128, blank= True, null= True)
     create_time= models.DateTimeField(auto_now_add= True)
     owner= models.CharField(max_length= 64, blank= True, null= True)

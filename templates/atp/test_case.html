@@ -33,7 +33,7 @@
                     <div class="upload-btn-wrapper">
                         {% csrf_token %}
                         <button class="btn">选择模板文件</button>
-                        <input type="file" name="file_name" accept="application/vnd.ms-excel">
+                        <input type="file" name="file_name" accept="application/vnd.ms-excel,application/json">
                         {#只接受xls文件#}
                     </div>
                     <button id='upload-xls' class="btn" type="submit">上传模板文件</button>

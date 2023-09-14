@@ -223,132 +223,225 @@ def process_xls(up_times,owner,file_names):
     :param file_names:
     :return:
     '''
-    time.sleep(30)
+    # time.sleep(30)
+    time.sleep(3)
     file= models.UpLoadsCaseTemplate.objects.\
         filter(uptimes= up_times,owner= owner).first()
     file_address= "static/uploads/"+str(file.address)
 
     logger.info("######### 用例已经读取，开始写入数据库 #########")
-    module_name= xlrd.open_workbook(filename= file_address).sheet_by_index(0)
-    project_name= file_names[:-4]
 
-    try:
-        p= models.Project.objects.filter(name= project_name)
-        if not p:
-            project= models.Project()
-            project.name= project_name
-            project.proj_owner= owner
-            project.test_owner= owner
-            project.dev_owner= owner
-            project.desc= "导入的项目"
-            project.save()
-            logger.info("创建项目【{}】成功".format(project_name))
-            time.sleep(1) # 创建完成后，先等待1s
-        else:
-            logger.warning("已存在相同项目,名称为【{}】".format(project_name))
+    if str(file.address)[-4:]== ".xls":  # Excel用例
+        module_name= xlrd.open_workbook(filename= file_address).sheet_by_index(0)
+        project_name= file_names[:-4]
 
-        m= models.Module.objects.filter(name= module_name.name)
-        if not m:
-            module= models.Module()
-            module.name= module_name.name
-            module.belong_project= models.Project.objects.filter(name= project_name).first()
-            logger.info("创建模块时匹配【{}】成功".format(project_name))
-            module.test_owner= owner
-            module.desc= "导入的模块"
-            module.save()
-            logger.info("创建模块【{}】成功".format(module_name.name))
-            time.sleep(1)  # 创建完成后，先等待1s
-        else:
-            logger.warning("已存在相同模块,名称为【{}】".format(module_name.name))
+        try:
+            p= models.Project.objects.filter(name= project_name)
+            if not p:
+                project= models.Project()
+                project.name= project_name
+                project.proj_owner= owner
+                project.test_owner= owner
+                project.dev_owner= owner
+                project.desc= "导入的项目"
+                project.save()
+                logger.info("创建项目【{}】成功".format(project_name))
+                time.sleep(1) # 创建完成后，先等待1s
+            else:
+                logger.warning("已存在相同项目,名称为【{}】".format(project_name))
 
-        case_list= [] # 需要导入的测试用例集
-        related_id_list= [] # 需要进行关联的测试：[(本id,关联id),(本id,关联id)]
-        for i in range(1, module_name.nrows):
-            rows= module_name.row_values(i)
-            for index in range(0,len(rows)):
-                if index== 0 and (rows[index] in ["", None]): # id非空判断
-                    logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
-                    raise Exception
-                if index== 1:
-                    if (rows[index] in ["", None]): # case_name非空判断
+            m= models.Module.objects.filter(name= module_name.name)
+            if not m:
+                module= models.Module()
+                module.name= module_name.name
+                module.belong_project= models.Project.objects.filter(name= project_name).first()
+                logger.info("创建模块时匹配【{}】成功".format(project_name))
+                module.test_owner= owner
+                module.desc= "导入的模块"
+                module.save()
+                logger.info("创建模块【{}】成功".format(module_name.name))
+                time.sleep(1)  # 创建完成后，先等待1s
+            else:
+                logger.warning("已存在相同模块,名称为【{}】".format(module_name.name))
+
+            case_list= [] # 需要导入的测试用例集
+            related_id_list= [] # 需要进行关联的测试：[(本id,关联id),(本id,关联id)]
+            for i in range(1, module_name.nrows):
+                rows= module_name.row_values(i)
+                for index in range(0,len(rows)):
+                    if index== 0 and (rows[index] in ["", None]): # id非空判断
                         logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
                         raise Exception
-                    elif (len(rows[index])> 128): # case_name长度判断
-                        logger.info("模板文件第【{}】行,用例名称过长,内容为【{}】".format(i+1,rows[index]))
-                        raise Exception
-                if index== 2 and (rows[index] in ["", None]): # uri非空判断
-                    logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
-                    raise Exception
-                if index== 3 and ((rows[index]) not in vp.request_method): # request_method列表判断
-                    logger.info("模板文件第【{}】行,请求方式错误,内容为【{}】".format(i+1,rows[index]))
-                    raise Exception
-                if index== 4 and (rows[index] in ["", None]): # request_data非空判断
-                    logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
-                    raise Exception
-                if index== 5 and (rows[index] in ["", None]):
-                    rows[index]= None # 断言为空，则改为None
-                if index== 6 and (rows[index] not in ["", None]):
-                    related_id_list.append((rows[0],rows[index]))
-                    # 使用[(本id,关联id),(本id,关联id)],稍后使用关键字进行遍历匹配，拿到数据库id，进行数据更新关联
-                if index== 6 and (rows[index] in ["", None]):
-                    rows[index]= None # 关联id为空，则改为None
-                if index== 7 and (rows[index] in ["", None]):
-                    rows[index]= None # 提取变量为空，则改为None
-                if index== 8:
-                    if rows[index] in ["", None]: # maintainer非空判断
+                    if index== 1:
+                        if (rows[index] in ["", None]): # case_name非空判断
+                            logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
+                            raise Exception
+                        elif (len(rows[index])> 128): # case_name长度判断
+                            logger.info("模板文件第【{}】行,用例名称过长,内容为【{}】".format(i+1,rows[index]))
+                            raise Exception
+                    if index== 2 and (rows[index] in ["", None]): # uri非空判断
                         logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
                         raise Exception
-                    elif (len(rows[index])> 18): # maintainer长度判断
-                        logger.info("模板文件第【{}】行,用例名称过长,内容为【{}】".format(i+1,rows[index]))
-                        break
-                        # raise Exception
-                if index== 9 and (User.objects.filter(username= rows[index]).exists()== False):
-                        logger.info("模板文件第【{}】行,创建列为【{}】,责任人不存在".format(i+1, vp.title_list[index]))
+                    if index== 3 and ((rows[index]) not in vp.request_method): # request_method列表判断
+                        logger.info("模板文件第【{}】行,请求方式错误,内容为【{}】".format(i+1,rows[index]))
                         raise Exception
+                    if index== 4 and (rows[index] in ["", None]): # request_data非空判断
+                        logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
+                        raise Exception
+                    if index== 5 and (rows[index] in ["", None]):
+                        rows[index]= None # 断言为空，则改为None
+                    if index== 6 and (rows[index] not in ["", None]):
+                        related_id_list.append((rows[0],rows[index]))
+                        # 使用[(本id,关联id),(本id,关联id)],稍后使用关键字进行遍历匹配，拿到数据库id，进行数据更新关联
+                    if index== 6 and (rows[index] in ["", None]):
+                        rows[index]= None # 关联id为空，则改为None
+                    if index== 7 and (rows[index] in ["", None]):
+                        rows[index]= None # 提取变量为空，则改为None
+                    if index== 8:
+                        if rows[index] in ["", None]: # maintainer非空判断
+                            logger.info("模板文件第【{}】行,创建列为【{}】,填写内容为空".format(i+1, vp.title_list[index]))
+                            raise Exception
+                        elif (len(rows[index])> 18): # maintainer长度判断
+                            logger.info("模板文件第【{}】行,用例名称过长,内容为【{}】".format(i+1,rows[index]))
+                            break
+                            # raise Exception
+                    if index== 9 and (User.objects.filter(username= rows[index]).exists()== False):
+                            logger.info("模板文件第【{}】行,创建列为【{}】,责任人不存在".format(i+1, vp.title_list[index]))
+                            raise Exception
 
-            case_list.append(models.TestCase(
-                case_name= rows[1],
-                belong_project= models.Project.objects.get(name= project_name),
-                belong_module= models.Module.objects.get(name= module_name.name),
-                uri= rows[2],
-                request_method= rows[3],
-                request_data= rows[4],
-                assert_key= rows[5],
-                related_case_id= rows[6],
-                extract_var= rows[7],
-                maintainer= rows[8],
-                status= 0,
-                user= User.objects.get(username= rows[9]),
-            ))
+                case_list.append(models.TestCase(
+                    case_name= rows[1],
+                    belong_project= models.Project.objects.get(name= project_name),
+                    belong_module= models.Module.objects.get(name= module_name.name),
+                    uri= rows[2],
+                    request_method= rows[3],
+                    request_data= rows[4],
+                    assert_key= rows[5],
+                    related_case_id= rows[6],
+                    extract_var= rows[7],
+                    maintainer= rows[8],
+                    status= 0,
+                    user= User.objects.get(username= rows[9]),
+                ))
 
-        models.TestCase.objects.bulk_create(case_list) # 系统批量导入
-        flag_time= str(datetime.datetime.now() - datetime.timedelta(seconds= 3))
-        # 导入3s内的数据才查询,防止出现重复用例导入,出现关联错误
+            models.TestCase.objects.bulk_create(case_list) # 系统批量导入
+            flag_time= str(datetime.datetime.now() - datetime.timedelta(seconds= 3))
+            # 导入3s内的数据才查询,防止出现重复用例导入,出现关联错误
 
-        if len(related_id_list)!= 0:
-            for id in related_id_list:  # 进行数据库id的重新关联
-                for i in range(1, module_name.nrows):
-                    rows= module_name.row_values(i)
-                    if rows[0]== id[0]:
-                        original_case= models.TestCase.objects.get(
-                            create_time__gte= flag_time,
-                            case_name= rows[1],
-                            uri= rows[2],
-                            request_method= rows[3],
-                            request_data= rows[4])
-                        for j in range(1, module_name.nrows):
-                            rows_inner= module_name.row_values(j)
-                            if rows_inner[0]== id[1]:
-                                relate_case= models.TestCase.objects.get(
-                                    create_time__gte= flag_time,
-                                    case_name= rows_inner[1],
-                                    uri= rows_inner[2],
-                                    request_method= rows_inner[3],
-                                    request_data= rows_inner[4]).id
-                                original_case.related_case_id= relate_case
-                                original_case.save()
-    except Exception as e:
-        logger.warning("用例导入错误，请检查上传文件正确性")
+            if len(related_id_list)!= 0:
+                for id in related_id_list:  # 进行数据库id的重新关联
+                    for i in range(1, module_name.nrows):
+                        rows= module_name.row_values(i)
+                        if rows[0]== id[0]:
+                            original_case= models.TestCase.objects.get(
+                                create_time__gte= flag_time,
+                                case_name= rows[1],
+                                uri= rows[2],
+                                request_method= rows[3],
+                                request_data= rows[4])
+                            for j in range(1, module_name.nrows):
+                                rows_inner= module_name.row_values(j)
+                                if rows_inner[0]== id[1]:
+                                    relate_case= models.TestCase.objects.get(
+                                        create_time__gte= flag_time,
+                                        case_name= rows_inner[1],
+                                        uri= rows_inner[2],
+                                        request_method= rows_inner[3],
+                                        request_data= rows_inner[4]).id
+                                    original_case.related_case_id= relate_case
+                                    original_case.save()
+        except Exception as e:
+            logger.warning("用例导入错误，请检查上传文件正确性")
+    else:
+        try:
+            with open(file_address,'r',encoding="utf-8") as f:
+                content= json.load(f)
+
+            project_name= content["info"]["name"]
+            p= models.Project.objects.filter(name= project_name)
+            if not p:
+                project= models.Project()
+                project.name= project_name
+                project.proj_owner= owner
+                project.test_owner= owner
+                project.dev_owner= owner
+                project.desc= "导入的项目"
+                # project.save()
+                logger.info("创建项目【{}】成功".format(project_name))
+                time.sleep(1)  # 创建完成后，先等待1s
+            else:
+                logger.warning("已存在相同项目,名称为【{}】".format(project_name))
+
+            for i,line in enumerate(content["item"]):
+                # 枚举列出下标和内容
+                if line.get("item") is not None:
+                    m= models.Module.objects.filter(name= line["name"])
+                    if not m:
+                        module= models.Module()
+                        module.name= line["name"]
+                        module.belong_project= models.Project.objects.filter(name= project_name).first()
+                        logger.info("创建模块时匹配【{}】成功".format(project_name))
+                        module.test_owner= owner
+                        module.desc= "导入的模块"
+                        # module.save()
+                        logger.info("创建模块【{}】成功".format(line["name"]))
+                        time.sleep(1)  # 创建完成后，先等待1s
+                    else:
+                        logger.warning("已存在相同模块,名称为【{}】".format(line["name"]))
+
+
+
+
+
+
+
+                else:
+                    m= models.Module.objects.filter(name= (project_name+str(i+1)))
+                    if not m:
+                        module= models.Module()
+                        module.name= (project_name+str(i+1))
+                        module.belong_project= models.Project.objects.filter(name= project_name).first()
+                        logger.info("创建模块时匹配【{}】成功".format(project_name))
+                        module.test_owner= owner
+                        module.desc= "导入的模块"
+                        # module.save()
+                        logger.info("创建模块【{}】成功".format((project_name+str(i+1))))
+                        time.sleep(1)  # 创建完成后，先等待1s
+                    else:
+                        logger.warning("已存在相同模块,名称为【{}】".format((project_name+str(i+1))))
+
+                    # case_name= line["name"]
+                    # belong_project= models.Project.objects.get(name= project_name)
+                    # belong_module= models.Module.objects.get(name= (project_name+str(i+1)))
+
+                    request_data= {}
+                    for urlencoded in line["request"]["body"]["urlencoded"]:
+                        request_data[urlencoded["key"]]= urlencoded["value"]
+
+                    uri= "/".join(line["request"]["url"]["path"])
+
+                    maintainer= owner
+                    request_method= line["request"]["method"]
+                    user= owner
+
+                    校验文件正确性，多种json内容
+
+
+
+
+
+
+
+        except Exception as e:
+            logger.warning("用例导入错误，请检查上传文件正确性")
+
+
+
+
+
+
+
+
 
 
 @ex_cases_app.task

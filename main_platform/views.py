@@ -488,7 +488,6 @@ def up_test_template(request):
         up.save()
 
         process_xls.delay(up_times,owner,file_names)
-
     cases= TestCase.objects.filter(status= 0).order_by("-id")  # 上传完成后，自动跳回用例页面
     data= {}
     data["pages"]= get_paginator(request, cases)
