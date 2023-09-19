@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "2f5f6998-0424-4b4a-8d50-734e380aea31",
-		"name": "GPtest",
+		"_postman_id": "55328e59-5ddf-4215-8aab-588b8c921645",
+		"name": "测试项目名称",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "123",
+			"name": "测试模块名称",
 			"item": [
 				{
 					"name": "创建人员",
@@ -18,7 +18,7 @@
 							"urlencoded": [
 								{
 									"key": "p_name",
-									"value": "kevin1",
+									"value": "测试人员",
 									"type": "text"
 								},
 								{
@@ -177,7 +177,7 @@
 						},
 						{
 							"key": "s_age",
-							"value": "25",
+							"value": "24",
 							"type": "text"
 						},
 						{
@@ -213,7 +213,7 @@
 			"response": []
 		},
 		{
-			"name": "获取书籍及详细信息",
+			"name": "删除书籍",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -227,7 +227,7 @@
 						},
 						{
 							"key": "g_price",
-							"value": "26",
+							"value": "24",
 							"type": "text"
 						},
 						{

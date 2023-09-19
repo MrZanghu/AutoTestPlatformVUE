@@ -366,13 +366,14 @@ def process_xls(up_times,owner,file_names):
                 project.test_owner= owner
                 project.dev_owner= owner
                 project.desc= "导入的项目"
-                # project.save()
+                project.save()
                 logger.info("创建项目【{}】成功".format(project_name))
                 time.sleep(1)  # 创建完成后，先等待1s
             else:
                 logger.warning("已存在相同项目,名称为【{}】".format(project_name))
 
-            for i,line in enumerate(content["item"]):
+            case_list= []
+            for line in content["item"]:
                 # 枚举列出下标和内容
                 if line.get("item") is not None:
                     m= models.Module.objects.filter(name= line["name"])
@@ -383,36 +384,58 @@ def process_xls(up_times,owner,file_names):
                         logger.info("创建模块时匹配【{}】成功".format(project_name))
                         module.test_owner= owner
                         module.desc= "导入的模块"
-                        # module.save()
+                        module.save()
                         logger.info("创建模块【{}】成功".format(line["name"]))
                         time.sleep(1)  # 创建完成后，先等待1s
                     else:
                         logger.warning("已存在相同模块,名称为【{}】".format(line["name"]))
 
+                    for items in line["item"]:
+                        case_name= items["name"]
+                        belong_project= models.Project.objects.get(name= project_name)
+                        belong_module= models.Module.objects.get(name= line["name"])
 
+                        request_data= {}
+                        for urlencoded in items["request"]["body"]["urlencoded"]:
+                            request_data[urlencoded["key"]]= urlencoded["value"]
 
+                        uri= "/".join(items["request"]["url"]["path"])
 
+                        maintainer= owner
+                        request_method= items["request"]["method"].lower() # 小写
 
-
-
+                        case_list.append(models.TestCase(
+                                case_name= case_name,
+                                belong_project= belong_project,
+                                belong_module= belong_module,
+                                uri= uri,
+                                request_method= request_method,
+                                request_data= json.dumps(request_data), # 解决单引号
+                                assert_key= None,
+                                related_case_id= None,
+                                extract_var= None,
+                                maintainer= maintainer,
+                                status= 0,
+                                user= User.objects.get(username= owner),
+                            ))
                 else:
-                    m= models.Module.objects.filter(name= (project_name+str(i+1)))
+                    m= models.Module.objects.filter(name= project_name)
                     if not m:
                         module= models.Module()
-                        module.name= (project_name+str(i+1))
+                        module.name= project_name
                         module.belong_project= models.Project.objects.filter(name= project_name).first()
                         logger.info("创建模块时匹配【{}】成功".format(project_name))
                         module.test_owner= owner
                         module.desc= "导入的模块"
-                        # module.save()
-                        logger.info("创建模块【{}】成功".format((project_name+str(i+1))))
+                        module.save()
+                        logger.info("创建模块【{}】成功".format(project_name))
                         time.sleep(1)  # 创建完成后，先等待1s
                     else:
-                        logger.warning("已存在相同模块,名称为【{}】".format((project_name+str(i+1))))
+                        logger.warning("已存在相同模块,名称为【{}】".format(project_name))
 
-                    # case_name= line["name"]
-                    # belong_project= models.Project.objects.get(name= project_name)
-                    # belong_module= models.Module.objects.get(name= (project_name+str(i+1)))
+                    case_name= line["name"]
+                    belong_project= models.Project.objects.get(name= project_name)
+                    belong_module= models.Module.objects.get(name= project_name)
 
                     request_data= {}
                     for urlencoded in line["request"]["body"]["urlencoded"]:
@@ -421,27 +444,27 @@ def process_xls(up_times,owner,file_names):
                     uri= "/".join(line["request"]["url"]["path"])
 
                     maintainer= owner
-                    request_method= line["request"]["method"]
-                    user= owner
+                    request_method= line["request"]["method"].lower() # 小写
 
-                    校验文件正确性，多种json内容
+                    case_list.append(models.TestCase(
+                        case_name= case_name,
+                        belong_project= belong_project,
+                        belong_module= belong_module,
+                        uri= uri,
+                        request_method= request_method,
+                        request_data= json.dumps(request_data), # 解决单引号
+                        assert_key= None,
+                        related_case_id= None,
+                        extract_var= None,
+                        maintainer= maintainer,
+                        status= 0,
+                        user= User.objects.get(username= owner),
+                    ))
 
-
-
-
-
-
-
+            models.TestCase.objects.bulk_create(case_list)  # 系统批量导入
         except Exception as e:
+            logger.warning(e)
             logger.warning("用例导入错误，请检查上传文件正确性")
-
-
-
-
-
-
-
-
 
 
 @ex_cases_app.task
