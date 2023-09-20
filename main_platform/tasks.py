@@ -223,8 +223,7 @@ def process_xls(up_times,owner,file_names):
     :param file_names:
     :return:
     '''
-    # time.sleep(30)
-    time.sleep(3)
+    time.sleep(30)
     file= models.UpLoadsCaseTemplate.objects.\
         filter(uptimes= up_times,owner= owner).first()
     file_address= "static/uploads/"+str(file.address)
