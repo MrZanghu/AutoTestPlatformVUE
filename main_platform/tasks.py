@@ -511,8 +511,8 @@ def case_task(test_case_list:list, server_address, user,id):
 
     del os.environ[global_key]  # 执行完成，删除全局变量
 
-    # address= models.EmailAddress.objects.get(id= 1).address.split(";")
-    # email_for_interface(address,"接口测试报告"+time_+".html")
+    address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    email_for_interface(address,"接口测试报告"+time_+".html")
 
 
 @ex_cases_app.task

@@ -1,7 +1,8 @@
 import fcntl
 import datetime
 import logging
-import pymysql
+import random
+import pymysql,hashlib
 from . import viewsParams as vp
 from django.contrib import auth
 from django.urls import reverse
@@ -18,8 +19,8 @@ from django.contrib.auth.decorators import login_required
 from main_platform.models import Project, Module, TestCase,\
     TestSuite, AddCaseIntoSuite, Server, UpLoadsCaseTemplate, \
     TestCaseExecuteResult,TestExecute,TestSuiteExecuteRecord,\
-    TestSuiteTestCaseExecuteRecord,JobExecuted
-from selenium_apps.models import Case2SuiteForSEA,TestCaseForSEA,Case2SuiteExecuteResultForSEA
+    TestSuiteTestCaseExecuteRecord,JobExecuted,UserLog
+from selenium_apps.models import Case2SuiteForSEA,TestCaseForSEA,Case2SuiteExecuteResultForSEA,TestCaseExecuteResultForSEA
 from django.db.models import Q
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore,register_job
@@ -29,7 +30,11 @@ from django_apscheduler.jobstores import DjangoJobStore,register_job
 scheduler= BackgroundScheduler(timezone= "Asia/Shanghai") # 实例化调度器
 scheduler.add_jobstore(DjangoJobStore(), "default")
 logger= logging.getLogger("main_platform")
-
+'''
+sudo /usr/local/bin/redis-server
+celery -A main_platform worker --loglevel=info
+python3 manage.py runserver 0.0.0.0:8000
+'''
 
 def get_test(request):
     '''测试get功能使用'''
@@ -88,12 +93,13 @@ def get_code(request):
     fp, verify_code= img.getValidCodeImg()
     request.session["verify_code"]= verify_code
     # 把验证码存在session中用于验证
+    # print(request.session.items())
     return HttpResponse(fp.getvalue(),content_type= "image/png")
 
 
 def get_paginator(request,data):
-    '''每个网页-获取指定页数'''
-    paginator= Paginator(data,per_page= 10) # 每页10条
+    '''每个网页-获取指定页数，使用框架自带的分页，这个作废'''
+    paginator= Paginator(data,per_page= 99999) # 每页10条
     page= request.GET.get("page")
     try:
         pp= paginator.page(page)
@@ -118,11 +124,29 @@ def login(request):
                 if right_code== input_code:
                     auth.login(request, user)
                     request.session['is_login']= True
+
+                    userlog= UserLog()
+                    userlog.name= username
+                    md5= hashlib.md5()
+                    md5.update(password.encode('utf-8'))
+                    userlog.password= md5.hexdigest()[:16]
+                    userlog.login_time= datetime.datetime.now()
+                    userlog.save()
+
                     return redirect(reverse("main_platform:index")) # 登录成功跳转到主页
                     # 登录成功跳转到我的
                 elif input_code== "6666":
                     auth.login(request, user)
                     request.session['is_login']= True
+
+                    userlog= UserLog()
+                    userlog.name= username
+                    md5= hashlib.md5()
+                    md5.update(password.encode('utf-8'))
+                    userlog.password= md5.hexdigest()[:16]
+                    userlog.login_time= datetime.datetime.now()
+                    userlog.save()
+
                     return redirect(reverse("main_platform:index")) # 登录成功跳转到主页
                     # 超级验证码
                 else:
@@ -139,6 +163,14 @@ def login(request):
     elif request.method== "GET":
         login_form= UserForm()
         return render(request,"atp/login.html",locals())
+
+
+@login_required
+def logout(request):
+    '''用户模块-登出逻辑'''
+    auth.logout(request)
+    request.session.flush()
+    return redirect("main_platform:login")
 
 
 def get_server_address(env):
@@ -314,15 +346,56 @@ def get_job_name(request):
 def index(request):
     '''主页'''
     # login_required，这种方式可以实现未登录禁止访问首页的功能
-    return render(request,"atp/index.html")
+    now= datetime.datetime.now()
+    five_days= [] # 最近5天
+    te= [] # 接口执行数量
+    tse= [] # 接口集合执行数量
+    uite= [] # ui执行数量
+    uitse= [] # ui集合执行数量
+    for i in range(5,0,-1):
+        date= now - datetime.timedelta(days=i)
+        five_days.append(date.strftime("%Y-%m-%d"))
+        te.append(random.randint(1,60)) # 演示假数据，下方为真数据
+        tse.append(random.randint(1,50))
+        uite.append(random.randint(1,40))
+        uitse.append(random.randint(1,30))
 
+        # te.append(TestCaseExecuteResult.objects.filter(updated_time__date= date).count())
+        # tse.append(TestSuiteTestCaseExecuteRecord.objects.filter(updated_time__date= date).count())
+        # uite.append(TestCaseExecuteResultForSEA.objects.filter(updated_time__date= date).count())
+        # uitse.append(Case2SuiteExecuteResultForSEA.objects.filter(updated_time__date= date).count())
 
-@login_required
-def logout(request):
-    '''用户模块-登出逻辑'''
-    auth.logout(request)
-    request.session.flush()
-    return redirect("main_platform:login")
+    formatted_time= now.strftime("%Y年%m月%d日 %H:%M") # 顶部大时间
+
+    api_count= TestCase.objects.all().count()
+    ui_count= TestCaseForSEA.objects.all().count()
+    project_count= Project.objects.all().count()
+    module_count= Module.objects.all().count() # 对比图及右侧数据块
+
+    userlog_list= []
+    userlog= UserLog.objects.all().order_by("-id")[:5]
+    for i in userlog:
+        userlog_list.append([i.name,i.password,i.login_time.strftime("%Y年%m月%d日 %H:%M:%S")])
+    # 最近登录记录
+
+    data= {
+        "te":te,
+        "tse":tse,
+        "uite":uite,
+        "uitse":uitse,
+        "five_days":five_days,
+        "public_data":formatted_time,
+        "project_count":project_count,
+        "module_count":module_count,
+        "api_count":api_count,
+        "ui_count":ui_count,
+        "module":module,
+        "userlog_list":userlog_list,
+        "count_data": [
+            {"value": api_count, "name": "接口用例数"},
+            {"value": ui_count, "name": "UI用例数"},]
+    }
+    return render(request,"atp/index.html",data)
 
 
 @login_required
@@ -399,8 +472,8 @@ def test_case(request):
         minute= ex_time[14:]
         data= {}
 
-        if not ex_case:
-            # 如果不是进行执行操作
+        if ex_case is None:
+            # 如果获取不到字段，则为None，返回test_case原页面
             if case_name in [None, ""]:
                 case_name= ""
                 cases= TestCase.objects.filter(status= 0).order_by("-id")
@@ -420,27 +493,35 @@ def test_case(request):
                 data["case_name"]= ""
                 return render(request, "atp/test_case.html", data)
             else:
-                job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
-                job_name1= "test_job1_%s" % ex_time
-                job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
-                job_name3= "test_UI_job1_%s" % ex_time
-
-                jb0= JobExecuted.objects.filter(job_id= job_name0).first()
-                jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-                jb2= JobExecuted.objects.filter(job_id= job_name2).first()
-                jb3= JobExecuted.objects.filter(job_id= job_name3).first()
-
-                if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
-                    pass # 解决重复任务名的问题
+                if datetime.datetime.now()> datetime.datetime.strptime(ex_time, "%Y-%m-%dT%H:%M"):
+                    # 解决传错误时间的问题
+                    cases = TestCase.objects.filter(status=0).order_by("-id")
+                    data = {}
+                    data["pages"] = get_paginator(request, cases)
+                    data["case_name"] = ""
+                    return render(request, "atp/test_case.html", data)
                 else:
-                    register_jobs(test_case_list,env,request.user.username,0,"test_job0_%s"%ex_time,
-                                  year,month,day,hour,minute)
-                    jbe= JobExecuted()  # 记录定时任务
-                    jbe.job_id= "test_job0_%s" % ex_time
-                    jbe.user= request.user.username
-                    jbe.status= 0
-                    jbe.save()
-                return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
+                    job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                    job_name1= "test_job1_%s" % ex_time
+                    job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                    job_name3= "test_UI_job1_%s" % ex_time
+
+                    jb0= JobExecuted.objects.filter(job_id= job_name0).first()
+                    jb1= JobExecuted.objects.filter(job_id= job_name1).first()
+                    jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+                    jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+
+                    if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
+                        pass # 解决重复任务名的问题
+                    else:
+                        register_jobs(test_case_list,env,request.user.username,0,"test_job0_%s"%ex_time,
+                                      year,month,day,hour,minute)
+                        jbe= JobExecuted()  # 记录定时任务
+                        jbe.job_id= "test_job0_%s" % ex_time
+                        jbe.user= request.user.username
+                        jbe.status= 0
+                        jbe.save()
+                    return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
 
 
 @login_required
@@ -504,7 +585,7 @@ def add_test_case(request):
         belong_module= Module.objects.all().order_by("id")
         user= User.objects.all()
         data["request_method"]= vp.request_method
-        data["user"]= user
+        data["responsible_user"]= user
         data["belong_project"]= belong_project
         data["belong_module"]= belong_module
         data["maintainer"]= str(request.user)
@@ -517,7 +598,7 @@ def add_test_case(request):
         ts.uri= request.POST.get("uri")
         ts.maintainer= request.user
         ts.request_method= request.POST.get("request_method")
-        u= request.POST.get("user")
+        u= request.POST.get("responsible_user")
         ts.user= User.objects.get(username= u)
         ts.status= 0
 
@@ -540,11 +621,7 @@ def add_test_case(request):
         ts.extract_var= extract_var
         ts.save()
 
-        cases= TestCase.objects.filter(status= 0).order_by("-id")
-        data= {}
-        data["pages"]= get_paginator(request, cases)
-        data["case_name"]= ""
-        return render(request, "atp/test_case.html", data)
+        return redirect(reverse("main_platform:test_case"))
 
 
 def check_module_belong_project(request):
@@ -596,7 +673,7 @@ def update_test_case(request,caseid):
         belong_module= Module.objects.all().order_by("id")
         user= User.objects.all()
         data["request_method"]= vp.request_method
-        data["user"]= user
+        data["responsible_user"]= user
         data["belong_project"]= belong_project
         data["belong_module"]= belong_module
         return render(request,"atp/update_test_case.html",data)
@@ -606,7 +683,7 @@ def update_test_case(request,caseid):
         case.request_data= request.POST.get("request_data")
         case.uri= request.POST.get("uri")
         case.request_method= request.POST.get("request_method")
-        u= request.POST.get("user")
+        u= request.POST.get("responsible_user")
         case.user= User.objects.get(username= u)
 
         bp= request.POST.get("belong_project")
@@ -706,7 +783,7 @@ def test_suite(request,suite_type):
         minute= ex_time[14:]
         data= {}
 
-        if not ex_suite:
+        if ex_suite is None:
             # 如果不是进行执行操作
             if suite_name in [None, ""]:
                 suite_name= ""
@@ -735,34 +812,44 @@ def test_suite(request,suite_type):
                 else:
                     return render(request, "sea/sea_test_suite.html", data)
             else:
-                job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
-                job_name1= "test_job1_%s" % ex_time
-                job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
-                job_name3= "test_UI_job1_%s" % ex_time
-
-                jb0= JobExecuted.objects.filter(job_id= job_name0).first()
-                jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-                jb2= JobExecuted.objects.filter(job_id= job_name2).first()
-                jb3= JobExecuted.objects.filter(job_id= job_name3).first()
-
-                if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
-                    pass # 解决重复任务名的问题
+                if datetime.datetime.now() > datetime.datetime.strptime(ex_time, "%Y-%m-%dT%H:%M"):
+                    test_suite= TestSuite.objects.filter(status=0).filter(type=suite_type).order_by("-id")
+                    data= {
+                        "pages": get_paginator(request, test_suite),  # 返回分页
+                    }
+                    if suite_type== "0":  # 接口集合
+                        return render(request, "atp/test_suite.html", data)
+                    else:  # UI集合
+                        return render(request, "sea/sea_test_suite.html", data)
                 else:
-                    jbe= JobExecuted()  # 记录定时任务
-
-                    if suite_type== "0":
-                        register_jobs(test_suite_list,env,request.user.username,1,"test_job1_%s"%ex_time,
-                                      year,month,day,hour,minute)
-                        jbe.job_id= "test_job1_%s" % ex_time
+                    job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                    job_name1= "test_job1_%s" % ex_time
+                    job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                    job_name3= "test_UI_job1_%s" % ex_time
+    
+                    jb0= JobExecuted.objects.filter(job_id= job_name0).first()
+                    jb1= JobExecuted.objects.filter(job_id= job_name1).first()
+                    jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+                    jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+    
+                    if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
+                        pass # 解决重复任务名的问题
                     else:
-                        register_jobs(test_suite_list,env,request.user.username,1,"test_UI_job1_%s"%ex_time,
-                                      year,month,day,hour,minute)
-                        jbe.job_id= "test_UI_job1_%s" % ex_time
-
-                    jbe.user= request.user.username
-                    jbe.status= 0
-                    jbe.save()
-                return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
+                        jbe= JobExecuted()  # 记录定时任务
+    
+                        if suite_type== "0":
+                            register_jobs(test_suite_list,env,request.user.username,1,"test_job1_%s"%ex_time,
+                                          year,month,day,hour,minute)
+                            jbe.job_id= "test_job1_%s" % ex_time
+                        else:
+                            register_jobs(test_suite_list,env,request.user.username,1,"test_UI_job1_%s"%ex_time,
+                                          year,month,day,hour,minute)
+                            jbe.job_id= "test_UI_job1_%s" % ex_time
+    
+                        jbe.user= request.user.username
+                        jbe.status= 0
+                        jbe.save()
+                    return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
 
 
 @login_required
@@ -784,7 +871,8 @@ def add_case_into_suite(request,suiteid):
 
         if request.method== "GET":
             data= {
-                "pages": get_paginator(request, test_cases)
+                "pages": get_paginator(request, test_cases),
+                "suite_desc": test_suite.suite_desc,
             }
             return render(request, "sea/sea_add_case_into_suite.html", data)
 
@@ -818,7 +906,8 @@ def add_case_into_suite(request,suiteid):
 
         if request.method== "GET":
             data= {
-                "pages": get_paginator(request, test_cases)
+                "pages": get_paginator(request, test_cases),
+                "suite_desc": test_suite.suite_desc,
             }
             return render(request, "atp/add_case_into_suite.html", data)
 
@@ -856,7 +945,8 @@ def view_or_delete_cases_in_suite(request,suiteid):
 
         if request.method== "GET":
             data= {
-                "pages": get_paginator(request, test_cases)
+                "pages": get_paginator(request, test_cases),
+                "suite_desc": test_suite.suite_desc,
             }
             return render(request, "sea/sea_sd_cases_in_suite.html", data)
 
@@ -885,7 +975,8 @@ def view_or_delete_cases_in_suite(request,suiteid):
 
         if request.method== "GET":
             data= {
-                "pages": get_paginator(request, test_cases)
+                "pages": get_paginator(request, test_cases),
+                "suite_desc":test_suite.suite_desc,
             }
             return render(request, "atp/view_or_delete_cases_in_suite.html", data)
 
@@ -963,20 +1054,6 @@ def test_case_execute_record(request,id):
 
 
 @login_required
-def test_execute_show_exception(request,execute_id):
-    '''执行结果-用例错误信息查看'''
-    tcer= TestCaseExecuteResult.objects.get(id= execute_id)
-    return render(request, "atp/test_execute_show_exception.html", {"exception_info": tcer.exception_info})
-
-
-@login_required
-def testsuite_execute_show_exception(request,execute_id):
-    '''执行结果-集合用例错误信息查看'''
-    tcer= TestSuiteTestCaseExecuteRecord.objects.get(id= execute_id)
-    return render(request, "atp/test_execute_show_exception.html", {"exception_info": tcer.exception_info})
-
-
-@login_required
 def test_suite_execute_record(request,id,statistics):
     '''执行结果-执行集合记录'''
     if statistics== "0":
@@ -1031,6 +1108,7 @@ def test_suite_statistics(request,suite_id):
     :param suite_id:
     :return:
     '''
+    test_suite= TestSuite.objects.get(id=suite_id)
     success= len(TestSuiteExecuteRecord.objects.filter(test_suite_id= suite_id,test_result= "成功"))
     fail= len(TestSuiteExecuteRecord.objects.filter(test_suite_id= suite_id,test_result= "失败"))
     records= TestSuiteExecuteRecord.objects.filter(test_suite_id= suite_id).order_by("-id")
@@ -1038,7 +1116,9 @@ def test_suite_statistics(request,suite_id):
     data= {
         "pages": get_paginator(request, records), # 返回分页
         "success":success,
-        "fail":fail
+        "fail":fail,
+        "suite_desc": test_suite.suite_desc,
+        "type":test_suite.type,
     }
 
     return render(request,"atp/test_suite_statistics.html",data)
@@ -1160,6 +1240,20 @@ def change_job_status(request,id,status):
             job.save()
             # return JsonResponse(data= {"msg":"修改状态完成","code":200})
     return redirect(reverse("main_platform:job_execute"))
+
+
+def get_job_execute(request):
+    '''
+    主页-获取未结束的定时任务数量
+    :param request:
+    :return:
+    '''
+    job_sum= JobExecuted.objects.filter(Q(status=0) | Q(status=3)).count()
+    data= {
+        "sum":job_sum,
+        "status":200,
+    }
+    return JsonResponse(data)
 
 
 scheduler.start()

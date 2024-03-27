@@ -1,120 +1,335 @@
-{% extends 'atp/base.html' %}
+<!DOCTYPE html>
 {% load static %}
-{% block title %}项目执行统计{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/atp/test_case.css' %}">
-{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
 
-{% block content %}
-    <p style="margin-left: 10px;">
-        <span style="margin-left: 5px;">项目内用例执行结果统计：成功 {{ success }} 次，失败 {{ fail }} 次</span>
-    <p>
-    <div id="main" style="width: 600px;height:400px; margin-left: 10px;"></div>
-    {#    <script type="text/javascript" src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>#}
-    <script type="text/javascript" src="{% static 'js/atp/echarts.min.js' %}"></script>
-    <script>
-        echarts.init(document.getElementById('main')).setOption({
-            series: {
+    <title>{{ project.name }}</title>
+
+
+    <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entypo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="page-body" data-url="http://neon.dev">
+
+<div class="page-container">
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="{% url 'main_platform:index' %}">
+                    <h3 style="color: white;font-weight: bold;margin-left: 35px">自动化测试平台</h3>
+                </a>
+            </div>
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img src="{% static 'picture/touxiang.png' %}" alt="" class="img-circle"
+                         style="width: 190px;margin-left: 15px">
+                    <span style="text-align: center;padding-top: 200px">你好,欢迎回来,</span>
+                    <strong style="text-align: center;margin-top: 5px">{{ user.username }}</strong>
+                </a>
+            </div>
+
+            <div class="sui-hover inline-links animate-in">
+                <!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                <a href="#">
+                    <i class="entypo-pencil"></i>
+                    New Page
+                </a>
+
+                <a href="mailbox.html">
+                    <i class="entypo-mail"></i>
+                    Inbox
+                </a>
+
+                <a href="extra-lockscreen.html">
+                    <i class="entypo-lock"></i>
+                    Log Off
+                </a>
+
+                <span class="close-sui-popup">&times;</span><!-- this is mandatory -->            </div>
+        </div>
+
+        <ul id="main-menu" class="">
+            <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+            <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+            <!-- Search Bar -->
+            <li>
+                <a href="{% url 'main_platform:index' %}">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="opened active">
+                <a href="{% url 'main_platform:project' %}">
+                    <i class="entypo-layout"></i>
+                    <span>测试项目</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:module' %}">
+                    <i class="entypo-menu"></i>
+                    <span>测试模块</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-log-in"></i>
+                    <span>接口测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'main_platform:test_case' %}">
+                            <span>接口用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'main_platform:test_suite' 0 %}">
+                            <span>接口集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-hand-up"></i>
+                    <span>UI测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_case' %}">
+                            <span>UI用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_suite' 1 %}">
+                            <span>UI集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:test_execute' 'None' %}">
+                    <i class="entypo-mail"></i>
+                    <span>执行结果</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:job_execute' %}">
+                    <i class="glyphicon glyphicon-time"></i>
+                    <span>定时任务</span>
+                    <span class="badge badge-secondary">8</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="row" style="display: flex">
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="margin-left: auto">
+                <ul class="list-inline links-list pull-right">
+                    <li><a href="#">当前在线：{{ user.username }}</a></li>
+                    <li class="sep"></li>
+                    <li>
+                        <a href="{% url 'main_platform:logout' %}">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="#"><i class="entypo-home"></i>首页</a>
+            </li>
+            <li class="active">
+                <strong>测试项目</strong>
+            </li>
+            <li class="active">
+                <strong>{{ project.name }}</strong>
+            </li>
+        </ol>
+
+        <div id="main" style="width: 600px;height:200px;margin:auto"></div>
+
+        <br>
+
+        <table class="table table-bordered datatable" id="table-1">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>用例名称</th>
+                <th>所属项目</th>
+                <th>所属模块</th>
+                <th>接口地址</th>
+                <th>请求方式</th>
+                <th>请求数据</th>
+                <th>断言key</th>
+                <th>关联用例ID</th>
+                <th>提取变量表达式</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for test_case in pages %}
+                <tr>
+                    <td>{{ test_case.id }}</td>
+                    <td>
+                        <a href="{% url 'main_platform:test_case_detail' test_case.id %}"
+                           target="_blank">{{ test_case.case_name }}</a>
+                    </td>
+                    <td>{{ test_case.belong_project.name }}</td>
+                    <td>{{ test_case.belong_module.name }}</td>
+                    <td>{{ test_case.uri }}</td>
+                    <td>{{ test_case.request_method }}</td>
+                    <td>{{ test_case.request_data }}</td>
+                    <td>{{ test_case.assert_key }}</td>
+                    <td>{{ test_case.related_case_id }}</td>
+                    <td>{{ test_case.extract_var }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <script type="text/javascript">
+            var responsiveHelper;
+            var breakpointDefinition = {
+                tablet: 1024,
+                phone: 480
+            };
+            var tableContainer;
+
+            jQuery(document).ready(function ($) {
+                tableContainer = $("#table-1");
+
+                tableContainer.dataTable({
+                    "sPaginationType": "bootstrap",
+                    "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    "bStateSave": true,
+
+
+                    // Responsive Settings
+                    bAutoWidth: false,
+                    fnPreDrawCallback: function () {
+                        // Initialize the responsive datatables helper once.
+                        if (!responsiveHelper) {
+                            responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
+                        }
+                    },
+                    fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                        responsiveHelper.createExpandIcon(nRow);
+                    },
+                    fnDrawCallback: function (oSettings) {
+                        responsiveHelper.respond();
+                    }
+                });
+
+                $(".dataTables_wrapper select").select2({
+                    minimumResultsForSearch: -1,
+                });
+            });
+        </script>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/datatables.responsive.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2-bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2.css' %}">
+
+<!-- Bottom Scripts -->
+<script src="{% static 'js/main-gsap.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/joinable.js' %}"></script>
+<script src="{% static 'js/resizeable.js' %}"></script>
+<script src="{% static 'js/neon-api.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/TableTools.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.columnFilter.js' %}"></script>
+<script src="{% static 'js/lodash.min.js' %}"></script>
+<script src="{% static 'js/datatables.responsive.js' %}"></script>
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/neon-chat.js' %}"></script>
+<script src="{% static 'js/neon-custom.js' %}"></script>
+<script src="{% static 'js/neon-demo.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
+<script>
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        title: {
+            text: '项目用例执行情况',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left'
+        },
+        series: [
+            {
+                name: '统计结果',
                 type: 'pie',
+                radius: '50%',
                 color: ['green', 'red'],
                 data: [
-                    {name: '成功的次数', value: {{ success }}},
-                    {name: '失败的次数', value: {{ fail }}},
-                ]
-            }
-        });
-        echarts.init(document.getElementById('main')).setOption({
-            title: {
-                text: '结果统计',
-                subtext: '即时数据',
-                left: 'center'
-            },
-            tooltip: {
-                trigger: 'item'
-            },
-            legend: {
-                orient: 'vertical',
-                left: 'left'
-            },
-            series: {
-                name: '结果统计',
-                radius: '55%',
-                type: 'pie',
-                color: ['green', 'red'],
-                data: [
-                    {name: '执行成功次数', value: {{ success }}},
-                    {name: '执行失败次数', value: {{ fail }}},
-
+                    {name: '执行成功次数', value: {{ success|safe }}},
+                    {name: '执行失败次数', value: {{ fail|safe }}},
                 ],
-                label: {  // 饼图图形上的文本标签
-                    normal: {
-                        show: true,
-                        formatter: "{b} : {c} ({d}%)"
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 }
             }
-        });
-    </script>
+        ]
+    };
 
+    option && myChart.setOption(option);
 
-    <div class="table-responsive">
-        <h1 style="text-align: center">【{{ project.name }}】模块包含用例：</h1>
-        <hr width=50% style="border:1px dashed gray;height:2px">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th width="5%">id</th>
-                    <th width="8.3%">用例名称</th>
-                    <th width="8.3%">所属项目</th>
-                    <th width="8.3%">所属模块</th>
-                    <th width="8.3%">接口地址</th>
-                    <th width="8.35%">请求方式</th>
-                    <th width="20%">请求数据</th>
-                    <th width="8.3%">断言key</th>
-                    <th>关联用例ID</th>
-                    <th width="20%">提取变量表达式</th>
-                </tr>
-                </thead>
-                <tbody>
+</script>
 
-                {% for test_case in pages %}
-                    <tr>
-                        <td>{{ test_case.id }}</td>
-                        <td>
-                            <a href="{% url 'main_platform:test_case_detail' test_case.id %}" target="_blank">{{ test_case.case_name }}</a>
-                        </td>
-                        <td>{{ test_case.belong_project.name }}</td>
-                        <td>{{ test_case.belong_module.name }}</td>
-                        <td>{{ test_case.uri }}</td>
-                        <td>{{ test_case.request_method }}</td>
-                        <td>{{ test_case.request_data }}</td>
-                        <td>{{ test_case.assert_key }}</td>
-                        <td>{{ test_case.related_case_id }}</td>
-                        <td>{{ test_case.extract_var }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-    <div id="pages" class="text-center">
-        <nav>
-            <ul class="pagination">
-                <li class="step-links">
-                    {% if pages.has_previous %}
-                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
-                    {% endif %}
-
-                    <span class="current">
-                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
-
-                    {% if pages.has_next %}
-                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
-                    {% endif %}
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-{% endblock %}
+</body>
+</html>

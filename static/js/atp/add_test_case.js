@@ -46,8 +46,8 @@ function check() {
     var $status_input = $("#status_input");
     var $status_info = $("#status_info");
 
-    var $user_input = $("#user_input");
-    var $user_info = $("#user_info");
+    var $user_input = $("#responsible_user_input");
+    var $user_info = $("#responsible_user_info");
 
     var flag = true;
     var list = [$case_name_input, $belong_project_input, $belong_module_input, $request_data_input, $uri_input,

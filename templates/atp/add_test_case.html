@@ -1,144 +1,355 @@
-{% extends 'atp/base.html' %}
+<!DOCTYPE html>
 {% load static %}
-{% block title %}添加用例{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-{% block content %}
-    <div class="container">
-        <form method="post" action="{% url 'main_platform:add_test_case' %}" onsubmit="return check()">
-            {% csrf_token %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
 
-            <div class="form-group">
-                <label for="case_name_input" class="col-sm-2 control-label" style="font-size: 15px">用例名称:</label>
-                <input type="text" class="col-sm-7 input-group" placeholder="请输入用例名称"
-                       name="case_name" maxlength="25" id="case_name_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="case_name_info"></span> 
+    <title>新建用例</title>
+
+
+    <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entypo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="page-body" data-url="http://neon.dev">
+
+<div class="page-container">
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="{% url 'main_platform:index' %}">
+                    <h3 style="color: white;font-weight: bold;margin-left: 35px">自动化测试平台</h3>
+                </a>
             </div>
-            <br>
+        </header>
 
-            <div class="form-group">
-                <label for="belong_project_input" class="col-sm-2 control-label" style="font-size: 15px">所属项目:</label>
-                <input type="text" list="projects" placeholder="请选择所属项目" id="belong_project_input"
-                       class="col-sm-7 input-group" name="belong_project">
-                <datalist id="projects">
-                    {% for bp in belong_project %}
-                        <option>{{ bp.name }}</option>
-                    {% endfor %}
-                </datalist>
-                <span id="belong_project_info"></span> 
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img src="{% static 'picture/touxiang.png' %}" alt="" class="img-circle"
+                         style="width: 190px;margin-left: 15px">
+                    <span style="text-align: center;padding-top: 200px">你好,欢迎回来,</span>
+                    <strong style="text-align: center;margin-top: 5px">{{ user.username }}</strong>
+                </a>
             </div>
-            <br>
 
-            <div class="form-group">
-                <label for="belong_module_input" class="col-sm-2 control-label" style="font-size: 15px">所属模块:</label>
-                <input type="text" list="modules" placeholder="请选择所属模块" id="belong_module_input"
-                       class="col-sm-7 input-group" name="belong_module">
-                <datalist id="modules">
-                    {% for bm in belong_module %}
-                        <option>{{ bm.name }}</option>
-                    {% endfor %}
-                </datalist>
-                <span id="belong_module_info"></span>
-            </div>
-            <br>
+            <div class="sui-hover inline-links animate-in">
+                <!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                <a href="#">
+                    <i class="entypo-pencil"></i>
+                    New Page
+                </a>
 
-            <div class="form-group">
-                <label for="request_data_input" class="col-sm-2 control-label" style="font-size: 15px">请求数据:</label>
-                <input type="text" class="col-sm-7 input-group" placeholder="请输入请求数据"
-                       name="request_data" maxlength="256" id="request_data_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="request_data_info"></span> 
-            </div>
-            <br>
+                <a href="mailbox.html">
+                    <i class="entypo-mail"></i>
+                    Inbox
+                </a>
 
-            <div class="form-group">
-                <label for="uri_input" class="col-sm-2 control-label" style="font-size: 15px">接口地址:</label>
-                <input type="text" class="col-sm-7 input-group" placeholder="请输入接口地址"
-                       name="uri" maxlength="128" id="uri_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="uri_info"></span> 
-            </div>
-            <br>
+                <a href="extra-lockscreen.html">
+                    <i class="entypo-lock"></i>
+                    Log Off
+                </a>
 
-            <div class="form-group">
-                <label for="assert_key_input" class="col-sm-2 control-label" style="font-size: 15px">断言内容:</label>
-                <input type="text" class="col-sm-7 input-group" placeholder="请输入断言内容"
-                       name="assert_key" maxlength="128" id="assert_key_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="assert_key_info"></span> 
-            </div>
-            <br>
+                <span class="close-sui-popup">&times;</span><!-- this is mandatory -->            </div>
+        </div>
 
-            <div class="form-group">
-                <label for="maintainer_input" class="col-sm-2 control-label" style="font-size: 15px">编写人员:</label>
-                <input type="text" class="col-sm-7 input-group" value="{{ maintainer }}"
-                       name="maintainer" disabled="disabled" id="maintainer_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="maintainer_info"></span> 
-            </div>
-            <br>
+        <ul id="main-menu" class="">
+            <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+            <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+            <!-- Search Bar -->
+            <li>
+                <a href="{% url 'main_platform:index' %}">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:project' %}">
+                    <i class="entypo-layout"></i>
+                    <span>测试项目</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:module' %}">
+                    <i class="entypo-menu"></i>
+                    <span>测试模块</span>
+                </a>
+            </li>
+            <li class="opened active">
+                <a href="#">
+                    <i class="glyphicon glyphicon-log-in"></i>
+                    <span>接口测试</span>
+                </a>
+                <ul>
+                    <li class="opened active">
+                        <a href="{% url 'main_platform:test_case' %}">
+                            <span>接口用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'main_platform:test_suite' 0 %}">
+                            <span>接口集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-hand-up"></i>
+                    <span>UI测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_case' %}">
+                            <span>UI用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_suite' 1 %}">
+                            <span>UI集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:test_execute' 'None' %}">
+                    <i class="entypo-mail"></i>
+                    <span>执行结果</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:job_execute' %}">
+                    <i class="glyphicon glyphicon-time"></i>
+                    <span>定时任务</span>
+                    <span class="badge badge-secondary">8</span>
+                </a>
+            </li>
+        </ul>
 
-            <div class="form-group">
-                <label for="extract_var_input" class="col-sm-2 control-label" style="font-size: 15px">提取变量表达式:</label>
-                <input type="text" class="col-sm-7 input-group" placeholder="请输入提取变量表达式"
-                       name="extract_var" maxlength="256" id="extract_var_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="extract_var_info"></span> 
-            </div>
-            <br>
-
-            <div class="form-group">
-                <label for="request_method_input" class="col-sm-2 control-label" style="font-size: 15px">请求方式:</label>
-                <input type="text" list="methods" placeholder="请选择请求方式" name="request_method"
-                id="request_method_input">
-                <datalist id="methods">
-                    {% for rm in request_method %}
-                        <option>{{ rm }}</option>
-                    {% endfor %}
-                </datalist>
-                <br>
-                <span id="request_method_info"></span> 
-            </div>
-            <br>
-
-            <div class="form-group">
-                <label for="status_input" class="col-sm-2 control-label" style="font-size: 15px">用例状态:</label>
-                <input type="text" class="col-sm-7 input-group" value="0"
-                       name="status" disabled="disabled" id="status_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="status_info"></span> 
-            </div>
-            <br>
-
-            <div class="form-group">
-                <label for="related_case_id_input" class="col-sm-2 control-label" style="font-size: 15px">关联用例id:</label>
-                <input type="number" class="col-sm-7 input-group" placeholder="请输入关联用例id"
-                       name="related_case_id" min="1" max="9999" id="related_case_id_input"
-                       style="width: 665px;height: 26px;border: 1px solid black;font-size: 14px;">
-                <span id="related_case_id_info"></span>
-            </div>
-            <br>
-
-            <div class="form-group">
-                <label for="user_input" class="col-sm-2 control-label" style="font-size: 15px">责任人:</label>
-                <input type="text" list="users" placeholder="请选择责任人"
-                       class="col-sm-7 input-group" name="user" id="user_input">
-                <datalist id="users">
-                    {% for u in user %}
-                        <option>{{ u.username }}</option>
-                    {% endfor %}
-                </datalist>
-                <span id="user_info"></span>
-            </div>
-            <br>
-
-            <button type="submit" class="btn btn-success btn-block"
-                    style="width: 250px;height: 45px;display:block;margin:0 auto">提交</button>
-        </form>
     </div>
-{% endblock %}
 
-{% block ext_js %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'js/atp/add_test_case.js' %}"></script>
-{% endblock %}
+
+    <div class="main-content">
+
+        <div class="row" style="display: flex">
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="margin-left: auto">
+                <ul class="list-inline links-list pull-right">
+                    <li><a href="#">当前在线：{{ user.username }}</a></li>
+                    <li class="sep"></li>
+                    <li>
+                        <a href="{% url 'main_platform:logout' %}">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="#"><i class="entypo-home"></i>首页</a>
+            </li>
+            <li class="active">
+                <strong>接口测试</strong>
+            </li>
+            <li class="active">
+                <strong>测试用例</strong>
+            </li>
+            <li class="active">
+                <strong>新建用例</strong>
+            </li>
+        </ol>
+
+        <h2>新建用例</h2>
+
+        <br>
+
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <div class="panel-title">新建用例</div>
+
+                <div class="panel-options">
+                    <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                    <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <form role="form" id="form1" method="post" class="validate"
+                      action=""
+                      onsubmit="return check()">
+                    {% csrf_token %}
+
+
+                    <div class="form-group">
+                        <label for="case_name_input" class="control-label">用例名称:</label>
+                        <input type="text" class="form-control" placeholder="请输入用例名称"
+                               name="case_name" maxlength="25" id="case_name_input">
+                        <span id="case_name_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="belong_project_input" class="control-label">所属项目:</label>
+                        <input type="text" class="form-control" list="projects" placeholder="请选择所属项目"
+                               name="belong_project" id="belong_project_input">
+                        <datalist id="projects">
+                            {% for bp in belong_project %}
+                                <option>{{ bp.name }}</option>
+                            {% endfor %}
+                        </datalist>
+                        <span id="belong_project_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="belong_module_input" class="control-label">所属模块:</label>
+                        <input type="text" class="form-control" list="modules" placeholder="请选择所属模块"
+                               name="belong_module" id="belong_module_input">
+                        <datalist id="modules">
+                            {% for bm in belong_module %}
+                                <option>{{ bm.name }}</option>
+                            {% endfor %}
+                        </datalist>
+                        <span id="belong_module_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="request_data_input" class="control-label">请求数据:</label>
+                        <input type="text" class="form-control" placeholder="请输入请求数据"
+                               name="request_data" maxlength="256" id="request_data_input">
+                        <span id="request_data_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="uri_input" class="control-label">接口地址:</label>
+                        <input type="text" class="form-control" placeholder="请输入接口地址"
+                               name="uri" maxlength="128" id="uri_input">
+                        <span id="uri_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assert_key_input" class="control-label">断言内容:</label>
+                        <input type="text" class="form-control" placeholder="请输入断言内容"
+                               name="assert_key" maxlength="128" id="assert_key_input">
+                        <span id="assert_key_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maintainer_input" class="control-label">编写人员:</label>
+                        <input type="text" class="form-control" value="{{ maintainer }}"
+                               name="maintainer" disabled="disabled" id="maintainer_input">
+                        <span id="maintainer_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="extract_var_input" class="control-label">提取变量表达式:</label>
+                        <input type="text" class="form-control" placeholder="请输入提取变量表达式"
+                               name="extract_var" maxlength="256" id="extract_var_input">
+                        <span id="extract_var_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="request_method_input" class="control-label">请求方式:</label>
+                        <input type="text" class="form-control" list="methods" placeholder="请选择请求方式"
+                               name="request_method" id="request_method_input">
+                        <datalist id="methods">
+                            {% for rm in request_method %}
+                                <option>{{ rm }}</option>
+                            {% endfor %}
+                        </datalist>
+                        <span id="request_method_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status_input" class="control-label">用例状态:</label>
+                        <input type="text" class="form-control" value="0"
+                               name="status" disabled="disabled" id="status_input" >
+                        <span id="status_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="related_case_id_input" class="control-label">关联用例id:</label>
+                        <input type="number" class="form-control" placeholder="请输入关联用例id"
+                               name="related_case_id" min="1" max="9999" id="related_case_id_input">
+                        <span id="related_case_id_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="responsible_user_input" class="control-label">责任人:</label>
+                        <input type="text" class="form-control" list="responsible_users" placeholder="请选择责任人"
+                               name="responsible_user" id="responsible_user_input">
+                        <datalist id="responsible_users">
+                            {% for u in responsible_user %}
+                                <option>{{ u.username }}</option>
+                            {% endfor %}
+                        </datalist>
+                        <span id="responsible_user_info"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">提交</button>
+                        <button type="reset" class="btn">清空</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/datatables.responsive.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2-bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2.css' %}">
+
+<!-- Bottom Scripts -->
+<script src="{% static 'js/main-gsap.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/joinable.js' %}"></script>
+<script src="{% static 'js/resizeable.js' %}"></script>
+<script src="{% static 'js/neon-api.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/TableTools.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.columnFilter.js' %}"></script>
+<script src="{% static 'js/lodash.min.js' %}"></script>
+<script src="{% static 'js/datatables.responsive.js' %}"></script>
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/neon-chat.js' %}"></script>
+<script src="{% static 'js/neon-custom.js' %}"></script>
+<script src="{% static 'js/neon-demo.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/atp/add_test_case.js' %}"></script>
+<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
+</body>
+</html>

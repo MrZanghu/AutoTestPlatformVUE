@@ -12,6 +12,21 @@ Note:
     UPDATE atp_test_case_execute_result set id= (@auto_id:= @auto_id+1);
     ALTER TABLE atp_test_case_execute_result AUTO_INCREMENT=1;
 '''
+class UserLog(models.Model):
+    '''用户登录记录'''
+    id= models.AutoField(primary_key= True)
+    name= models.CharField("用户名", max_length= 128, blank= True, null= True)
+    password= models.CharField("密码", max_length= 128, blank= True, null= True)
+    login_time= models.DateTimeField("登录时间", auto_now_add=True)
+
+    # 打印对象时返回项目名称
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table= "atp_userlog"
+        verbose_name= "用户登录记录表"
+        verbose_name_plural= "用户登录记录表"
 
 
 class Project(models.Model):

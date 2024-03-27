@@ -1,99 +1,329 @@
-{% extends 'atp/base.html' %}
+<!DOCTYPE html>
 {% load static %}
-{% block title %}用例详情{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/sea/sea_add_test_case.css' %}">
-    {#可以复用#}
-{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
 
-{% block content %}
-    <br>
-    <h3 style="text-align: center">
-        用例【{{ test_case.case_name }}】详情
-    </h3>
-    <span id="case_id" style="display: none">{{ test_case.id }}</span>
-    <hr style="width:95%;height:1px;color:red"/>
+    <title>用例详情</title>
 
-    <iframe name="formsubmmit" style="display: none"></iframe>
 
-    <form action="#" target="formsubmmit">
-        {% csrf_token %}
-        <div class="card">
-            <div class="card-body">
-                <div class="row" style="margin-top:10px;">
-                    <div id="tblServiceList-div" style="width: 100%;">
-                        <table class="table table-bordered" id="interfaceParam">
-                            <thead>
-                            <tr>
-                                <td width="5%" style="text-align: center">步骤编号</td>
-                                <td width="25%" style="text-align: center">定位路径</td>
-                                <td width="17.5%" style="text-align: center">方法|操作</td>
-                                <td width="20%" style="text-align: center">传入参数</td>
-                                <td width="12%" style="text-align: center">步骤动作</td>
-                                <td style="text-align: center">预期结果</td>
-                            </tr>
-                            </thead>
-                            {% for step in test_case_steps %}
-                                <tr>
-                                    <td style="text-align: center">{{ step.0 }}</td>
-                                    <td>
-                                        {% if step.1 == None %}
-                                            <input id=LocationPath{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="">
-                                        {% else %}
-                                            <input id=LocationPath{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="{{ step.1 }}">
-                                        {% endif %}
-                                    </td>
+    <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entypo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
-                                    <td>
-                                        {% if step.2 == None %}
-                                            <input id=Method{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="">
-                                        {% else %}
-                                            <input id=Method{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="{{ step.2 }}">
-                                        {% endif %}
-                                    </td>
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
 
-                                    <td>
-                                        {% if step.3 == None %}
-                                            <input id=Parameter{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="">
-                                        {% else %}
-                                            <input id=Parameter{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="{{ step.3 }}">
-                                        {% endif %}
-                                    </td>
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
-                                    <td>
-                                        {% if step.4 == None %}
-                                            <input id=Action{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="">
-                                        {% else %}
-                                            <input id=Action{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="{{ step.4 }}">
-                                        {% endif %}
-                                    </td>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-                                    <td>
-                                        {% if step.5 == None %}
-                                            <input id=Expected{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="">
-                                        {% else %}
-                                            <input id=Expected{{ step.0 }} style='width: 100%;' type='text'
-                                                   value="{{ step.5 }}">
-                                        {% endif %}
+</head>
 
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </div>
+<body class="page-body" data-url="http://neon.dev">
+
+<div class="page-container">
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="{% url 'main_platform:index' %}">
+                    <h3 style="color: white;font-weight: bold;margin-left: 35px">自动化测试平台</h3>
+                </a>
+            </div>
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img src="{% static 'picture/touxiang.png' %}" alt="" class="img-circle"
+                         style="width: 190px;margin-left: 15px">
+                    <span style="text-align: center;padding-top: 200px">你好,欢迎回来,</span>
+                    <strong style="text-align: center;margin-top: 5px">{{ user.username }}</strong>
+                </a>
+            </div>
+
+            <div class="sui-hover inline-links animate-in">
+                <!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                <a href="#">
+                    <i class="entypo-pencil"></i>
+                    New Page
+                </a>
+
+                <a href="mailbox.html">
+                    <i class="entypo-mail"></i>
+                    Inbox
+                </a>
+
+                <a href="extra-lockscreen.html">
+                    <i class="entypo-lock"></i>
+                    Log Off
+                </a>
+
+                <span class="close-sui-popup">&times;</span><!-- this is mandatory -->            </div>
+        </div>
+
+        <ul id="main-menu" class="">
+            <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+            <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+            <!-- Search Bar -->
+            <li>
+                <a href="{% url 'main_platform:index' %}">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:project' %}">
+                    <i class="entypo-layout"></i>
+                    <span>测试项目</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:module' %}">
+                    <i class="entypo-menu"></i>
+                    <span>测试模块</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-log-in"></i>
+                    <span>接口测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'main_platform:test_case' %}">
+                            <span>接口用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'main_platform:test_suite' 0 %}">
+                            <span>接口集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="opened active">
+                <a href="#">
+                    <i class="glyphicon glyphicon-hand-up"></i>
+                    <span>UI测试</span>
+                </a>
+                <ul>
+                    <li class="opened active">
+                        <a href="{% url 'selenium_apps:test_case' %}">
+                            <span>UI用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_suite' 1 %}">
+                            <span>UI集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:test_execute' 'None' %}">
+                    <i class="entypo-mail"></i>
+                    <span>执行结果</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:job_execute' %}">
+                    <i class="glyphicon glyphicon-time"></i>
+                    <span>定时任务</span>
+                    <span class="badge badge-secondary">8</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="row" style="display: flex">
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="margin-left: auto">
+                <ul class="list-inline links-list pull-right">
+                    <li><a href="#">当前在线：{{ user.username }}</a></li>
+                    <li class="sep"></li>
+                    <li>
+                        <a href="{% url 'main_platform:logout' %}">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </form>
 
-{% endblock %}
+        <hr>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="#"><i class="entypo-home"></i>首页</a>
+            </li>
+            <li class="active">
+                <strong>UI测试</strong>
+            </li>
+            <li class="active">
+                <strong>测试用例</strong>
+            </li>
+            <li class="active">
+                <strong>用例详情</strong>
+            </li>
+        </ol>
+
+        <h2>用例详情</h2>
+
+        <br>
+
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <div class="panel-title">用例详情</div>
+
+                <div class="panel-options">
+                    <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                    <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+                </div>
+            </div>
+
+            <div class="panel-body">
+
+                <br>
+                <h3 style="text-align: center">
+                    用例【{{ test_case.case_name }}】详情
+                </h3>
+                <span id="case_id" style="display: none">{{ test_case.id }}</span>
+                <hr style="width:95%;height:1px;color:red"/>
+
+                <iframe name="formsubmmit" style="display: none"></iframe>
+
+                <form action="#" target="formsubmmit">
+                    {% csrf_token %}
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row" style="margin-top:10px;">
+                                <div id="tblServiceList-div" style="width: 100%;">
+                                    <table class="table table-bordered" id="interfaceParam">
+                                        <thead>
+                                        <tr>
+                                            <td width="5%" style="text-align: center">步骤编号</td>
+                                            <td width="25%" style="text-align: center">定位路径</td>
+                                            <td width="17.5%" style="text-align: center">方法|操作</td>
+                                            <td width="20%" style="text-align: center">传入参数</td>
+                                            <td width="12%" style="text-align: center">步骤动作</td>
+                                            <td style="text-align: center">预期结果</td>
+                                        </tr>
+                                        </thead>
+                                        {% for step in test_case_steps %}
+                                            <tr>
+                                                <td style="text-align: center">{{ step.0 }}</td>
+                                                <td>
+                                                    {% if step.1 == None %}
+                                                        <input id=LocationPath{{ step.0 }} style='width: 100%;'
+                                                               type='text'
+                                                               value="">
+                                                    {% else %}
+                                                        <input id=LocationPath{{ step.0 }} style='width: 100%;'
+                                                               type='text'
+                                                               value="{{ step.1 }}">
+                                                    {% endif %}
+                                                </td>
+
+                                                <td>
+                                                    {% if step.2 == None %}
+                                                        <input id=Method{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="">
+                                                    {% else %}
+                                                        <input id=Method{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="{{ step.2 }}">
+                                                    {% endif %}
+                                                </td>
+
+                                                <td>
+                                                    {% if step.3 == None %}
+                                                        <input id=Parameter{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="">
+                                                    {% else %}
+                                                        <input id=Parameter{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="{{ step.3 }}">
+                                                    {% endif %}
+                                                </td>
+
+                                                <td>
+                                                    {% if step.4 == None %}
+                                                        <input id=Action{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="">
+                                                    {% else %}
+                                                        <input id=Action{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="{{ step.4 }}">
+                                                    {% endif %}
+                                                </td>
+
+                                                <td>
+                                                    {% if step.5 == None %}
+                                                        <input id=Expected{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="">
+                                                    {% else %}
+                                                        <input id=Expected{{ step.0 }} style='width: 100%;' type='text'
+                                                               value="{{ step.5 }}">
+                                                    {% endif %}
+
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/datatables.responsive.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2-bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2.css' %}">
+<link rel="stylesheet" href="{% static 'css/sea/sea_add_test_case.css' %}">
+
+<!-- Bottom Scripts -->
+<script src="{% static 'js/main-gsap.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/joinable.js' %}"></script>
+<script src="{% static 'js/resizeable.js' %}"></script>
+<script src="{% static 'js/neon-api.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/TableTools.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.columnFilter.js' %}"></script>
+<script src="{% static 'js/lodash.min.js' %}"></script>
+<script src="{% static 'js/datatables.responsive.js' %}"></script>
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/neon-chat.js' %}"></script>
+<script src="{% static 'js/neon-custom.js' %}"></script>
+<script src="{% static 'js/neon-demo.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
+</body>
+</html>

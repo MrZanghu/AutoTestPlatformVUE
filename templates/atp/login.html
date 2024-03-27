@@ -1,45 +1,149 @@
-{% extends 'atp/base.html' %}
+<!DOCTYPE html>
 {% load static %}
-{% block title %}登录{% endblock %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/atp/login.css' %}">
-{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-{% block content %}
-<div class="container">
-    <div class="col-md-4 col-md-offset-4">
-        <form class='form-login' action="{% url 'main_platform:login' %}" method="post">
-            {% csrf_token %}
-            <h2 class="text-center">欢迎登录</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AutoTestPlatform">
+    <meta name="author" content="">
 
-            <div class="form-group">
-                {{ login_form.username.label_tag }}
-                {{ login_form.username}}
+    <title>登录</title>
+
+
+    <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entypo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body class="page-body login-page login-form-fall" data-url="http://neon.dev">
+
+
+<!-- This is needed when you send requests via Ajax -->
+<script type="text/javascript">
+    var baseurl = '';
+</script>
+
+<div class="login-container">
+
+    <div class="login-header login-caret">
+
+        <div class="login-content">
+
+            <a href="index.html" class="logo">
+                <h2 style="color: white;font-weight: bold">自动化测试的可视操作平台</h2>
+            </a>
+
+            <p class="description">支持接口、网页、APP测试</p>
+
+            <!-- progress bar indicator -->
+            <div class="login-progressbar-indicator">
+                <h3>43%</h3>
+                <span>logging in...</span>
             </div>
-            <div class="form-group">
-                {{ login_form.password.label_tag }}
-                {{ login_form.password }}
-            </div>
+        </div>
 
-            <div class="form-group">
-                <label for="verifypassword_input">验证码</label>
-                <input type="password" class="form-control"
-                       id="verifypassword_input" placeholder="请输入验证码，区分大小写"
-                       name="verify_code">
-                <img src="{% url '[main_platform]:get_code' %}" alt="未获取到验证码" style="margin: 0.2rem 0">
-            </div>
-
-            {% if request.session.message %}
-                <div class="alert alert-warning">{{ request.session.message }}</div>
-            {% endif %}
-
-            <button type="submit" class="btn btn-primary btn-block" >登录系统</button>
-        </form>
     </div>
-</div>
-{% endblock %}
 
-{% block ext_js %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'js/atp/login.js' %}"></script>
-{% endblock %}
+    <div class="login-progressbar">
+        <div></div>
+    </div>
+
+    <div class="login-form">
+
+        <div class="login-content">
+
+            <div class="form-login-error">
+                <h3>Invalid login</h3>
+                <p>Enter <strong>demo</strong>/<strong>demo</strong> as login and password.</p>
+            </div>
+
+            <form method="post" role="form" id="form_login" action="{% url 'main_platform:login' %}">
+            {% csrf_token %}
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="entypo-user"></i>
+                        </div>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="用户名"
+                               autocomplete="off">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="entypo-key"></i>
+                        </div>
+
+                        <input type="password" class="form-control" name="password" id="password" placeholder="密码"
+                               autocomplete="off">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="entypo-attach"></i>
+                        </div>
+
+                        <input type="password" class="form-control" name="verify_code" id="verifypassword_input" placeholder="请输入验证码，区分大小写"
+                               autocomplete="off">
+                    </div>
+                    <img src="{% url '[main_platform]:get_code' %}" alt="未获取到验证码" style="margin-top: 2rem">
+                    {% if request.session.message %}
+                        <div class="alert alert-warning" style="margin-top: 2rem">{{ request.session.message }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block btn-login">
+                        <i class="entypo-login"></i>
+                        登录
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Bottom Scripts -->
+<script src="{% static 'js/main-gsap.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/joinable.js' %}"></script>
+<script src="{% static 'js/resizeable.js' %}"></script>
+<script src="{% static 'js/neon-api.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/neon-login.js' %}"></script>
+<script src="{% static 'js/neon-custom.js' %}"></script>
+<script src="{% static 'js/neon-demo.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/atp/login.js' %}"></script>
+</body>
+</html>

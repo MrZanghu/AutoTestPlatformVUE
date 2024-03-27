@@ -80,7 +80,7 @@ def test_case(request):
         minute= ex_time[14:]
         data= {}
 
-        if not ex_case:
+        if ex_case is None:
             # 如果不是进行执行操作
             if case_name in [None, ""]:
                 case_name= ""
@@ -98,33 +98,52 @@ def test_case(request):
 
             if len(test_case_list)== 0:
                 # 解决传空用例的问题
-                cases= TestCaseForSEA.objects.filter(status=0).order_by("-create_time")  # 根据创建时间倒序
+                cases= list(TestCaseForSEA.objects.filter(status=0).order_by("-create_time").values())
+                #  QuerySet转list添加级联数据，方便前台查询，减少数据库新增列
+                for case in cases:
+                    case["suite_desc"]= Case2SuiteForSEA.objects.filter(test_case=case["id"]).first()
+                    if case["suite_desc"]:
+                        case["suite_desc"]= case["suite_desc"].test_suite.suite_desc
+                    else:
+                        case["suite_desc"]= "暂无集合"
                 data= {}
                 data["pages"]= get_paginator(request, cases)
-                data["case_name"]= ""
                 return render(request, "sea/sea_test_case.html", data)
             else:
-                job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
-                job_name1= "test_job1_%s" % ex_time
-                job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
-                job_name3= "test_UI_job1_%s" % ex_time
-
-                jb0= JobExecuted.objects.filter(job_id= job_name0).first()
-                jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-                jb2= JobExecuted.objects.filter(job_id= job_name2).first()
-                jb3= JobExecuted.objects.filter(job_id= job_name3).first()
-
-                if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
-                    pass # 解决重复任务名的问题
+                if datetime.datetime.now() > datetime.datetime.strptime(ex_time, "%Y-%m-%dT%H:%M"):
+                    cases= list(TestCaseForSEA.objects.filter(status=0).order_by("-create_time").values())
+                    #  QuerySet转list添加级联数据，方便前台查询，减少数据库新增列
+                    for case in cases:
+                        case["suite_desc"]= Case2SuiteForSEA.objects.filter(test_case=case["id"]).first()
+                        if case["suite_desc"]:
+                            case["suite_desc"]= case["suite_desc"].test_suite.suite_desc
+                        else:
+                            case["suite_desc"]= "暂无集合"
+                    data= {}
+                    data["pages"]= get_paginator(request, cases)
+                    return render(request, "sea/sea_test_case.html", data)
                 else:
-                    register_jobs(test_case_list,env,request.user.username,0,"test_UI_job0_%s"%ex_time,
-                                  year,month,day,hour,minute)
-                    jbe= JobExecuted()  # 记录定时任务
-                    jbe.job_id= "test_UI_job0_%s" % ex_time
-                    jbe.user= request.user.username
-                    jbe.status= 0
-                    jbe.save()
-                return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
+                    job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                    job_name1= "test_job1_%s" % ex_time
+                    job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                    job_name3= "test_UI_job1_%s" % ex_time
+
+                    jb0= JobExecuted.objects.filter(job_id= job_name0).first()
+                    jb1= JobExecuted.objects.filter(job_id= job_name1).first()
+                    jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+                    jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+
+                    if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
+                        pass # 解决重复任务名的问题
+                    else:
+                        register_jobs(test_case_list,env,request.user.username,0,"test_UI_job0_%s"%ex_time,
+                                      year,month,day,hour,minute)
+                        jbe= JobExecuted()  # 记录定时任务
+                        jbe.job_id= "test_UI_job0_%s" % ex_time
+                        jbe.user= request.user.username
+                        jbe.status= 0
+                        jbe.save()
+                    return redirect(reverse("main_platform:test_execute",kwargs= {"jobid":"None"}))
 
 
 @login_required
@@ -135,13 +154,6 @@ def test_case_execute_record(request,id):
         "pages": get_paginator(request, test_case_execute_records), # 返回分页
     }
     return render(request,"sea/sea_case_execute_records.html",data)
-
-
-@login_required
-def test_execute_show_exception(request,execute_id):
-    '''执行结果-用例错误信息查看'''
-    tcer= TestCaseExecuteResultForSEA.objects.get(id= execute_id)
-    return render(request, "sea/sea_execute_show_exception.html", {"exception_info": tcer.exception_info})
 
 
 @login_required
@@ -328,10 +340,3 @@ def test_suite(request,suite_type):
     '''主页-UI集合'''
     # 直接调用main_platform的test_suite，统一处理
     return ts(request,suite_type)
-
-
-@login_required
-def testsuite_execute_show_exception(request,execute_id):
-    '''执行结果-集合用例错误信息查看'''
-    tcer= Case2SuiteExecuteResultForSEA.objects.get(id= execute_id)
-    return render(request, "sea/sea_execute_show_exception.html", {"exception_info": tcer.exception_info})

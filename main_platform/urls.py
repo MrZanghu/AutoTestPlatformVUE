@@ -43,10 +43,6 @@ urlpatterns= [
         views.down_test_execute_template, name= "down_test_execute_template"),
     re_path(r'^test_case_execute_record/(?P<id>\d+)/',
         views.test_case_execute_record, name= "test_case_execute_record"),
-    re_path('test_execute_show_exception/(?P<execute_id>[0-9]+)$',
-            views.test_execute_show_exception, name= "test_execute_show_exception"),
-    re_path('testsuite_execute_show_exception/(?P<execute_id>[0-9]+)$',
-            views.testsuite_execute_show_exception, name="testsuite_execute_show_exception"),
     re_path(r'^test_suite_execute_record/(?P<id>\d+)/(?P<statistics>\d+)/',
         views.test_suite_execute_record, name= "test_suite_execute_record"),
     # 执行记录相关
@@ -63,6 +59,7 @@ urlpatterns= [
     # 统计结果相关
 
     path(r'job_execute/', views.job_execute, name= "job_execute"),
+    path(r'get_job_execute/', views.get_job_execute, name= "get_job_execute"),
     re_path(r'^change_job_status/(?P<id>([\s\S]*))/(?P<status>\d+)/',
             views.change_job_status, name= "change_job_status"),
     path(r'test_case/atp/get_job_name/',views.get_job_name, name= "get_job_name"),

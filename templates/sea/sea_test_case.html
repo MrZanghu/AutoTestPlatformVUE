@@ -1,45 +1,224 @@
-{% extends 'atp/base.html' %}
+<!DOCTYPE html>
 {% load static %}
-{% block title %}测试用例{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/sea/sea_test_case.css' %}">
-{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
 
-{% block content %}
-    <div id="group">
-        <div id="search">
-            <form action="{% url 'selenium_apps:test_case' %}" method="POST">
-                {% csrf_token %}
-                <input style="margin-left: 5px;" type="text" name="case_name" value="{{ case_name }}"
-                       placeholder="输入用例名称">
-                <input type="submit" value="搜索">
-            </form>
-        </div>
+    <title>测试用例</title>
 
-        <div id="load">
-            <div id="addcase">
-                <a href="{% url 'selenium_apps:add_test_case' %}">添加测试用例</a>
+
+    <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entypo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="page-body" data-url="http://neon.dev">
+
+<div class="page-container">
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="{% url 'main_platform:index' %}">
+                    <h3 style="color: white;font-weight: bold;margin-left: 35px">自动化测试平台</h3>
+                </a>
             </div>
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img src="{% static 'picture/touxiang.png' %}" alt="" class="img-circle"
+                         style="width: 190px;margin-left: 15px">
+                    <span style="text-align: center;padding-top: 200px">你好,欢迎回来,</span>
+                    <strong style="text-align: center;margin-top: 5px">{{ user.username }}</strong>
+                </a>
+            </div>
+
+            <div class="sui-hover inline-links animate-in">
+                <!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                <a href="#">
+                    <i class="entypo-pencil"></i>
+                    New Page
+                </a>
+
+                <a href="mailbox.html">
+                    <i class="entypo-mail"></i>
+                    Inbox
+                </a>
+
+                <a href="extra-lockscreen.html">
+                    <i class="entypo-lock"></i>
+                    Log Off
+                </a>
+
+                <span class="close-sui-popup">&times;</span><!-- this is mandatory -->            </div>
         </div>
+
+        <ul id="main-menu" class="">
+            <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+            <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+            <!-- Search Bar -->
+            <li>
+                <a href="{% url 'main_platform:index' %}">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:project' %}">
+                    <i class="entypo-layout"></i>
+                    <span>测试项目</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:module' %}">
+                    <i class="entypo-menu"></i>
+                    <span>测试模块</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-log-in"></i>
+                    <span>接口测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'main_platform:test_case' %}">
+                            <span>接口用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'main_platform:test_suite' 0 %}">
+                            <span>接口集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="opened active">
+                <a href="">
+                    <i class="glyphicon glyphicon-hand-up"></i>
+                    <span>UI测试</span>
+                </a>
+                <ul>
+                    <li class="opened active">
+                        <a href="{% url 'selenium_apps:test_case' %}">
+                            <span>UI用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_suite' 1 %}">
+                            <span>UI集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:test_execute' 'None' %}">
+                    <i class="entypo-mail"></i>
+                    <span>执行结果</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:job_execute' %}">
+                    <i class="glyphicon glyphicon-time"></i>
+                    <span>定时任务</span>
+                    <span class="badge badge-secondary">8</span>
+                </a>
+            </li>
+        </ul>
 
     </div>
 
-    <form action="" method="POST">
-        {% csrf_token %}
-        <span style="margin-left: 5px;font-size: 15px">运行环境：</span>
-        <select name="env" style="height: 23px">
-            <option selected value="dev" style="font-size: 15px">dev</option>
-            <option value="test" style="font-size: 15px">test</option>
-            <option value="https" style="font-size: 15px">https</option>
-        </select>
-        <input type="datetime-local" style="font-size: 10px" name="ex_time">
-        <input style="margin-left: 5px;font-size: 10px" type="submit" value='执行测试用例' name="ex_case" onclick="return ischecked()"/>
-{#        <p class="glyphicon glyphicon-info-sign" title="设置执行时间，默认下一分钟后执行"></p>#}
 
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
+    <div class="main-content">
+
+        <div class="row" style="display: flex">
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="margin-left: auto">
+                <ul class="list-inline links-list pull-right">
+                    <li><a href="#">当前在线：{{ user.username }}</a></li>
+                    <li class="sep"></li>
+                    <li>
+                        <a href="{% url 'main_platform:logout' %}">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="#"><i class="entypo-home"></i>首页</a>
+            </li>
+            <li class="active">
+                <strong>UI测试</strong>
+            </li>
+            <li class="active">
+                <strong>测试用例</strong>
+            </li>
+        </ol>
+
+
+        <div id="group">
+            <div>
+                <h2 style="margin-top: 0">测试用例</h2>
+            </div>
+
+            <div id="load">
+                <div id="addcase">
+                    <a href="{% url 'selenium_apps:add_test_case' %}">添加测试用例</a>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <span style="font-size: 15px">运行环境：</span>
+            <select name="env" style="height: 24px;line-height: 23px;padding: 0; border-radius: 2px">
+                <option selected value="dev" style="font-size: 15px">dev</option>
+                <option value="test" style="font-size: 15px">test</option>
+                <option value="https" style="font-size: 15px">https</option>
+            </select>
+
+            <span style="margin-left: 5px;font-size: 15px">运行时间：</span>
+            <input type="datetime-local" name="ex_time" style="width: 155px;padding-bottom: 1px">
+
+            <button type="submit" class="btn btn-info" name="ex_case"
+                    style="height: 23px;padding:4px" title="设置执行时间，默认下一分钟执行"
+                    onclick="return ischecked()">执行测试用例</button>
+
+            <p style="padding-bottom: 8px"></p>
+
+            <table class="table table-bordered datatable" id="table-1">
+            <thead>
                 <tr>
                     <th width="5%"><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
                     <th width="15%">用例名称</th>
@@ -50,9 +229,8 @@
                     <th width="15%">更新时间</th>
                     <th width="5%">操作</th>
                 </tr>
-                </thead>
-                <tbody>
-
+            </thead>
+            <tbody>
                 {% for test_case in pages %}
                     <tr>
                         <td><input type="checkbox" value="{{ test_case.id }}" name="testcases_list"> {{ test_case.id }}
@@ -69,33 +247,97 @@
                         </td>
                     </tr>
                 {% endfor %}
-                </tbody>
+            </tbody>
             </table>
-        </div>
-    </form>
 
-    <div id="pages" class="text-center">
-        <nav>
-            <ul class="pagination">
-                <li class="step-links">
-                    {% if pages.has_previous %}
-                        <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
-                    {% endif %}
+            <script type="text/javascript">
+                // 获取所有名称为 "testcases_list" 的元素
+                var cells = document.getElementsByName("testcases_list");
 
-                    <span class="current">
-                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+                // 遍历元素集合
+                for (var i = 0; i < cells.length; i++) {
+                    // cells[i] 是当前循环中的元素
+                    // 假设这些元素是 <td>，我们使用 textContent 获取文本内容
+                    var cellText = cells[i].textContent || cells[i].innerText;
+                    var intId = parseInt(cellText, 10);
+                } // 转化为数字类型，不是字符类型
 
-                    {% if pages.has_next %}
-                        <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
-                    {% endif %}
-                </li>
-            </ul>
-        </nav>
+                var responsiveHelper;
+                var breakpointDefinition = {
+                    tablet: 1024,
+                    phone: 480
+                };
+                var tableContainer;
+
+                jQuery(document).ready(function ($) {
+                    tableContainer = $("#table-1");
+
+                    tableContainer.dataTable({
+                        "sPaginationType": "bootstrap",
+                        "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                        "bStateSave": true,
+                        "aoColumns": [
+                            {"bSortable": false, "sType": "numeric"},//按照数字类型排序
+                            {"bSortable": false},
+                            {"bSortable": false},
+                            {"bSortable": false},
+                            {"bSortable": false},
+                            {"bSortable": false},
+                            {"bSortable": false},
+                            {"bSortable": false},
+                        ],// 禁止所有列排序，防止全选出现错误
+
+                        // 响应式设置
+                        "bAutoWidth": false,
+                        "fnPreDrawCallback": function () {
+                            if (!responsiveHelper) {
+                                responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
+                            }
+                        },
+                        "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            responsiveHelper.createExpandIcon(nRow);
+                        },
+                        "fnDrawCallback": function (oSettings) {
+                            responsiveHelper.respond();
+                        }
+                    });
+
+                    $(".dataTables_wrapper select").select2({
+                        minimumResultsForSearch: -1
+                    });
+                });
+            </script>
+        </form>
     </div>
+</div>
 
-{% endblock %}
+<link rel="stylesheet" href="{% static 'css/datatables.responsive.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2-bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2.css' %}">
+<link rel="stylesheet" href="{% static 'css/atp/test_case.css' %}">
 
-{% block ext_js %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'js/sea/sea_test_case.js' %}"></script>
-{% endblock %}
+
+<!-- Bottom Scripts -->
+<script src="{% static 'js/main-gsap.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/joinable.js' %}"></script>
+<script src="{% static 'js/resizeable.js' %}"></script>
+<script src="{% static 'js/neon-api.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/TableTools.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.columnFilter.js' %}"></script>
+<script src="{% static 'js/lodash.min.js' %}"></script>
+<script src="{% static 'js/datatables.responsive.js' %}"></script>
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/neon-chat.js' %}"></script>
+<script src="{% static 'js/neon-custom.js' %}"></script>
+<script src="{% static 'js/neon-demo.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'js/sea/sea_test_case.js' %}"></script>
+<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
+
+</body>
+</html>

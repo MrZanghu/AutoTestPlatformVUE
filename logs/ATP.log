@@ -1,0 +1,138 @@
+2024-03-27 16:28:39,403 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:28:39,403 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:28:39,405 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:28:39,405 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:29:09,416 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:29:09,416 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:29:09,417 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:29:09,417 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:29:39,416 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:29:39,416 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:29:39,421 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:29:39,421 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:30:00,015 "views:do_task_jobs:237" [INFO]-                                                   
+2024-03-27 16:30:00,015 "views:do_task_jobs:238" [INFO]- ######### 已经获取到用例，开始进行批量执行 #########
+2024-03-27 16:30:00,124 "tasks:setUp:57" [INFO]-                                                   
+2024-03-27 16:30:00,130 "tasks:setUp:61" [INFO]- ######### 开始执行用例【test1】##########
+2024-03-27 16:30:00,140 "tasks:setUp:79" [INFO]- 所属项目:测试项目名称1
+2024-03-27 16:30:00,141 "tasks:setUp:81" [INFO]- 所属模块:测试模块1
+2024-03-27 16:30:00,142 "tasks:setUp:83" [INFO]- 接口名称:1
+2024-03-27 16:30:00,142 "tasks:setUp:85" [INFO]- 请求方法:post
+2024-03-27 16:30:00,143 "tasks:setUp:87" [INFO]- 接口地址:http://192.168.30.41:80001
+2024-03-27 16:30:00,144 "tasks:setUp:89" [INFO]- 请求数据:1
+2024-03-27 16:30:00,145 "tasks:setUp:91" [INFO]- 断言数据:1
+2024-03-27 16:30:00,145 "tasks:setUp:93" [INFO]- 提取参数:1
+2024-03-27 16:30:00,152 "process_data:request_process:53" [INFO]- -------- 开始调用接口 --------
+2024-03-27 16:30:00,160 "process_data:request_process:107" [WARNING]- post方法请求发生异常:请求的url是:http://192.168.30.41:80001，请求的内容是:1，发生的异常信息如下:Failed to parse: http://192.168.30.41:80001
+2024-03-27 16:30:00,168 "tasks:setUp:157" [WARNING]- 接口请求异常，error:Traceback (most recent call last):
+  File "/Users/violet/Desktop/kevin/MyLearn/Django/AutoTestPlatformVUE/main_platform/tasks.py", line 148, in setUp
+    self.execute_record.response_data= self.res_data.json()
+AttributeError: 'str' object has no attribute 'json'
+
+2024-03-27 16:30:00,176 "tasks:tearDown:203" [WARNING]- 用例【test1】执行失败,请检查错误！
+2024-03-27 16:30:09,413 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:30:09,413 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:30:09,414 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:30:09,414 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:30:39,417 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:30:39,418 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:30:39,426 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:30:39,426 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:31:09,422 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:31:09,422 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:31:09,422 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:31:09,422 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:31:39,415 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:31:39,416 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:31:39,416 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:31:39,416 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:32:09,398 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:32:09,398 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:32:39,400 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:32:39,400 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:33:09,403 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:33:09,404 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:33:09,407 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:33:09,407 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:33:39,416 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:33:39,417 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:33:39,417 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:33:39,417 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:34:09,412 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:34:09,412 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:34:09,412 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:34:09,412 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:34:39,415 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:34:39,416 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:34:39,417 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:34:39,417 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:35:09,412 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:35:09,413 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:35:39,399 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:35:39,399 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:36:09,385 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:36:09,386 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:36:39,398 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:36:39,398 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:37:09,402 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:37:09,402 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:37:39,401 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:37:39,401 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:38:09,393 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:38:09,393 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:38:39,396 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:38:39,396 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:39:09,396 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:39:09,396 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:39:39,395 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:39:39,395 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:40:09,393 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:40:09,393 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:40:39,396 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:40:39,396 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:41:09,394 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:41:09,394 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:41:39,400 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:41:39,400 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:42:09,394 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:42:09,394 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:42:39,399 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:42:39,400 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:43:09,397 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:43:09,397 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:43:39,399 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:43:39,399 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:44:09,394 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:44:09,394 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:44:39,400 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:44:39,400 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:45:37,619 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:45:37,620 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:45:37,625 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:45:37,625 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-27 16:46:07,636 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:46:07,636 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-27 16:46:07,637 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:46:07,637 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:46:37,635 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:46:37,635 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:46:37,635 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:46:37,635 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-27 16:47:07,632 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:47:07,632 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:47:07,632 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:47:07,632 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-27 16:47:37,631 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:47:37,632 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-27 16:48:07,619 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:48:07,620 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:48:37,621 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:48:37,621 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-27 16:49:07,616 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:49:07,617 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:49:37,639 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:49:37,640 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-27 16:50:07,615 "views:synchronous_jobs:320" [INFO]-                                                   
+2024-03-27 16:50:07,616 "views:synchronous_jobs:321" [INFO]- 同步完成！
+2024-03-27 16:50:37,631 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-27 16:50:37,632 "views:synchronous_jobs:320" [INFO]- 同步完成！

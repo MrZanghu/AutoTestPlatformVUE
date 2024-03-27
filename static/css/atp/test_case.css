@@ -76,7 +76,7 @@
     display: inline-block;
 }
 
-.btn {
+#load .btn {
     border: 1px solid #2aabd2;
     color: #2aabd2;
     background-color: white;

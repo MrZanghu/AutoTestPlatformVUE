@@ -11,7 +11,7 @@ django.setup()
 
 
 class ValidCodeImg:
-    def __init__(self, width= 150, height= 30, code_count= 4 ,
+    def __init__(self, width= 320, height= 45, code_count= 4 ,
                  font_size= 30, point_count= 100,
                  line_count= 5,img_format= 'png'):
         '''
@@ -67,7 +67,7 @@ class ValidCodeImg:
         for i in range(self.code_count):
             # 获取4个随机字符串
             random_char= self.get_random_str()
-            draw.text((10+ i * 30, 0), random_char, self.get_random_color()[1], font= font)
+            draw.text((100+ i * 30, 0), random_char, self.get_random_color()[1], font= font)
             # 在图片上一次写入得到的随机字符串,参数是：定位，字符串，颜色，字体
             temp.append(random_char)
         valid_str= "".join(temp)

@@ -1,11 +1,192 @@
-{% extends 'atp/base.html' %}
+<!DOCTYPE html>
 {% load static %}
-{% block title %}用例执行记录{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-{% block content %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
 
-    <div class="table-responsive">
-        <table class="table table-striped">
+    <title>用例执行记录</title>
+
+
+    <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entypo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neon-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="page-body" data-url="http://neon.dev">
+
+<div class="page-container">
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="{% url 'main_platform:index' %}">
+                    <h3 style="color: white;font-weight: bold;margin-left: 35px">自动化测试平台</h3>
+                </a>
+            </div>
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img src="{% static 'picture/touxiang.png' %}" alt="" class="img-circle"
+                         style="width: 190px;margin-left: 15px">
+                    <span style="text-align: center;padding-top: 200px">你好,欢迎回来,</span>
+                    <strong style="text-align: center;margin-top: 5px">{{ user.username }}</strong>
+                </a>
+            </div>
+
+            <div class="sui-hover inline-links animate-in">
+                <!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                <a href="#">
+                    <i class="entypo-pencil"></i>
+                    New Page
+                </a>
+
+                <a href="mailbox.html">
+                    <i class="entypo-mail"></i>
+                    Inbox
+                </a>
+
+                <a href="extra-lockscreen.html">
+                    <i class="entypo-lock"></i>
+                    Log Off
+                </a>
+
+                <span class="close-sui-popup">&times;</span><!-- this is mandatory -->            </div>
+        </div>
+
+        <ul id="main-menu" class="">
+            <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+            <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+            <!-- Search Bar -->
+            <li>
+                <a href="{% url 'main_platform:index' %}">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:project' %}">
+                    <i class="entypo-layout"></i>
+                    <span>测试项目</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:module' %}">
+                    <i class="entypo-menu"></i>
+                    <span>测试模块</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-log-in"></i>
+                    <span>接口测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'main_platform:test_case' %}">
+                            <span>接口用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'main_platform:test_suite' 0 %}">
+                            <span>接口集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-hand-up"></i>
+                    <span>UI测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_case' %}">
+                            <span>UI用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'selenium_apps:test_suite' 1 %}">
+                            <span>UI集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="opened active">
+                <a href="{% url 'main_platform:test_execute' 'None' %}">
+                    <i class="entypo-mail"></i>
+                    <span>执行结果</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'main_platform:job_execute' %}">
+                    <i class="glyphicon glyphicon-time"></i>
+                    <span>定时任务</span>
+                    <span class="badge badge-secondary">8</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="row" style="display: flex">
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="margin-left: auto">
+                <ul class="list-inline links-list pull-right">
+                    <li><a href="#">当前在线：{{ user.username }}</a></li>
+                    <li class="sep"></li>
+                    <li>
+                        <a href="{% url 'main_platform:logout' %}">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="#"><i class="entypo-home"></i>首页</a>
+            </li>
+            <li class="active">
+                <strong>执行结果</strong>
+            </li>
+
+        </ol>
+
+        <h2>UI用例执行结果</h2>
+
+        <br>
+
+        <table class="table table-bordered datatable" id="table-1">
             <thead>
             <tr>
                 <th width="2%">id</th>
@@ -18,7 +199,6 @@
             </tr>
             </thead>
             <tbody>
-
             {% for testrecord in pages %}
                 <tr style="position: relative;">
                     <td>{{ testrecord.id }}</td>
@@ -32,8 +212,11 @@
                     {% endifequal %}
 
                     {% if testrecord.exception_info %}
-                        <td><a href="{% url 'selenium_apps:test_execute_show_exception' testrecord.id %}"
-                               target="_blank">异常信息</a></td>
+                        <td>
+                            <span style="display: none">{{ testrecord.exception_info }}</span>
+                            <a href="javascript:;" onclick="showModal(this);"
+                               class="btn btn-default">点击查看</a>
+                        </td>
                     {% else %}
                         <td>无</td>
                     {% endif %}
@@ -41,28 +224,67 @@
                     <td>{{ testrecord.execute_total_time }}</td>
                 </tr>
             {% endfor %}
-
             </tbody>
         </table>
 
-        <div id="pages" class="text-center">
-            <nav>
-                <ul class="pagination">
-                    <li class="step-links">
-                        {% if pages.has_previous %}
-                            <a class='active' href="?page={{ pages.previous_page_number }}">上一页</a>
-                        {% endif %}
+        <script>
+            function showModal(element) {
+                var customValue = $(element).prev('span').text();
 
-                        <span class="current">
-                        第 {{ pages.number }} 页 / 共 {{ pages.paginator.num_pages }} 页</span>
+                // 将自定义值设置为模态框的body内容
+                $('#modal-4').find('.modal-body').text(customValue);
 
-                        {% if pages.has_next %}
-                            <a class='active' href="?page={{ pages.next_page_number }}">下一页</a>
-                        {% endif %}
-                    </li>
-                </ul>
-            </nav>
+                // 显示模态框
+                $('#modal-4').modal('show', {backdrop: 'static'});
+            }
+        </script>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-4" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">异常信息</h4>
+            </div>
+
+            <div class="modal-body">
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">确认</button>
+            </div>
         </div>
     </div>
-{% endblock %}
+</div>
 
+
+<link rel="stylesheet" href="{% static 'css/datatables.responsive.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2-bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2.css' %}">
+
+<!-- Bottom Scripts -->
+<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
+<script src="{% static 'js/main-gsap.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/joinable.js' %}"></script>
+<script src="{% static 'js/resizeable.js' %}"></script>
+<script src="{% static 'js/neon-api.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/TableTools.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.columnFilter.js' %}"></script>
+<script src="{% static 'js/lodash.min.js' %}"></script>
+<script src="{% static 'js/datatables.responsive.js' %}"></script>
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/neon-chat.js' %}"></script>
+<script src="{% static 'js/neon-custom.js' %}"></script>
+<script src="{% static 'js/neon-demo.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+</body>
+</html>

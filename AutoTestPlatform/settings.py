@@ -148,7 +148,7 @@ MEDIA_KEY_PREFIX= "/static/uploads"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-FONT_PATH = os.path.join(BASE_DIR,"static/fonts/Avenir.ttc")
+FONT_PATH = os.path.join(BASE_DIR,"static/font/Avenir.ttc")
 # 设置验证码字体文件
 
 LOGIN_URL = 'main_platform:login'

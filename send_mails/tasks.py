@@ -22,6 +22,6 @@ def send_emails(recipient:list,report_id:str):
         headers= {"MessageId":"AutoTestPlatformMails"}
     )
     cur= os.path.dirname(os.getcwd())
-    filepath= os.path.join(cur,"AutoTestPlatform/report",report_id)
+    filepath= os.path.join(cur,"AutoTestPlatformVUE/report",report_id)
     emails.attach_file(filepath,mimetype= None)
     emails.send()
