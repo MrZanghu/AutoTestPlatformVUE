@@ -136,3 +136,103 @@ AttributeError: 'str' object has no attribute 'json'
 2024-03-27 16:50:07,616 "views:synchronous_jobs:321" [INFO]- 同步完成！
 2024-03-27 16:50:37,631 "views:synchronous_jobs:319" [INFO]-                                                   
 2024-03-27 16:50:37,632 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:29:47,398 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:29:47,399 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:30:17,402 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:30:17,403 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:30:47,408 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:30:47,408 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:31:41,467 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:31:41,467 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:32:11,440 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:32:11,440 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:32:41,440 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:32:41,441 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:33:11,433 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:33:11,433 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:33:41,433 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:33:41,433 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:34:11,467 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:34:11,468 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:34:41,441 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:34:41,441 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:35:11,437 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:35:11,437 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:36:29,590 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:36:29,590 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:36:59,577 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:36:59,577 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:37:29,581 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:37:29,582 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:37:59,577 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:37:59,577 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:38:29,581 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:38:29,581 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:38:59,603 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:38:59,603 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:39:29,759 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:39:29,759 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:39:59,609 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:39:59,609 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:41:41,835 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:41:41,835 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:42:11,842 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:42:11,843 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:42:41,839 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:42:41,839 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:43:11,835 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:43:11,835 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:43:41,842 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:43:41,842 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:44:11,833 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:44:11,833 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:44:41,838 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:44:41,838 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:45:11,841 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:45:11,842 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:45:41,834 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:45:41,834 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-28 09:46:19,297 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-28 09:46:19,297 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-29 16:30:34,839 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-29 16:30:34,839 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-29 16:31:04,799 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-29 16:31:04,799 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-29 16:31:34,799 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-29 16:31:34,800 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-29 16:32:04,802 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-29 16:32:04,802 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-29 16:32:34,802 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-29 16:32:34,802 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-29 16:33:04,796 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-29 16:33:04,796 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-03-29 16:33:34,797 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-03-29 16:33:34,797 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:06:17,562 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:06:17,563 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:06:47,568 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:06:47,568 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:07:17,571 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:07:17,571 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:07:47,567 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:07:47,568 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:08:17,565 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:08:17,566 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:08:47,565 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:08:47,565 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:09:17,564 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:09:17,564 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:09:47,566 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:09:47,566 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:10:17,569 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:10:17,569 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-01 17:10:47,562 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-01 17:10:47,562 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-02 16:44:50,293 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-02 16:44:50,295 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-02 16:45:20,298 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-02 16:45:20,298 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-02 16:45:50,300 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-02 16:45:50,301 "views:synchronous_jobs:320" [INFO]- 同步完成！
+2024-04-02 16:46:20,297 "views:synchronous_jobs:319" [INFO]-                                                   
+2024-04-02 16:46:20,297 "views:synchronous_jobs:320" [INFO]- 同步完成！

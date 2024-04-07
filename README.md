@@ -18,4 +18,6 @@ celery -A main_platform  worker --loglevel=error
 <br>
 python3 manage.py runserver 0.0.0.0:8000
 <br>
+sudo xcode-select -r 重置命令行工具，可以安装locust
+<br>
 ++++++++++++++++++++++++++++++++++++++
