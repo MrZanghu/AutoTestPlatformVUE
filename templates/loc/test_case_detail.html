@@ -9,7 +9,7 @@
     <meta name="description" content="Neon Admin Panel">
     <meta name="author" content="">
 
-    <title>执行结果</title>
+    <title>用例详情</title>
 
 
     <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
@@ -138,6 +138,24 @@
                 </ul>
             </li>
             <li class="opened active">
+                <a href="#">
+                    <i class="entypo-flow-tree"></i>
+                    <span>压力测试</span>
+                </a>
+                <ul>
+                    <li class="opened active">
+                        <a href="{% url 'locust_apps:test_case' %}">
+                            <span>压力用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>压力集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="{% url 'main_platform:test_execute' 'None' %}">
                     <i class="entypo-mail"></i>
                     <span>执行结果</span>
@@ -177,116 +195,49 @@
                 <a href="#"><i class="entypo-home"></i>首页</a>
             </li>
             <li class="active">
-                <strong>执行结果</strong>
+                <strong>压力测试</strong>
+            </li>
+            <li class="active">
+                <strong>测试用例</strong>
+            </li>
+            <li class="active">
+                <strong>用例详情</strong>
             </li>
         </ol>
 
-        <h2>执行结果</h2>
+        <h2>用例详情</h2>
 
         <br>
 
         <table class="table table-bordered datatable" id="table-1">
             <thead>
-            <tr>
-                <th>id</th>
-                <th>类型</th>
-                <th>用例/集合id</th>
-                <th>执行时间</th>
-                <th>执行人员</th>
-                <th>执行记录</th>
-                <th>下载报告</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for te in pages %}
                 <tr>
-                    <td>{{ te.id }}</td>
-                    {% if te.type == 0 %}
-                        <td>用例</td>
-                    {% elif te.type == 1 %}
-                        <td>集合</td>
-                    {% elif te.type == 2 %}
-                        <td>UI用例</td>
-                    {% elif te.type == 3 %}
-                        <td>UI集合</td>
-                    {% elif te.type == 4 %}
-                        <td>压力用例</td>
-                    {% else %}
-                        <td>压力集合</td>
-                    {% endif %}
-                    <td>{{ te.case_or_suite_ids }}</td>
-                    <td>{{ te.created_time|date:"Y-n-d H:i:s" }}</td>
-                    <td>{{ te.user }}</td>
-
-
-                    {% if te.type == 0 %}
-                        <td>
-                            <a href="{% url 'main_platform:test_case_execute_record' te.id %}" target="_blank">查看</a>
-                        </td>
-                    {% elif te.type == 1 %}
-                        <td>
-                            <a href="{% url 'main_platform:test_suite_execute_record' te.id 0 %}" target="_blank">查看</a>
-                        </td>
-                    {% elif te.type == 2 %}
-                        <td>
-                            <a href="{% url 'selenium_apps:test_case_execute_record' te.id %}" target="_blank">查看</a>
-                        </td>
-                    {% elif te.type == 3 %}
-                        <td>
-                            <a href="{% url 'main_platform:test_suite_execute_record' te.id 0 %}" target="_blank">查看</a>
-                        </td>
-                    {% else %}
-                        <td>压力测试结果请下载查看</td>
-                    {% endif %}
-
-                    <td>
-                        <form action="">
-                            <a type="button" href="{% url 'main_platform:down_test_execute_template' te.id %}">下载</a>
-                        </form>
-                    </td>
+                    <th width="3%">id</th>
+                    <th>用例名称</th>
+                    <th>接口地址</th>
+                    <th>请求方式</th>
+                    <th>请求数据</th>
+                    <th>断言内容</th>
+                    <th>创建人员</th>
+                    <th>创建时间</th>
+                    <th>更新时间</th>
                 </tr>
-            {% endfor %}
+                </thead>
+            <tbody>
+            <tr>
+                <td>{{ test_case.id }}</td>
+                <td>{{ test_case.case_name }}</td>
+                <td>{{ test_case.uri }}</td>
+                <td>{{ test_case.request_method }}</td>
+                <td>{{ test_case.request_data }}</td>
+                <td>{{ test_case.assert_key }}</td>
+                <td>{{ test_case.maintainer }}</td>
+                <td>{{ test_case.create_time|date:"Y-n-d H:i:s" }}</td>
+                <td>{{ test_case.update_time|date:"Y-n-d H:i:s" }}</td>
+            </tr>
             </tbody>
         </table>
 
-        <script type="text/javascript">
-            var responsiveHelper;
-            var breakpointDefinition = {
-                tablet: 1024,
-                phone: 480
-            };
-            var tableContainer;
-
-            jQuery(document).ready(function ($) {
-                tableContainer = $("#table-1");
-
-                tableContainer.dataTable({
-                    "sPaginationType": "bootstrap",
-                    "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-                    "bStateSave": true,
-                    "order": [[0, "desc"]],// 倒序排列
-
-                    // Responsive Settings
-                    bAutoWidth: false,
-                    fnPreDrawCallback: function () {
-                        // Initialize the responsive datatables helper once.
-                        if (!responsiveHelper) {
-                            responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
-                        }
-                    },
-                    fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-                        responsiveHelper.createExpandIcon(nRow);
-                    },
-                    fnDrawCallback: function (oSettings) {
-                        responsiveHelper.respond();
-                    }
-                });
-
-                $(".dataTables_wrapper select").select2({
-                    minimumResultsForSearch: -1,
-                });
-            });
-        </script>
     </div>
 </div>
 
@@ -313,6 +264,5 @@
 <script src="{% static 'js/neon-demo.js' %}"></script>
 <script src="{% static 'js/echarts.min.js' %}"></script>
 <script src="{% static 'js/atp/get_job_execute.js' %}"></script>
-
 </body>
 </html>

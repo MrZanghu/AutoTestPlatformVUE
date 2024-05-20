@@ -138,6 +138,24 @@
                 </ul>
             </li>
             <li>
+                <a href="#">
+                    <i class="entypo-flow-tree"></i>
+                    <span>压力测试</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'locust_apps:test_case' %}">
+                            <span>压力用例</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>压力集合</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="{% url 'main_platform:test_execute' 'None' %}">
                     <i class="entypo-mail"></i>
                     <span>执行结果</span>

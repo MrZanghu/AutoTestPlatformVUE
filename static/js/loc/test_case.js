@@ -21,10 +21,11 @@ function ischecked() {
     var $ex_time = document.getElementsByName("ex_time").item(0).value;
 
     if ($ex_case) {
-        $.getJSON("/sea/test_case/sea/get_job_name/", {"ex_time": $ex_time}, function (data) {
+        $.getJSON("/loc/test_case/loc/get_job_name/", {"ex_time": $ex_time}, function (data) {
             if (data["status"] === 2001) {
                 alert("当前时间已存在任务，请一分钟后再试");
                 // 重复任务但未勾选用例的情况，导致判重与勾选判断相互调用，以判重优先
+                return false;
             } else {
                 var $allCheck = document.getElementsByName("testcases_list");
                 //遍历每一个复选框，为true则上传

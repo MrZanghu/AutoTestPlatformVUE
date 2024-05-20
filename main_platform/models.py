@@ -104,7 +104,8 @@ class TestExecute(models.Model):
     id= models.AutoField(primary_key= True)
     created_time= models.DateTimeField("执行时间", auto_now_add= True)
     user= models.CharField(max_length= 128, blank= True, null= True)
-    type= models.IntegerField(default= 0, blank= True, null= True) # 0代表用例，1代表集合，2代表UI用例，3代表UI集合
+    type= models.IntegerField(default= 0, blank= True, null= True)
+    # 0代表用例，1代表集合，2代表UI用例，3代表UI集合，4代表压力用例，5代表压力集合
     case_or_suite_ids= models.CharField(max_length= 1024, blank= True, null= True) # 用于保存执行的用例/集合结果表id
     download_report_path= models.CharField(max_length= 1024, blank= True, null= True) # 报告路径
     job_id= models.CharField(max_length= 128, blank= True, null= True) # 关联的任务id

@@ -4,8 +4,8 @@ from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
 from selenium_apps.models import TestCaseForSEA,TestCaseSteps\
-    ,Case2SuiteForSEA,TestCaseExecuteResultForSEA,Case2SuiteExecuteResultForSEA
-from main_platform.models import JobExecuted,TestSuite
+    ,Case2SuiteForSEA,TestCaseExecuteResultForSEA
+from main_platform.models import JobExecuted
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from main_platform.views import register_jobs
@@ -17,8 +17,8 @@ logger= logging.getLogger("main_platform")
 
 
 def get_paginator(request,data):
-    '''每个网页-获取指定页数'''
-    paginator= Paginator(data,per_page= 10) # 每页10条
+    '''每个网页-获取指定页数，使用框架自带的分页，这个作废'''
+    paginator= Paginator(data,per_page= 99999) # 每页10条
     page= request.GET.get("page")
     try:
         pp= paginator.page(page)
@@ -37,13 +37,17 @@ def get_job_name(request):
     job_name1= "test_job1_%s"%ex_time
     job_name2= "test_UI_job0_%s"%ex_time # 处理用例和集合并行的问题
     job_name3= "test_UI_job1_%s"%ex_time
+    job_name4= "test_LOC_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name5= "test_LOC_job1_%s"%ex_time
 
     jb0= JobExecuted.objects.filter(job_id= job_name0).first()
     jb1= JobExecuted.objects.filter(job_id= job_name1).first()
     jb2= JobExecuted.objects.filter(job_id= job_name2).first()
     jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+    jb4= JobExecuted.objects.filter(job_id= job_name4).first()
+    jb5= JobExecuted.objects.filter(job_id= job_name5).first()
 
-    if (jb0!= None) or (jb1!= None) or (jb2!= None) or (jb3!= None):
+    if (jb0!= None) or (jb1!= None) or (jb2!= None) or (jb3!= None)or (jb4!= None)or (jb5!= None):
         return JsonResponse({"msg":"存在相同任务名","status":2001})
     else:
         return JsonResponse({"msg": "不存在相同任务名", "status": 2000})

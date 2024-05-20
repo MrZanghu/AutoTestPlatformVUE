@@ -2,7 +2,7 @@ import os
 import json
 import time,xlrd
 import datetime
-import unittest
+import unittest,configparser
 import traceback,logging
 from . import models
 from . import viewsParams as vp
@@ -900,3 +900,58 @@ def sea_suite_task(test_suite_list:list,server_address, user,id):
 
     # address= models.EmailAddress.objects.get(id= 1).address.split(";")
     # email_for_interface(address,"接口测试报告"+suites_time_+".zip")
+
+
+@ex_cases_app.task
+def loc_case_task(server_address, user,id,u,r,t):
+    '''
+    压力测试任务，使用 locust_file.py 进行验证，不使用BeginTest方式
+    :param server_address:测试地址
+    :param user:执行用户
+    :param id:执行id
+    :param u:用户总量
+    :param r:每秒启动
+    :param t:持续时间
+    :return:
+    '''
+    report_id= datetime.datetime.strptime(id[14:],"%Y-%m-%dT%H:%M").\
+        strftime("%Y_%m_%d_%H:%M:%S") # 格式为05-08-14：41.html
+    os.system(
+        "locust -f locust_file.py --host=%s --headless "
+        "--html=report/%s.html -u %s -r %s -t %ss"%(server_address,"接口测试报告"+report_id,u,r,t))
+
+    ate= models.TestExecute()  # 保存执行记录
+    ate.user= user
+    ate.type= 4
+    ate.job_id= id
+
+    config= configparser.ConfigParser()
+    config.read("locust_config.ini")
+    test_case_list= config.get("Parameter", "MY_CASE_ID").replace("'", '"')
+
+
+
+    ate.case_or_suite_ids= ','.join(map(str, eval(test_case_list)))
+    ate.download_report_path= "report/%s.html" % ("接口测试报告"+report_id)
+    ate.save()
+    # 因为locust结果无法调取，所以直接前端只有下载链接
+
+    address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    email_for_interface(address, "接口测试报告" + report_id + ".html")
+
+
+@ex_cases_app.task
+def loc_suite_task(server_address, user,id,u,r,t):
+    '''
+    压力测试任务，使用 locust_file.py 进行验证，不使用BeginTest方式
+    :param server_address:测试地址
+    :param user:执行用户
+    :param id:执行id
+    :param u:用户总量
+    :param r:每秒启动
+    :param t:持续时间
+    :return:
+    '''
+    pass
+    # 需要处理suite执行的方式
+    suite放在了main_platform的test_suite处理

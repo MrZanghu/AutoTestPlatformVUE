@@ -8,7 +8,8 @@ from django.contrib import auth
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from main_platform.form import UserForm
-from main_platform.tasks import case_task,process_xls,suite_task,sea_case_task,sea_suite_task
+from main_platform.tasks import case_task,process_xls,suite_task,\
+    sea_case_task,sea_suite_task,loc_case_task,loc_suite_task
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from main_platform.validCode import ValidCodeImg
@@ -30,11 +31,7 @@ from django_apscheduler.jobstores import DjangoJobStore,register_job
 scheduler= BackgroundScheduler(timezone= "Asia/Shanghai") # 实例化调度器
 scheduler.add_jobstore(DjangoJobStore(), "default")
 logger= logging.getLogger("main_platform")
-'''
-sudo /usr/local/bin/redis-server
-celery -A main_platform worker --loglevel=info
-python3 manage.py runserver 0.0.0.0:8000
-'''
+
 
 def get_test(request):
     '''测试get功能使用'''
@@ -191,7 +188,7 @@ def get_server_address(env):
         return None
 
 
-def register_jobs(lists,envs,username,types,id,year,month,day,hour,minute):
+def register_jobs(lists,envs,username,types,id,year,month,day,hour,minute,u= None,r= None,t= None):
     '''
     执行用例or集合，进行定时任务注册
     :param lists:
@@ -205,10 +202,10 @@ def register_jobs(lists,envs,username,types,id,year,month,day,hour,minute):
     :return:
     '''
     scheduler.add_job(do_task_jobs, "cron", id= id, replace_existing= True, year= year, month= month, day= day,
-                              hour= hour, minute= minute, args= [lists, envs, username, types, id])
+                              hour= hour, minute= minute, args= [lists, envs, username, types, id,u,r,t])
 
 
-def do_task_jobs(lists,envs,username,types,id):
+def do_task_jobs(lists,envs,username,types,id,u= None,r= None,t= None):
     '''
     执行用例or集合的定时任务
     :param lists:
@@ -235,8 +232,11 @@ def do_task_jobs(lists,envs,username,types,id):
                 # 首次执行会出进程问题，执行一次后正常
                 logger.info(" " * 50)
                 logger.info("######### 已经获取到用例，开始进行批量执行 #########")
-                if "UI" not in id:  # 接口测试
-                    case_task.delay(test_list, server_address, username,id)
+                if "UI" not in id:
+                    if "LOC" not in id:# 接口测试
+                        case_task.delay(test_list, server_address, username,id)
+                    else: # 压力测试
+                        loc_case_task.delay(server_address, username, id,u,r,t)
                 else:
                     sea_case_task.delay(test_list, server_address, username,id)
                 fp.write("case_lock\n")
@@ -254,7 +254,10 @@ def do_task_jobs(lists,envs,username,types,id):
                 logger.info(" " * 50)
                 logger.info("######### 已经获取到集合，开始进行批量执行 #########")
                 if "UI" not in id:  # 接口集合
-                    suite_task.delay(test_list, server_address, username,id)
+                    if "LOC" not in id:  # 接口测试
+                        suite_task.delay(test_list, server_address, username, id)
+                    else:  # 压力测试
+                        loc_suite_task.delay(server_address, username, id, u, r, t)
                 else:
                     sea_suite_task.delay(test_list, server_address, username,id)
                 fp.write("suite_lock\n")
@@ -330,13 +333,17 @@ def get_job_name(request):
     job_name1= "test_job1_%s"%ex_time
     job_name2= "test_UI_job0_%s"%ex_time # 处理用例和集合并行的问题
     job_name3= "test_UI_job1_%s"%ex_time
+    job_name4= "test_LOC_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name5= "test_LOC_job1_%s"%ex_time
 
     jb0= JobExecuted.objects.filter(job_id= job_name0).first()
     jb1= JobExecuted.objects.filter(job_id= job_name1).first()
     jb2= JobExecuted.objects.filter(job_id= job_name2).first()
     jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+    jb4= JobExecuted.objects.filter(job_id= job_name4).first()
+    jb5= JobExecuted.objects.filter(job_id= job_name5).first()
 
-    if (jb0!= None) or (jb1!= None) or (jb2!= None) or (jb3!= None):
+    if (jb0!= None) or (jb1!= None) or (jb2!= None) or (jb3!= None)or (jb4!= None)or (jb5!= None):
         return JsonResponse({"msg":"存在相同任务名","status":2001})
     else:
         return JsonResponse({"msg": "不存在相同任务名", "status": 2000})
@@ -355,10 +362,10 @@ def index(request):
     for i in range(5,0,-1):
         date= now - datetime.timedelta(days=i)
         five_days.append(date.strftime("%Y-%m-%d"))
-        te.append(random.randint(1,60)) # 演示假数据，下方为真数据
+        te.append(random.randint(1,50)) # 演示假数据，下方为真数据
         tse.append(random.randint(1,50))
-        uite.append(random.randint(1,40))
-        uitse.append(random.randint(1,30))
+        uite.append(random.randint(1,50))
+        uitse.append(random.randint(1,50))
 
         # te.append(TestCaseExecuteResult.objects.filter(updated_time__date= date).count())
         # tse.append(TestSuiteTestCaseExecuteRecord.objects.filter(updated_time__date= date).count())

@@ -7159,32 +7159,52 @@ body.skin-3 {
 
 
     var resultData = {
-    "testPass": 0,
+    "testPass": 2,
     "testResult": [
         {
             "className": "BeginTest",
             "methodName": "testMethod",
-            "description": "导入",
-            "spendTime": "0.532 s",
-            "status": "失败",
+            "description": "读取关键字1",
+            "spendTime": "0.588 s",
+            "status": "成功",
             "log": [
-                "所属项目:GPtest\n所属模块:123\n接口名称:123\n请求方法:post\n接口地址:http://192.168.30.41:8000123\n请求数据:不能为空\n断言数据:None\n提取参数:None\n接口请求异常，error:Traceback (most recent call last):\n  File \"/Users/violet/Desktop/kevin/MyLearn/Django/AutoTestPlatformVUE/main_platform/tasks.py\", line 148, in setUp\n    self.execute_record.response_data= self.res_data.json()\nAttributeError: 'str' object has no attribute 'json'\n\n",
-                "Traceback (most recent call last):\n",
-                "  File \"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 593, in run\n    self._callTestMethod(testMethod)\n",
-                "  File \"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 550, in _callTestMethod\n    method()\n",
-                "  File \"/Users/violet/Desktop/kevin/MyLearn/Django/AutoTestPlatformVUE/main_platform/tasks.py\", line 165, in testMethod\n    self.assertEqual(True,False)\n",
-                "  File \"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 831, in assertEqual\n    assertion_func(first, second, msg=msg)\n",
-                "  File \"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/unittest/case.py\", line 824, in _baseAssertEqual\n    raise self.failureException(msg)\n",
-                "AssertionError: True != False\n"
+                "所属项目:测试项目名称2",
+                "所属模块:测试模块2",
+                "接口名称:/atp/post_test/",
+                "请求方法:post",
+                "接口地址:http://0.0.0.0:8000/atp/post_test/",
+                "请求数据:{\"id\":1,\"name\":\"啊啊啊啊啊\"}",
+                "断言数据:\"code\": 200",
+                "提取参数:code||\"code\": (\\d+);ip||\"ip\": \"(((2(5[0-5]|[0-4]\\d))|[0-1]?\\d{1,2})(\\.((2(5[0-5]|[0-4]\\d))|[0-1]?\\d{1,2})){3})\"",
+                "响应数据:{\"code\": 200, \"msg\": \"查询成功\", \"server\": {\"id\": 1, \"env\": \"dev\", \"ip\": \"0.0.0.0\", \"port\": \"8000\", \"is_https\": 0, \"remark\": \"开发环境\"}, \"name\": \"啊啊啊啊啊\"}",
+                ""
+            ]
+        },
+        {
+            "className": "BeginTest",
+            "methodName": "testMethod",
+            "description": "有入参，无出参",
+            "spendTime": "0.554 s",
+            "status": "成功",
+            "log": [
+                "所属项目:测试项目名称3",
+                "所属模块:测试模块3",
+                "接口名称:/atp/post_test/",
+                "请求方法:post",
+                "接口地址:http://0.0.0.0:8000/atp/post_test/",
+                "请求数据:{\"id\":1,\"name\":\"啊啊啊啊啊\",\"code\":\"${code}\",\"ip\":\"${ip}\"}",
+                "断言数据:\"code\": 200",
+                "提取参数:None",
+                "响应数据:{\"code\": 200, \"msg\": \"查询成功\", \"server\": {\"id\": 1, \"env\": \"dev\", \"ip\": \"0.0.0.0\", \"port\": \"8000\", \"is_https\": 0, \"remark\": \"开发环境\"}, \"name\": \"啊啊啊啊啊\"}",
+                ""
             ]
         }
     ],
     "testName": "自动化测试平台报告",
-    "testAll": 1,
-    "testFail": 1,
-    "beginTime": "2024-03-25 16:53:00",
-    "totalTime": "0s",
+    "testAll": 2,
+    "testFail": 0,
+    "beginTime": "2024-05-16 10:57:00",
+    "totalTime": "1s",
     "testSkip": 0,
     "testError": 0
 };

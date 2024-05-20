@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'atp/',include("main_platform.urls",namespace= "main_platform")),
     url(r'sea/',include("selenium_apps.urls",namespace= "selenium_apps")),
+    url(r'loc/',include("locust_apps.urls",namespace= "locust_apps")),
     url(r"sendmail/",include("send_mails.urls")),
 ]

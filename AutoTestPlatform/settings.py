@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_platform',
+    'locust_apps',
     'send_mails',
     'selenium_apps',
     'django_celery_results', # 用于异步任务
