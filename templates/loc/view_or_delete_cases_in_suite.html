@@ -9,7 +9,7 @@
     <meta name="description" content="Neon Admin Panel">
     <meta name="author" content="">
 
-    <title>接口集合添加用例</title>
+    <title>删除压力用例</title>
 
 
     <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
@@ -102,7 +102,7 @@
                     <span>测试模块</span>
                 </a>
             </li>
-            <li class="opened active">
+            <li>
                 <a href="#">
                     <i class="glyphicon glyphicon-log-in"></i>
                     <span>接口测试</span>
@@ -113,7 +113,7 @@
                             <span>接口用例</span>
                         </a>
                     </li>
-                    <li class="opened active">
+                    <li>
                         <a href="{% url 'main_platform:test_suite' 0 %}">
                             <span>接口集合</span>
                         </a>
@@ -138,7 +138,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="opened active">
                 <a href="#">
                     <i class="entypo-flow-tree"></i>
                     <span>压力测试</span>
@@ -149,7 +149,7 @@
                             <span>压力用例</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="opened active">
                         <a href="{% url 'locust_apps:test_suite' 2 %}">
                             <span>压力集合</span>
                         </a>
@@ -196,10 +196,10 @@
                 <a href="#"><i class="entypo-home"></i>首页</a>
             </li>
             <li class="active">
-                <strong>接口测试</strong>
+                <strong>压力测试</strong>
             </li>
             <li class="active">
-                <strong>添加测试用例</strong>
+                <strong>查看/删除测试用例</strong>
             </li>
         </ol>
 
@@ -213,8 +213,8 @@
         <form action="" method="POST">
             {% csrf_token %}
             <button type="submit" class="btn btn-info"
-                    style="height: 23px;padding:4px" title="选中的用例添加到集合"
-                    id="add_to_suite" value='添加测试用例' onclick="return addToSuite()">添加选中用例
+                    style="height: 23px;padding:4px" title="从集合中删除选中的用例"
+                    id="delete_from_suite" onclick="return deleteFromSuite()">删除选中用例
             </button>
 
             <p style="padding-bottom: 8px"></p>
@@ -223,13 +223,14 @@
                 <thead>
                 <tr>
                     <th style="width: 5%"><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
-                    <th>API用例名称</th>
-                    <th>所属项目</th>
-                    <th>所属模块</th>
+                    <th>压力用例名称</th>
+                    <th>接口地址</th>
+                    <th>请求方式</th>
+                    <th>请求数据</th>
+                    <th>断言内容</th>
                     <th>编写人员</th>
                     <th>创建时间</th>
                     <th>更新时间</th>
-                    <th>创建用户名</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -238,14 +239,15 @@
                         <td><input type="checkbox" value="{{ test_case.id }}" name="testcases_list"> {{ test_case.id }}
                         </td>
                         <td>
-                            <a href="{% url 'main_platform:test_case_detail' test_case.id %}">{{ test_case.case_name }}</a>
+                            <a href="{% url '[locust_apps]:test_case_detail' test_case.id %}">{{ test_case.case_name }}</a>
                         </td>
-                        <td>{{ test_case.belong_project.name }}</td>
-                        <td>{{ test_case.belong_module.name }}</td>
+                        <td>{{ test_case.uri }}</td>
+                        <td>{{ test_case.request_method }}</td>
+                        <td>{{ test_case.request_data }}</td>
+                        <td>{{ test_case.assert_key }}</td>
                         <td>{{ test_case.maintainer }}</td>
                         <td>{{ test_case.create_time|date:"Y-n-d H:i" }}</td>
                         <td>{{ test_case.update_time|date:"Y-n-d H:i" }}</td>
-                        <td>{{ test_case.maintainer }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -286,6 +288,7 @@
                             {"bSortable": false},
                             {"bSortable": false},
                             {"bSortable": false},
+                            {"bSortable": false},
                         ],// 禁止所有列排序，防止全选出现错误
 
                         // 响应式设置
@@ -317,6 +320,7 @@
 <link rel="stylesheet" href="{% static 'css/select2.css' %}">
 
 <!-- Bottom Scripts -->
+<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
 <script src="{% static 'js/main-gsap.js' %}"></script>
 <script src="{% static 'js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
@@ -334,9 +338,8 @@
 <script src="{% static 'js/neon-custom.js' %}"></script>
 <script src="{% static 'js/neon-demo.js' %}"></script>
 <script src="{% static 'js/echarts.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/atp/add_case_into_suite.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/loc/view_or_delete_cases_in_suite.js' %}"></script>
 <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
 
 </body>
 </html>

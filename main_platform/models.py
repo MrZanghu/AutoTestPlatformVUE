@@ -170,7 +170,7 @@ class TestSuite(models.Model):
     '''用例集模型'''
     id= models.AutoField(primary_key= True)
     suite_desc= models.CharField("用例集合描述", max_length= 128, blank= True, null= True)
-    type= models.IntegerField("用例集合类型",blank= True, null= True,choices= ((1,"UI"),(0,"API")))
+    type= models.IntegerField("用例集合类型",blank= True, null= True,choices= ((1,"UI"),(0,"API"),(2,"LoadTesting")))
     status= models.IntegerField(blank= True, null= True, help_text="0:表示有效，1:表示无效，用于软删除",default= 0)
     creator= models.CharField(max_length= 20, blank= True, null= True)
     create_time= models.DateTimeField("创建时间", auto_now= True)  # 创建时间-自动获取当前时间

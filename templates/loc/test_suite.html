@@ -9,7 +9,7 @@
     <meta name="description" content="Neon Admin Panel">
     <meta name="author" content="">
 
-    <title>接口集合添加用例</title>
+    <title>压力集合</title>
 
 
     <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
@@ -102,7 +102,7 @@
                     <span>测试模块</span>
                 </a>
             </li>
-            <li class="opened active">
+            <li>
                 <a href="#">
                     <i class="glyphicon glyphicon-log-in"></i>
                     <span>接口测试</span>
@@ -113,7 +113,7 @@
                             <span>接口用例</span>
                         </a>
                     </li>
-                    <li class="opened active">
+                    <li>
                         <a href="{% url 'main_platform:test_suite' 0 %}">
                             <span>接口集合</span>
                         </a>
@@ -138,7 +138,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="opened active">
                 <a href="#">
                     <i class="entypo-flow-tree"></i>
                     <span>压力测试</span>
@@ -149,7 +149,7 @@
                             <span>压力用例</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="opened active">
                         <a href="{% url 'locust_apps:test_suite' 2 %}">
                             <span>压力集合</span>
                         </a>
@@ -196,25 +196,47 @@
                 <a href="#"><i class="entypo-home"></i>首页</a>
             </li>
             <li class="active">
-                <strong>接口测试</strong>
+                <strong>压力测试</strong>
             </li>
             <li class="active">
-                <strong>添加测试用例</strong>
+                <strong>压力集合</strong>
             </li>
         </ol>
 
         <div id="group">
             <div>
-                <h2 style="margin-top: 0">{{ suite_desc }}</h2>
+                <h2 style="margin-top: 0">压力集合</h2>
             </div>
 
         </div>
         <hr>
         <form action="" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn btn-info"
-                    style="height: 23px;padding:4px" title="选中的用例添加到集合"
-                    id="add_to_suite" value='添加测试用例' onclick="return addToSuite()">添加选中用例
+            <span style="font-size: 15px">运行环境：</span>
+            <select name="env" style="height: 24px;line-height: 23px;padding: 0; border-radius: 2px">
+                <option selected value="dev" style="font-size: 15px">dev</option>
+                <option value="test" style="font-size: 15px">test</option>
+                <option value="https" style="font-size: 15px">https</option>
+            </select>
+
+            <span style="font-size: 15px">用户总量：</span>
+            <input type="number" min="1" max="9999" step="1" name="ex_u" style="width: 50px" placeholder="1" value="1">
+            <span style="font-size: 15px;margin-right: 20px">个</span>
+
+            <span style="font-size: 15px">每秒启动：</span>
+            <input type="number" min="1" max="9999" step="1" name="ex_r" style="width: 50px" placeholder="1" value="1">
+            <span style="font-size: 15px;margin-right: 20px">个</span>
+
+            <span style="font-size: 15px">持续时间：</span>
+            <input type="number" min="1" max="9999" step="1" name="ex_t" style="width: 50px" placeholder="1" value="1">
+            <span style="font-size: 15px;margin-right: 20px">秒</span>
+
+            <span style="margin-left: 5px;font-size: 15px">运行时间：</span>
+            <input type="datetime-local" name="ex_time" style="width: 155px;padding-bottom: 1px">
+
+            <button type="submit" class="btn btn-info" name="ex_suite"
+                    style="height: 23px;padding:4px" title="设置执行时间，默认下一分钟执行"
+                    onclick="return ischecked()">执行接口集合
             </button>
 
             <p style="padding-bottom: 8px"></p>
@@ -223,29 +245,33 @@
                 <thead>
                 <tr>
                     <th style="width: 5%"><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
-                    <th>API用例名称</th>
-                    <th>所属项目</th>
-                    <th>所属模块</th>
-                    <th>编写人员</th>
+                    <th>测试集合名称</th>
+                    <th>类型</th>
+                    <th>创建者</th>
                     <th>创建时间</th>
-                    <th>更新时间</th>
-                    <th>创建用户名</th>
+                    <th>查看/删除测试用例</th>
+                    <th>添加测试用例</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for test_case in pages %}
+                {% for case_suite in pages %}
                     <tr>
-                        <td><input type="checkbox" value="{{ test_case.id }}" name="testcases_list"> {{ test_case.id }}
-                        </td>
+                        <td><input type="checkbox" value="{{ case_suite.id }}"
+                                   name="testsuite_list"> {{ case_suite.id }} </td>
+                        <td>{{ case_suite.suite_desc }}</td>
+                        {% if case_suite.type == 0 %}
+                            <td>API</td>
+                        {% elif case_suite.type == 1 %}
+                            <td>UI</td>
+                        {% else %}
+                            <td>压力</td>
+                        {% endif %}
+                        <td>{{ case_suite.creator }}</td>
+                        <td>{{ case_suite.create_time|date:"Y-n-d H:i:s" }}</td>
                         <td>
-                            <a href="{% url 'main_platform:test_case_detail' test_case.id %}">{{ test_case.case_name }}</a>
+                            <a href="{% url 'main_platform:view_or_delete_cases_in_suite' case_suite.id %}">查看/删除测试用例</a>
                         </td>
-                        <td>{{ test_case.belong_project.name }}</td>
-                        <td>{{ test_case.belong_module.name }}</td>
-                        <td>{{ test_case.maintainer }}</td>
-                        <td>{{ test_case.create_time|date:"Y-n-d H:i" }}</td>
-                        <td>{{ test_case.update_time|date:"Y-n-d H:i" }}</td>
-                        <td>{{ test_case.maintainer }}</td>
+                        <td><a href="{% url 'main_platform:add_case_into_suite' case_suite.id %}">添加测试用例</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -253,7 +279,7 @@
 
             <script type="text/javascript">
                 // 获取所有名称为 "testcases_list" 的元素
-                var cells = document.getElementsByName("testcases_list");
+                var cells = document.getElementsByName("testsuite_list");
 
                 // 遍历元素集合
                 for (var i = 0; i < cells.length; i++) {
@@ -279,7 +305,6 @@
                         "bStateSave": true,
                         "aoColumns": [
                             {"bSortable": false, "sType": "numeric"},//按照数字类型排序
-                            {"bSortable": false},
                             {"bSortable": false},
                             {"bSortable": false},
                             {"bSortable": false},
@@ -315,6 +340,8 @@
 <link rel="stylesheet" href="{% static 'css/datatables.responsive.css' %}">
 <link rel="stylesheet" href="{% static 'css/select2-bootstrap.css' %}">
 <link rel="stylesheet" href="{% static 'css/select2.css' %}">
+<link rel="stylesheet" href="{% static 'css/atp/test_suite.css' %}">
+
 
 <!-- Bottom Scripts -->
 <script src="{% static 'js/main-gsap.js' %}"></script>
@@ -334,7 +361,7 @@
 <script src="{% static 'js/neon-custom.js' %}"></script>
 <script src="{% static 'js/neon-demo.js' %}"></script>
 <script src="{% static 'js/echarts.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/atp/add_case_into_suite.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/atp/test_suite.js' %}"></script>
 <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
 <script src="{% static 'js/atp/get_job_execute.js' %}"></script>
 

@@ -19,7 +19,6 @@ function selectOrCancelAll() {
 function ischecked() {
     var $ex_case = document.getElementsByName("ex_case");
     var $ex_time = document.getElementsByName("ex_time").item(0).value;
-
     if ($ex_case) {
         $.getJSON("/loc/test_case/loc/get_job_name/", {"ex_time": $ex_time}, function (data) {
             if (data["status"] === 2001) {

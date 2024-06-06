@@ -22,6 +22,7 @@ from main_platform.models import Project, Module, TestCase,\
     TestCaseExecuteResult,TestExecute,TestSuiteExecuteRecord,\
     TestSuiteTestCaseExecuteRecord,JobExecuted,UserLog
 from selenium_apps.models import Case2SuiteForSEA,TestCaseForSEA,Case2SuiteExecuteResultForSEA,TestCaseExecuteResultForSEA
+from locust_apps.models import AddLocCase2Suite,LocTestCase,TestExecuteResult
 from django.db.models import Q
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore,register_job
@@ -359,23 +360,31 @@ def index(request):
     tse= [] # 接口集合执行数量
     uite= [] # ui执行数量
     uitse= [] # ui集合执行数量
+    locte= [] # 压力执行数量
+    locse= [] # 压力集合执行数量
+
     for i in range(5,0,-1):
         date= now - datetime.timedelta(days=i)
         five_days.append(date.strftime("%Y-%m-%d"))
-        te.append(random.randint(1,50)) # 演示假数据，下方为真数据
+        # te.append(random.randint(1,50)) # 演示假数据，下方为真数据
         tse.append(random.randint(1,50))
         uite.append(random.randint(1,50))
         uitse.append(random.randint(1,50))
+        locte.append(random.randint(1,50))
+        locse.append(random.randint(1,50))
 
         # te.append(TestCaseExecuteResult.objects.filter(updated_time__date= date).count())
         # tse.append(TestSuiteTestCaseExecuteRecord.objects.filter(updated_time__date= date).count())
         # uite.append(TestCaseExecuteResultForSEA.objects.filter(updated_time__date= date).count())
         # uitse.append(Case2SuiteExecuteResultForSEA.objects.filter(updated_time__date= date).count())
+        # locte.append(TestExecuteResult.objects.filter(create_time__date= date).filter(type= 0).count())
+        # locse.append(TestExecuteResult.objects.filter(create_time__date= date).filter(type= 1).count())
 
     formatted_time= now.strftime("%Y年%m月%d日 %H:%M") # 顶部大时间
 
-    api_count= TestCase.objects.all().count()
-    ui_count= TestCaseForSEA.objects.all().count()
+    api_count= TestCase.objects.filter(status= 0).count()
+    ui_count= TestCaseForSEA.objects.filter(status= 0).count()
+    loc_count= LocTestCase.objects.filter(status= 0).count()
     project_count= Project.objects.all().count()
     module_count= Module.objects.all().count() # 对比图及右侧数据块
 
@@ -390,17 +399,22 @@ def index(request):
         "tse":tse,
         "uite":uite,
         "uitse":uitse,
+        "locte":locte,
+        "locse":locse,
         "five_days":five_days,
         "public_data":formatted_time,
         "project_count":project_count,
         "module_count":module_count,
         "api_count":api_count,
         "ui_count":ui_count,
+        "loc_count":loc_count,
         "module":module,
         "userlog_list":userlog_list,
         "count_data": [
             {"value": api_count, "name": "接口用例数"},
-            {"value": ui_count, "name": "UI用例数"},]
+            {"value": ui_count, "name": "UI用例数"},
+            {"value": loc_count, "name": "压力用例数"},
+        ]
     }
     return render(request,"atp/index.html",data)
 
@@ -501,11 +515,11 @@ def test_case(request):
                 return render(request, "atp/test_case.html", data)
             else:
                 if datetime.datetime.now()> datetime.datetime.strptime(ex_time, "%Y-%m-%dT%H:%M"):
-                    # 解决传错误时间的问题
-                    cases = TestCase.objects.filter(status=0).order_by("-id")
-                    data = {}
-                    data["pages"] = get_paginator(request, cases)
-                    data["case_name"] = ""
+                    # 解决执行时间比当前时间还早的问题
+                    cases= TestCase.objects.filter(status=0).order_by("-id")
+                    data= {}
+                    data["pages"]= get_paginator(request, cases)
+                    data["case_name"]= ""
                     return render(request, "atp/test_case.html", data)
                 else:
                     job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
@@ -773,8 +787,10 @@ def test_suite(request,suite_type):
         }
         if suite_type== "0": # 接口集合
             return render(request,"atp/test_suite.html",data)
-        else: # UI集合
+        elif suite_type== "1": # UI集合
             return render(request, "sea/sea_test_suite.html", data)
+        else: # 压力集合
+            return render(request,"loc/test_suite.html",data)
 
     elif request.method== "POST":
     # 点击执行后，生成集合执行记录，集合执行记录包含用例执行记录
@@ -798,13 +814,14 @@ def test_suite(request,suite_type):
             else:
                 suites= TestSuite.objects.filter(suite_desc__contains= suite_name,
                                                  status= 0).filter(type= suite_type).order_by("-id")
-
             data["pages"]= get_paginator(request, suites)
             data["suite_name"]= suite_name
             if suite_type== "0":
                 return render(request, "atp/test_suite.html", data)
-            else:
+            elif suite_type== "1":
                 return render(request, "sea/sea_test_suite.html", data)
+            else:
+                return render(request, "loc/test_suite.html", data)
         else:
             env= request.POST.get("env")
             test_suite_list= request.POST.getlist("testsuite_list")
@@ -816,31 +833,41 @@ def test_suite(request,suite_type):
                 }
                 if suite_type== "0":
                     return render(request, "atp/test_suite.html", data)
-                else:
+                elif suite_type== "1":
                     return render(request, "sea/sea_test_suite.html", data)
+                else:
+                    return render(request, "loc/test_suite.html", data)
             else:
                 if datetime.datetime.now() > datetime.datetime.strptime(ex_time, "%Y-%m-%dT%H:%M"):
+                    # 解决执行时间比当前时间还早的问题
                     test_suite= TestSuite.objects.filter(status=0).filter(type=suite_type).order_by("-id")
                     data= {
                         "pages": get_paginator(request, test_suite),  # 返回分页
                     }
-                    if suite_type== "0":  # 接口集合
+                    if suite_type== "0":
                         return render(request, "atp/test_suite.html", data)
-                    else:  # UI集合
+                    elif suite_type== "1":
                         return render(request, "sea/sea_test_suite.html", data)
+                    else:
+                        return render(request, "loc/test_suite.html", data)
                 else:
                     job_name0= "test_job0_%s" % ex_time  # 处理用例和集合并行的问题
                     job_name1= "test_job1_%s" % ex_time
                     job_name2= "test_UI_job0_%s" % ex_time  # 处理用例和集合并行的问题
                     job_name3= "test_UI_job1_%s" % ex_time
-    
-                    jb0= JobExecuted.objects.filter(job_id= job_name0).first()
-                    jb1= JobExecuted.objects.filter(job_id= job_name1).first()
-                    jb2= JobExecuted.objects.filter(job_id= job_name2).first()
-                    jb3= JobExecuted.objects.filter(job_id= job_name3).first()
-    
-                    if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None):
-                        pass # 解决重复任务名的问题
+                    job_name4= "test_LOC_job0_%s" % ex_time  # 处理用例和集合并行的问题
+                    job_name5= "test_LOC_job1_%s" % ex_time
+
+                    jb0= JobExecuted.objects.filter(job_id=job_name0).first()
+                    jb1= JobExecuted.objects.filter(job_id=job_name1).first()
+                    jb2= JobExecuted.objects.filter(job_id=job_name2).first()
+                    jb3= JobExecuted.objects.filter(job_id=job_name3).first()
+                    jb4= JobExecuted.objects.filter(job_id=job_name4).first()
+                    jb5= JobExecuted.objects.filter(job_id=job_name5).first()
+
+                    if (jb0 != None) or (jb1 != None) or (jb2 != None) or (jb3 != None) or (jb4 != None) or (
+                            jb5 != None):
+                        pass  # 解决重复任务名的问题
                     else:
                         jbe= JobExecuted()  # 记录定时任务
     
@@ -848,10 +875,23 @@ def test_suite(request,suite_type):
                             register_jobs(test_suite_list,env,request.user.username,1,"test_job1_%s"%ex_time,
                                           year,month,day,hour,minute)
                             jbe.job_id= "test_job1_%s" % ex_time
-                        else:
+                        elif suite_type== "1":
                             register_jobs(test_suite_list,env,request.user.username,1,"test_UI_job1_%s"%ex_time,
                                           year,month,day,hour,minute)
                             jbe.job_id= "test_UI_job1_%s" % ex_time
+                        else:
+                            ex_u= request.POST.get("ex_u")  # 用户总量
+                            ex_r= request.POST.get("ex_r")  # 每秒启动
+                            ex_t= request.POST.get("ex_t")  # 持续时间
+
+                            with open("locust_config.ini", 'w') as file:  # 写入读取的配置文件中，方便后续使用
+                                file.write('[Parameter]\n')  # 写入新的section
+                                file.write('MY_CASE_ID= "None"\n')  # 用例
+                                file.write('MY_SUITE_ID= %s\n' % test_suite_list)  # 写入集合的id
+
+                            register_jobs(test_suite_list,env,request.user.username,1,"test_LOC_job1_%s"%ex_time,
+                                          year,month,day,hour,minute,u= ex_u,r= ex_r,t= ex_t)
+                            jbe.job_id= "test_LOC_job1_%s" % ex_time
     
                         jbe.user= request.user.username
                         jbe.status= 0
@@ -900,7 +940,8 @@ def add_case_into_suite(request,suiteid):
             else:
                 data["msg"]= "添加用例为空"
 
-    else:
+    elif test_suite.type== 0:
+        # API测试进入不同的页面
         belong_suite_cases= AddCaseIntoSuite.objects.filter(test_suite= suiteid,status= 0)
         belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
         # 查询出此用例集已关联的用例
@@ -927,6 +968,42 @@ def add_case_into_suite(request,suiteid):
                 for tl in testcases_list:
                     test_case= TestCase.objects.filter(id= int(tl))
                     sc_obj,created= AddCaseIntoSuite.objects.get_or_create(
+                        test_case= test_case.first(),test_suite= test_suite) # 自带查重方法，建议使用
+                    if created== False:
+                        data["msg"]= "用例重复添加"
+                return redirect(reverse("main_platform:add_case_into_suite",kwargs= {"suiteid":suiteid}))
+                # 添加成功后，自动刷新页面
+            else:
+                data["msg"]= "添加用例为空"
+
+    else:
+        # 压力测试进入不同的页面
+        belong_suite_cases= AddLocCase2Suite.objects.filter(test_suite= suiteid,status= 0)
+        belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
+        # 查询出此用例集已关联的用例
+
+        test_cases= [i.id for i in LocTestCase.objects.filter(status= 0).all()] # 查询出所有用例的id
+        test_cases= list(filter(lambda x:x not in belong_suite_cases,test_cases))
+        # lambda清除在所有用例中,已经关联过用例集的id
+        test_cases= LocTestCase.objects.filter(id__in= test_cases).order_by("-id")
+        # 没有notin函数，所以使用此方法，去除用例重复添加的可能性
+
+        if request.method== "GET":
+            data= {
+                "pages": get_paginator(request, test_cases),
+                "suite_desc": test_suite.suite_desc,
+            }
+            return render(request, "loc/add_case_into_suite.html", data)
+
+        elif request.method== "POST":
+            data= {
+                "pages": get_paginator(request, test_cases), # 返回分页
+            }
+            testcases_list= request.POST.getlist("testcases_list")
+            if testcases_list:
+                for tl in testcases_list:
+                    test_case= LocTestCase.objects.filter(id= int(tl))
+                    sc_obj,created= AddLocCase2Suite.objects.get_or_create(
                         test_case= test_case.first(),test_suite= test_suite) # 自带查重方法，建议使用
                     if created== False:
                         data["msg"]= "用例重复添加"
@@ -973,7 +1050,8 @@ def view_or_delete_cases_in_suite(request,suiteid):
             else:
                 data["msg"]= "删除用例为空"
 
-    else:
+    elif test_suite.type== 0:
+        # API测试进入不同的页面
         belong_suite_cases= AddCaseIntoSuite.objects.filter(test_suite_id= suiteid,status= 0)
         belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
         # 查询出此用例集已关联的用例
@@ -996,6 +1074,35 @@ def view_or_delete_cases_in_suite(request,suiteid):
                 for tl in testcases_list:
                     test_case= TestCase.objects.filter(id=int(tl))
                     AddCaseIntoSuite.objects.filter(test_case= test_case.first(),test_suite= test_suite).first().delete()
+                    # 删除指定用例集的指定测试用例
+                return redirect(reverse("main_platform:view_or_delete_cases_in_suite",kwargs= {"suiteid":suiteid}))
+                # 添加成功后，自动刷新页面
+            else:
+                data["msg"]= "删除用例为空"
+
+    else:
+        # 压力测试进入不同的页面
+        belong_suite_cases= AddLocCase2Suite.objects.filter(test_suite_id= suiteid,status= 0)
+        belong_suite_cases= [x.test_case_id for x in belong_suite_cases]
+        # 查询出此用例集已关联的用例
+        test_cases= LocTestCase.objects.filter(id__in= belong_suite_cases).order_by("id")
+
+        if request.method== "GET":
+            data= {
+                "pages": get_paginator(request, test_cases),
+                "suite_desc":test_suite.suite_desc,
+            }
+            return render(request, "loc/view_or_delete_cases_in_suite.html", data)
+
+        elif request.method== "POST":
+            data= {
+                "pages": get_paginator(request, test_cases), # 返回分页
+            }
+            testcases_list= request.POST.getlist("testcases_list")
+            if testcases_list:
+                for tl in testcases_list:
+                    test_case= LocTestCase.objects.filter(id=int(tl))
+                    AddLocCase2Suite.objects.filter(test_case= test_case.first(),test_suite= test_suite).first().delete()
                     # 删除指定用例集的指定测试用例
                 return redirect(reverse("main_platform:view_or_delete_cases_in_suite",kwargs= {"suiteid":suiteid}))
                 # 添加成功后，自动刷新页面

@@ -1,7 +1,7 @@
 import datetime
 from main_platform import viewsParams as vp
 from django.http import JsonResponse
-from locust_apps.models import TestCase
+from locust_apps.models import LocTestCase,TestExecuteResult
 from django.shortcuts import render, redirect,reverse
 from main_platform.models import JobExecuted
 from django.core.paginator import Paginator
@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from main_platform.views import register_jobs
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from main_platform.views import test_suite as ts
 
 
 
@@ -54,7 +55,7 @@ def test_case(request):
     '''主页-测试用例'''
     if request.method== "GET":
         # 如果为get请求，直接返回所有用例
-        cases= TestCase.objects.filter(status= 0).order_by("-id")
+        cases= LocTestCase.objects.filter(status= 0).order_by("-id")
         data= {}
         data["pages"]= cases
         data["case_name"]= ""
@@ -81,9 +82,9 @@ def test_case(request):
             # 如果获取不到字段，则为None，返回test_case原页面
             if case_name in [None, ""]:
                 case_name= ""
-                cases= TestCase.objects.filter(status= 0).order_by("-id")
+                cases= LocTestCase.objects.filter(status= 0).order_by("-id")
             else:
-                cases= TestCase.objects.filter(case_name__contains= case_name,status= 0).order_by("-id")
+                cases= LocTestCase.objects.filter(case_name__contains= case_name,status= 0).order_by("-id")
             data["pages"]= get_paginator(request, cases)
             data["case_name"]= case_name
             return render(request, "loc/test_case.html", data)
@@ -92,7 +93,7 @@ def test_case(request):
             test_case_list= request.POST.getlist("testcases_list")
             if len(test_case_list)== 0:
                 # 解决传空用例的问题
-                cases= TestCase.objects.filter(status= 0).order_by("-id")
+                cases= LocTestCase.objects.filter(status= 0).order_by("-id")
                 data= {}
                 data["pages"]= get_paginator(request, cases)
                 data["case_name"]= ""
@@ -100,7 +101,7 @@ def test_case(request):
             else:
                 if datetime.datetime.now()> datetime.datetime.strptime(ex_time, "%Y-%m-%dT%H:%M"):
                     # 解决传错误时间的问题
-                    cases= TestCase.objects.filter(status=0).order_by("-id")
+                    cases= LocTestCase.objects.filter(status=0).order_by("-id")
                     data= {}
                     data["pages"]= get_paginator(request, cases)
                     data["case_name"]= ""
@@ -150,7 +151,7 @@ def add_test_case(request):
         return render(request, "loc/add_test_case.html",data)
 
     elif request.method== "POST":
-        ts= TestCase()
+        ts= LocTestCase()
         ts.case_name= request.POST.get("case_name")
         ts.request_data= request.POST.get("request_data")
         ts.uri= request.POST.get("uri")
@@ -174,7 +175,7 @@ def delete_test_case(request,caseid):
     :param request:
     :return:
     '''
-    case= TestCase.objects.get(id= caseid)
+    case= LocTestCase.objects.get(id= caseid)
     case.status= 1
     case.update_time= datetime.datetime.now()
     case.save()
@@ -188,7 +189,7 @@ def update_test_case(request,caseid):
     :param request:
     :return:
     '''
-    case= TestCase.objects.get(id= caseid)
+    case= LocTestCase.objects.get(id= caseid)
     if request.method== "GET":
         data= {}
         data["original_id"]= case.id
@@ -219,10 +220,52 @@ def update_test_case(request,caseid):
 def test_case_detail(request,caseid):
     '''测试用例-用例详情'''
     try:
-        detail= TestCase.objects.get(id= caseid)
+        detail= LocTestCase.objects.get(id= caseid)
         data= {
             "test_case":detail
         }
         return render(request,"loc/test_case_detail.html",data)
     except:
         return render(request,"atp/index.html") # 如果找不到就回到主页，防止出现程序
+
+@login_required
+def test_suite(request,suite_type):
+    '''主页-UI集合'''
+    # 直接调用main_platform的test_suite，统一处理
+    return ts(request,suite_type)
+
+
+@csrf_exempt
+def get_job_name(request):
+    '''获取任务名称，判断是否重复'''
+    ex_time= request.GET.get("ex_time")
+    if ex_time== "":
+        ex_time= (datetime.datetime.now() + datetime.timedelta(minutes= 1)).strftime("%Y-%m-%dT%H:%M")
+    job_name0= "test_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name1= "test_job1_%s"%ex_time
+    job_name2= "test_UI_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name3= "test_UI_job1_%s"%ex_time
+    job_name4= "test_LOC_job0_%s"%ex_time # 处理用例和集合并行的问题
+    job_name5= "test_LOC_job1_%s"%ex_time
+
+    jb0= JobExecuted.objects.filter(job_id= job_name0).first()
+    jb1= JobExecuted.objects.filter(job_id= job_name1).first()
+    jb2= JobExecuted.objects.filter(job_id= job_name2).first()
+    jb3= JobExecuted.objects.filter(job_id= job_name3).first()
+    jb4= JobExecuted.objects.filter(job_id= job_name4).first()
+    jb5= JobExecuted.objects.filter(job_id= job_name5).first()
+
+    if (jb0!= None) or (jb1!= None) or (jb2!= None) or (jb3!= None)or (jb4!= None)or (jb5!= None):
+        return JsonResponse({"msg":"存在相同任务名","status":2001})
+    else:
+        return JsonResponse({"msg": "不存在相同任务名", "status": 2000})
+
+
+@login_required
+def test_case_execute_record(request,id):
+    '''执行结果-执行用例记录'''
+    test_case_execute_records= TestExecuteResult.objects.filter(belong_test_execute= id).order_by("-id")
+    data= {
+        "pages": get_paginator(request, test_case_execute_records), # 返回分页
+    }
+    return render(request,"loc/test_execute_records.html",data)

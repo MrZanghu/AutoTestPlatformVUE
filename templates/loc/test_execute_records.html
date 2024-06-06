@@ -9,7 +9,7 @@
     <meta name="description" content="Neon Admin Panel">
     <meta name="author" content="">
 
-    <title>接口集合添加用例</title>
+    <title>压力执行记录</title>
 
 
     <link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.3.custom.min.css' %}">
@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="{% static 'css/neon-theme.css' %}">
     <link rel="stylesheet" href="{% static 'css/neon-forms.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-
 
     <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
 
@@ -102,7 +101,7 @@
                     <span>测试模块</span>
                 </a>
             </li>
-            <li class="opened active">
+            <li>
                 <a href="#">
                     <i class="glyphicon glyphicon-log-in"></i>
                     <span>接口测试</span>
@@ -113,7 +112,7 @@
                             <span>接口用例</span>
                         </a>
                     </li>
-                    <li class="opened active">
+                    <li>
                         <a href="{% url 'main_platform:test_suite' 0 %}">
                             <span>接口集合</span>
                         </a>
@@ -156,7 +155,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="opened active">
                 <a href="{% url 'main_platform:test_execute' 'None' %}">
                     <i class="entypo-mail"></i>
                     <span>执行结果</span>
@@ -196,119 +195,54 @@
                 <a href="#"><i class="entypo-home"></i>首页</a>
             </li>
             <li class="active">
-                <strong>接口测试</strong>
+                <strong>执行结果</strong>
             </li>
-            <li class="active">
-                <strong>添加测试用例</strong>
-            </li>
+
         </ol>
 
-        <div id="group">
-            <div>
-                <h2 style="margin-top: 0">{{ suite_desc }}</h2>
-            </div>
+        <h2>压力执行结果</h2>
 
-        </div>
-        <hr>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-info"
-                    style="height: 23px;padding:4px" title="选中的用例添加到集合"
-                    id="add_to_suite" value='添加测试用例' onclick="return addToSuite()">添加选中用例
-            </button>
+        <br>
 
-            <p style="padding-bottom: 8px"></p>
-
-            <table class="table table-bordered datatable" id="table-1">
-                <thead>
+        <table class="table table-bordered datatable" id="table-1">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>执行id</th>
+                <th>用例/集合</th>
+                <th>执行状态</th>
+                <th>用户总量(个)</th>
+                <th>每秒启动(个)</th>
+                <th>持续时间(秒)</th>
+                <th>创建者</th>
+                <th>创建时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for test_execute_record in pages %}
                 <tr>
-                    <th style="width: 5%"><input type="checkbox" id="all_select" onclick="selectOrCancelAll();"/>全选</th>
-                    <th>API用例名称</th>
-                    <th>所属项目</th>
-                    <th>所属模块</th>
-                    <th>编写人员</th>
-                    <th>创建时间</th>
-                    <th>更新时间</th>
-                    <th>创建用户名</th>
+                    <td>{{ test_execute_record.id }}</td>
+                    <td>{{ test_execute_record.case_suite_list }}</td>
+                    {% ifequal test_execute_record.type 0 %}
+                        <td>用例</td>
+                    {% else %}
+                        <td>集合</td>
+                    {% endifequal %}
+                    {% ifequal test_execute_record.status 1 %}
+                        <td>执行完毕</td>
+                    {% else %}
+                        <td>待执行</td>
+                    {% endifequal %}
+                    <td>{{ test_execute_record.ex_u }}</td>
+                    <td>{{ test_execute_record.ex_r }}</td>
+                    <td>{{ test_execute_record.ex_t }}</td>
+                    <td>{{ test_execute_record.creator }}</td>
+                    <td>{{ test_execute_record.create_time }}</td>
                 </tr>
-                </thead>
-                <tbody>
-                {% for test_case in pages %}
-                    <tr>
-                        <td><input type="checkbox" value="{{ test_case.id }}" name="testcases_list"> {{ test_case.id }}
-                        </td>
-                        <td>
-                            <a href="{% url 'main_platform:test_case_detail' test_case.id %}">{{ test_case.case_name }}</a>
-                        </td>
-                        <td>{{ test_case.belong_project.name }}</td>
-                        <td>{{ test_case.belong_module.name }}</td>
-                        <td>{{ test_case.maintainer }}</td>
-                        <td>{{ test_case.create_time|date:"Y-n-d H:i" }}</td>
-                        <td>{{ test_case.update_time|date:"Y-n-d H:i" }}</td>
-                        <td>{{ test_case.maintainer }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            {% endfor %}
+            </tbody>
+        </table>
 
-            <script type="text/javascript">
-                // 获取所有名称为 "testcases_list" 的元素
-                var cells = document.getElementsByName("testcases_list");
-
-                // 遍历元素集合
-                for (var i = 0; i < cells.length; i++) {
-                    // cells[i] 是当前循环中的元素
-                    // 假设这些元素是 <td>，我们使用 textContent 获取文本内容
-                    var cellText = cells[i].textContent || cells[i].innerText;
-                    var intId = parseInt(cellText, 10);
-                } // 转化为数字类型，不是字符类型
-
-                var responsiveHelper;
-                var breakpointDefinition = {
-                    tablet: 1024,
-                    phone: 480
-                };
-                var tableContainer;
-
-                jQuery(document).ready(function ($) {
-                    tableContainer = $("#table-1");
-
-                    tableContainer.dataTable({
-                        "sPaginationType": "bootstrap",
-                        "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-                        "bStateSave": true,
-                        "aoColumns": [
-                            {"bSortable": false, "sType": "numeric"},//按照数字类型排序
-                            {"bSortable": false},
-                            {"bSortable": false},
-                            {"bSortable": false},
-                            {"bSortable": false},
-                            {"bSortable": false},
-                            {"bSortable": false},
-                            {"bSortable": false},
-                        ],// 禁止所有列排序，防止全选出现错误
-
-                        // 响应式设置
-                        "bAutoWidth": false,
-                        "fnPreDrawCallback": function () {
-                            if (!responsiveHelper) {
-                                responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
-                            }
-                        },
-                        "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-                            responsiveHelper.createExpandIcon(nRow);
-                        },
-                        "fnDrawCallback": function (oSettings) {
-                            responsiveHelper.respond();
-                        }
-                    });
-
-                    $(".dataTables_wrapper select").select2({
-                        minimumResultsForSearch: -1
-                    });
-                });
-            </script>
-        </form>
     </div>
 </div>
 
@@ -334,9 +268,5 @@
 <script src="{% static 'js/neon-custom.js' %}"></script>
 <script src="{% static 'js/neon-demo.js' %}"></script>
 <script src="{% static 'js/echarts.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/atp/add_case_into_suite.js' %}"></script>
-<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-<script src="{% static 'js/atp/get_job_execute.js' %}"></script>
-
 </body>
 </html>

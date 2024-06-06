@@ -8,6 +8,7 @@ from . import models
 from . import viewsParams as vp
 from selenium import webdriver
 import selenium_apps.models as sea_models
+import locust_apps.models as loc_models
 from selenium.webdriver.common.by import By
 from BeautifulReport import BeautifulReport
 from django.contrib.auth.models import User
@@ -579,14 +580,14 @@ def suite_task(test_suite_list:list,server_address, user,id):
 
         time.sleep(30) # 防止报告命名冲突
 
-    zip_file("/report/","接口测试报告"+suites_time_,zipfiles)
+    zip_file("/report/","接口集合报告"+suites_time_,zipfiles)
 
     ate= models.TestExecute()  # 保存执行记录
     ate.user= user
     ate.type= 1
     ate.job_id= id
     ate.case_or_suite_ids= ','.join(map(str, test_suite_list))
-    ate.download_report_path= "report/%s.zip" % ("接口测试报告" + suites_time_)
+    ate.download_report_path= "report/%s.zip" % ("接口集合报告" + suites_time_)
     ate.save()
 
     ter= models.TestSuiteExecuteRecord.objects.filter(belong_test_execute= "test")
@@ -595,7 +596,7 @@ def suite_task(test_suite_list:list,server_address, user,id):
         i.save()
 
     # address= models.EmailAddress.objects.get(id= 1).address.split(";")
-    # email_for_interface(address,"接口测试报告"+suites_time_+".zip")
+    # email_for_interface(address,"接口集合报告"+suites_time_+".zip")
 
 
 class SeaBeginTest(ParametrizedTestCase):
@@ -903,7 +904,7 @@ def sea_suite_task(test_suite_list:list,server_address, user,id):
 
 
 @ex_cases_app.task
-def loc_case_task(server_address, user,id,u,r,t):
+def loc_case_task(server_address,user,id,u,r,t):
     '''
     压力测试任务，使用 locust_file.py 进行验证，不使用BeginTest方式
     :param server_address:测试地址
@@ -915,33 +916,40 @@ def loc_case_task(server_address, user,id,u,r,t):
     :return:
     '''
     report_id= datetime.datetime.strptime(id[14:],"%Y-%m-%dT%H:%M").\
-        strftime("%Y_%m_%d_%H:%M:%S") # 格式为05-08-14：41.html
+        strftime("%Y_%m_%d_%H:%M:%S") # 格式为2024_05_28_16/25/00
     os.system(
         "locust -f locust_file.py --host=%s --headless "
-        "--html=report/%s.html -u %s -r %s -t %ss"%(server_address,"接口测试报告"+report_id,u,r,t))
-
-    ate= models.TestExecute()  # 保存执行记录
-    ate.user= user
-    ate.type= 4
-    ate.job_id= id
+        "--html=report/%s.html -u %s -r %s -t %ss"%(server_address,"压力测试报告"+report_id,u,r,t))
 
     config= configparser.ConfigParser()
     config.read("locust_config.ini")
     test_case_list= config.get("Parameter", "MY_CASE_ID").replace("'", '"')
 
-
-
+    ate= models.TestExecute()  # 保存执行记录
+    ate.user= user
+    ate.type= 4
+    ate.job_id= id
     ate.case_or_suite_ids= ','.join(map(str, eval(test_case_list)))
-    ate.download_report_path= "report/%s.html" % ("接口测试报告"+report_id)
+    ate.download_report_path= "report/%s.html" % ("压力测试报告"+report_id)
     ate.save()
-    # 因为locust结果无法调取，所以直接前端只有下载链接
 
-    address= models.EmailAddress.objects.get(id= 1).address.split(";")
-    email_for_interface(address, "接口测试报告" + report_id + ".html")
+    ter= loc_models.TestExecuteResult()
+    ter.belong_test_execute= ate.id
+    ter.status =1
+    ter.type= 0
+    ter.case_suite_list= ','.join(map(str, eval(test_case_list)))
+    ter.ex_u= u
+    ter.ex_t= t
+    ter.ex_r= r
+    ter.creator= user
+    ter.save()
+
+    # address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    # email_for_interface(address, "压力测试报告" + report_id + ".html")
 
 
 @ex_cases_app.task
-def loc_suite_task(server_address, user,id,u,r,t):
+def loc_suite_task(server_address,user,id,u,r,t):
     '''
     压力测试任务，使用 locust_file.py 进行验证，不使用BeginTest方式
     :param server_address:测试地址
@@ -952,6 +960,35 @@ def loc_suite_task(server_address, user,id,u,r,t):
     :param t:持续时间
     :return:
     '''
-    pass
-    # 需要处理suite执行的方式
-    suite放在了main_platform的test_suite处理
+    report_id= datetime.datetime.strptime(id[14:], "%Y-%m-%dT%H:%M"). \
+        strftime("%Y_%m_%d_%H:%M:%S")  # 格式为2024_05_28_16/25/00
+    os.system(
+        "locust -f locust_file.py --host=%s --headless "
+        "--html=report/%s.html -u %s -r %s -t %ss" % (server_address, "压力集合报告" + report_id, u, r, t))
+
+    config= configparser.ConfigParser()
+    config.read("locust_config.ini")
+    test_suite_list= config.get("Parameter", "MY_SUITE_ID").replace("'", '"')
+
+    ate= models.TestExecute()  # 保存执行记录
+    ate.user= user
+    ate.type= 5
+    ate.job_id= id
+
+    ate.case_or_suite_ids= ','.join(map(str, eval(test_suite_list)))
+    ate.download_report_path= "report/%s.html" % ("压力集合报告" + report_id)
+    ate.save()
+
+    ter= loc_models.TestExecuteResult()
+    ter.belong_test_execute= ate.id
+    ter.status= 1
+    ter.type= 1
+    ter.case_suite_list= ','.join(map(str, eval(test_suite_list)))
+    ter.ex_u= u
+    ter.ex_t= t
+    ter.ex_r= r
+    ter.creator= user
+    ter.save()
+
+    # address= models.EmailAddress.objects.get(id= 1).address.split(";")
+    # email_for_interface(address, "压力集合报告" + report_id + ".html")
